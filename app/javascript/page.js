@@ -77,7 +77,7 @@ export default function PageJavaScript() {
 
       {/* Estado de Busca */}
       {isSearching && (
-        <div className="text-center text-slate-400 mb-6 animate-pulse-slow">
+        <div className="text-center text-slate-400 mb-6">
           <p>Buscando...</p>
         </div>
       )}
@@ -109,7 +109,7 @@ export default function PageJavaScript() {
       {!isEmpty && (
         <>
           {Object.entries(finalData).map(([categoryKey, categoryData]) => (
-            <div key={categoryKey} className="mb-12 animate-fade-in-up">
+            <div key={categoryKey} className="mb-12">
               {/* Cabeçalho da Categoria */}
               <div className="card-title mb-8">
                 <h1 className="text-3xl font-bold mb-2">
@@ -140,9 +140,7 @@ export default function PageJavaScript() {
               <ResponsiveGrid className="gap-6">
                 {Object.entries(categoryData.sections).map(
                   ([sectionKey, commands]) => (
-                    <div
-                      key={sectionKey}
-                      className="section-card animate-slide-in-right">
+                    <div key={sectionKey} className="section-card">
                       <h2 className="section-title mb-4 flex items-center gap-2">
                         <span className="text-lg">📋</span>
                         {sectionKey}
@@ -156,8 +154,7 @@ export default function PageJavaScript() {
                             command={command.command}
                             comment={command.comment}
                             level={categoryData.level}
-                            className="animate-fade-in-up"
-                            style={{ animationDelay: `${index * 0.1}s` }}
+                            className=""
                           />
                         ))}
                       </div>

@@ -79,7 +79,7 @@
     display: none;
   }
 
-  /* Animações para filtros e cards */
+  /* Animações para filtros - mantidas apenas as essenciais */
   .filter-button {
     @apply transition-all duration-300 ease-out;
   }
@@ -92,52 +92,7 @@
     @apply relative overflow-hidden;
   }
 
-  /* Removido pseudo-elemento que causava problemas de layout */
-
-  /* Animações de entrada */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slideInRight {
-    from {
-      opacity: 0;
-      transform: translateX(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes pulse {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-  }
-
-  .animate-fade-in-up {
-    animation: fadeInUp 0.5s ease-out;
-  }
-
-  .animate-slide-in-right {
-    animation: slideInRight 0.3s ease-out;
-  }
-
-  .animate-pulse-slow {
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
+  /* Animações de entrada removidas para melhor desempenho */
 
   /* Grid responsivo universal */
   .grid-mobile-first {

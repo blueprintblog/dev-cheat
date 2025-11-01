@@ -4,19 +4,36 @@ import {
   CommandCard,
   LevelFilter,
   ResponsiveGrid,
+  SearchBar,
   useLevelFilter,
+  useSearch,
 } from '@/components/universal';
 import { dockerCommands } from '@/data/docker-data';
 
 export default function PageDocker() {
   const {
     activeFilter,
-    filteredData,
+    filteredData: filteredByLevel,
     levelCounts,
     handleFilterChange,
     hasData,
-    isEmpty,
+    isEmpty: isEmptyLevel,
   } = useLevelFilter(dockerCommands);
+
+  // Hook para busca
+  const {
+    searchTerm,
+    setSearchTerm,
+    clearSearch,
+    filteredData: filteredBySearch,
+    searchStats,
+    isSearching,
+    hasSearchTerm,
+  } = useSearch(filteredByLevel);
+
+  // Dados finais (combinando filtro e busca)
+  const filteredData = hasSearchTerm ? filteredBySearch : filteredByLevel;
+  const isEmpty = hasSearchTerm ? !searchStats.hasResults : isEmptyLevel;
 
   if (!hasData) {
     return (
@@ -37,11 +54,22 @@ export default function PageDocker() {
         />
         <div className="text-center text-slate-400 mt-12">
           <p className="text-lg">
-            Nenhum comando encontrado para o nível "{activeFilter}"
+            {hasSearchTerm
+              ? `Nenhum comando encontrado para "${searchTerm}"`
+              : `Nenhum comando encontrado para o nível &apos;${activeFilter}&apos;`}
           </p>
           <p className="text-sm mt-2">
-            Tente selecionar outro nível de dificuldade.
+            {hasSearchTerm
+              ? 'Tente outros termos de busca.'
+              : 'Tente selecionar outro nível de dificuldade.'}
           </p>
+          {hasSearchTerm && (
+            <button
+              onClick={clearSearch}
+              className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200">
+              Limpar Busca
+            </button>
+          )}
         </div>
       </div>
     );
@@ -55,17 +83,37 @@ export default function PageDocker() {
         onFilterChange={handleFilterChange}
       />
 
-      {/* Estatísticas */}
+      {/* Barra de Busca */}
+      <SearchBar
+        searchTerm={searchTerm}
+        onSearch={setSearchTerm}
+        placeholder="Buscar comandos Docker..."
+        className="mb-6"
+      />
+
+      {/* Estatísticas Combinadas */}
       <div className="mb-8 flex flex-wrap gap-4 text-sm text-slate-400">
         <span>Total: {levelCounts.todos} categorias</span>
         <span>Básico: {levelCounts.basico}</span>
         <span>Intermediário: {levelCounts.intermediario}</span>
         <span>Avançado: {levelCounts.avancado}</span>
+        {hasSearchTerm && (
+          <span className="text-purple-400">
+            Busca: {searchStats.foundCommands} comandos encontrados
+          </span>
+        )}
       </div>
+
+      {/* Estado de Busca */}
+      {isSearching && (
+        <div className="text-center text-slate-400 mb-6">
+          <p>Buscando...</p>
+        </div>
+      )}
 
       {/* Categorias e Comandos */}
       {Object.entries(filteredData).map(([categoryKey, categoryData]) => (
-        <div key={categoryKey} className="mb-12 animate-fade-in-up">
+        <div key={categoryKey} className="mb-12">
           {/* Cabeçalho da Categoria */}
           <div className="card-title mb-8">
             <h1 className="text-3xl font-bold mb-2">{categoryData.title}</h1>
@@ -92,9 +140,7 @@ export default function PageDocker() {
           <ResponsiveGrid className="gap-6">
             {Object.entries(categoryData.sections).map(
               ([sectionKey, commands]) => (
-                <div
-                  key={sectionKey}
-                  className="section-card animate-slide-in-right">
+                <div key={sectionKey} className="section-card">
                   <h2 className="section-title mb-4 flex items-center gap-2">
                     <span className="text-lg">📋</span>
                     {sectionKey}
@@ -108,8 +154,7 @@ export default function PageDocker() {
                         command={command.command}
                         comment={command.comment}
                         level={categoryData.level}
-                        className="animate-fade-in-up"
-                        style={{ animationDelay: `${index * 0.1}s` }}
+                        className=""
                       />
                     ))}
                   </div>

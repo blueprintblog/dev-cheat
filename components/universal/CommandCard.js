@@ -128,16 +128,20 @@ const CommandCard = ({
         <div className="flex items-center justify-between gap-2">
           <code
             className={`
-            flex-1 bg-slate-900/50 px-3 py-2 rounded font-mono 
+            flex-1 bg-slate-900/50 px-3 py-2 rounded font-code
             text-green-400 break-all
-            ${compact ? 'text-xs py-1 px-2' : 'text-sm'}
-          `}>
+            ${compact ? 'text-xs py-1 px-2' : 'text-base'}
+          `}
+            style={{
+              fontSize: '16px',
+              fontFamily: 'var(--font-fira), monospace',
+            }}>
             {command}
           </code>
           <button
             onClick={copyToClipboard}
             className={`
-              p-2 rounded-lg transition-all duration-200 
+              p-2 rounded-lg transition-all duration-200
               min-w-[44px] min-h-[44px] flex items-center justify-center
               touch-target touch-feedback
               ${
@@ -156,8 +160,12 @@ const CommandCard = ({
           <p
             className={`
             text-slate-400 ml-2
-            ${compact ? 'text-xs' : 'text-sm'}
-          `}>
+            ${compact ? 'text-xs' : 'text-base'}
+          `}
+            style={{
+              fontSize: '16px',
+              fontFamily: 'var(--font-fira), monospace',
+            }}>
             {comment}
           </p>
         )}
