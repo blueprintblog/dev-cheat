@@ -6,9 +6,9 @@ import {
   ResponsiveGrid,
   useLevelFilter,
 } from '@/components/universal';
-import { dockerCommands } from '@/data/docker-data';
+import { bashCommands } from '@/data/bash-data';
 
-export default function PageDocker() {
+export default function PageBash() {
   const {
     activeFilter,
     filteredData,
@@ -16,13 +16,13 @@ export default function PageDocker() {
     handleFilterChange,
     hasData,
     isEmpty,
-  } = useLevelFilter(dockerCommands);
+  } = useLevelFilter(bashCommands);
 
   if (!hasData) {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="text-center text-slate-400">
-          <p>Carregando comandos Docker...</p>
+          <p>Carregando comandos Bash...</p>
         </div>
       </div>
     );
@@ -70,15 +70,6 @@ export default function PageDocker() {
           <div className="card-title mb-8 hover-lift">
             <h1 className="text-3xl font-bold mb-2">{categoryData.title}</h1>
             <p className="text-lg opacity-90">{categoryData.useCase}</p>
-
-            {/* Warning */}
-            {categoryData.warning && (
-              <div className="mt-4 p-3 bg-red-900/30 border border-red-500/50 rounded-lg hover-glow">
-                <p className="text-red-300 text-sm">
-                  ⚠️ {categoryData.warning}
-                </p>
-              </div>
-            )}
 
             {/* Tip */}
             {categoryData.tip && (

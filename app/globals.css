@@ -60,4 +60,138 @@
     @apply border-blue-500/30 shadow-lg;
     transform: translateY(-2px);
   }
+
+  /* Classes para componentes universais */
+  .touch-target {
+    @apply min-w-[44px] min-h-[44px] flex items-center justify-center;
+  }
+
+  .touch-feedback:active {
+    @apply transform scale-95 opacity-80;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Animações para filtros e cards */
+  .filter-button {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .filter-button-active {
+    @apply transform scale-105 shadow-lg;
+  }
+
+  .command-card-universal {
+    @apply relative overflow-hidden;
+  }
+
+  .command-card-universal::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 opacity-0 transition-opacity duration-300;
+  }
+
+  .command-card-universal:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Animações de entrada */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.5s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.3s ease-out;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Grid responsivo universal */
+  .grid-mobile-first {
+    @apply grid grid-cols-1 gap-4;
+  }
+
+  @media (min-width: 768px) {
+    .grid-mobile-first {
+      @apply grid-cols-2 gap-6;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-mobile-first {
+      @apply grid-cols-3 gap-8;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .grid-mobile-first {
+      @apply grid-cols-4 gap-8;
+    }
+  }
+
+  /* Estados para filtros */
+  .level-badge-basico {
+    @apply bg-green-600/90 border-green-500/50;
+  }
+
+  .level-badge-intermediario {
+    @apply bg-yellow-600/90 border-yellow-500/50;
+  }
+
+  .level-badge-avancado {
+    @apply bg-red-600/90 border-red-500/50;
+  }
+
+  /* Efeitos de hover aprimorados */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out hover:transform hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 ease-out hover:shadow-lg hover:shadow-purple-500/20;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-200 ease-out hover:scale-105;
+  }
 }

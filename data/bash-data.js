@@ -3,8 +3,8 @@ export const bashCommands = {
   // Comandos Iniciante - Navegação & Sistema
   navegacaoSistema: {
     title: '🟢 Navegação & Sistema',
-    level: 'iniciante',
-    id: 'iniciante',
+    level: 'basico',
+    id: 'basico',
     sections: {
       'Onde estou?': [
         { command: 'pwd', comment: '# Print Working Directory' },
@@ -34,7 +34,7 @@ export const bashCommands = {
   // Comandos Iniciante - Arquivos & Diretórios
   arquivosDiretorios: {
     title: '🟢 Arquivos & Diretórios',
-    level: 'iniciante',
+    level: 'basico',
     sections: {
       Criar: [
         { command: 'touch arquivo.txt', comment: '# Cria arquivo vazio' },
@@ -70,7 +70,7 @@ export const bashCommands = {
   // Comandos Iniciante - Visualização & Busca
   visualizacaoBusca: {
     title: '🟢 Visualização & Busca',
-    level: 'iniciante',
+    level: 'basico',
     sections: {
       'Ver conteúdo': [
         { command: 'cat arquivo.txt', comment: '# Mostra tudo' },
@@ -113,7 +113,7 @@ export const bashCommands = {
   // Comandos Iniciante - Ajuda & Histórico
   ajudaHistorico: {
     title: '🟢 Ajuda & Histórico',
-    level: 'iniciante',
+    level: 'basico',
     sections: {
       Documentação: [
         { command: 'man ls', comment: '# Manual do comando' },
