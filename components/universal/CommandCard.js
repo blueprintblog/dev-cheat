@@ -129,12 +129,16 @@ const CommandCard = ({
           <code
             className={`
             flex-1 bg-slate-900/50 px-3 py-2 rounded font-code
-            text-green-400 break-all
+            text-green-400 break-all leading-relaxed
             ${compact ? 'text-xs py-1 px-2' : 'text-base'}
           `}
             style={{
               fontSize: '16px',
-              fontFamily: 'var(--font-fira), monospace',
+              fontFamily: 'var(--font-fira), var(--font-jetbrains), monospace',
+              lineHeight: '1.6',
+              wordBreak: 'break-word',
+              whiteSpace: 'pre-wrap',
+              overflowWrap: 'break-word',
             }}>
             {command}
           </code>
