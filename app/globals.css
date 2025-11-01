@@ -92,14 +92,7 @@
     @apply relative overflow-hidden;
   }
 
-  .command-card-universal::before {
-    content: '';
-    @apply absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 opacity-0 transition-opacity duration-300;
-  }
-
-  .command-card-universal:hover::before {
-    @apply opacity-100;
-  }
+  /* Removido pseudo-elemento que causava problemas de layout */
 
   /* Animações de entrada */
   @keyframes fadeInUp {
@@ -183,10 +176,6 @@
   }
 
   /* Efeitos de hover aprimorados */
-  .hover-lift {
-    @apply transition-all duration-300 ease-out hover:transform hover:-translate-y-1 hover:shadow-lg;
-  }
-
   .hover-glow {
     @apply transition-all duration-300 ease-out hover:shadow-lg hover:shadow-purple-500/20;
   }

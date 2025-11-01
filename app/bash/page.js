@@ -67,7 +67,7 @@ export default function PageBash() {
       {Object.entries(filteredData).map(([categoryKey, categoryData]) => (
         <div key={categoryKey} className="mb-12 animate-fade-in-up">
           {/* Cabeçalho da Categoria */}
-          <div className="card-title mb-8 hover-lift">
+          <div className="card-title mb-8">
             <h1 className="text-3xl font-bold mb-2">{categoryData.title}</h1>
             <p className="text-lg opacity-90">{categoryData.useCase}</p>
 

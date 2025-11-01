@@ -1,6 +1,5 @@
 'use client';
 
-import { javascriptCommands } from '@/data/javascript-data';
 import {
   CommandCard,
   LevelFilter,
@@ -9,6 +8,7 @@ import {
   useLevelFilter,
   useSearch,
 } from '@/components/universal';
+import { javascriptCommands } from '@/data/javascript-data';
 
 export default function PageJavaScript() {
   // Hook para filtro por nível
@@ -111,7 +111,7 @@ export default function PageJavaScript() {
           {Object.entries(finalData).map(([categoryKey, categoryData]) => (
             <div key={categoryKey} className="mb-12 animate-fade-in-up">
               {/* Cabeçalho da Categoria */}
-              <div className="card-title mb-8 hover-lift">
+              <div className="card-title mb-8">
                 <h1 className="text-3xl font-bold mb-2">
                   {categoryData.title}
                 </h1>
