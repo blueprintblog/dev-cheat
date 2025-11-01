@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "web-search-prime": {
+      "type": "streamable-http",
+      "url": "https://api.z.ai/api/mcp/web_search_prime/mcp",
+      "headers": {
+        "Authorization": "Bearer d51cbbc139eb42528b8a94cbbb57631c.JjZG810oWUSuGhIq"
+      }
+    }
+  }
+}
