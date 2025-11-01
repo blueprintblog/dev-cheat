@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rede Avançada e Troubleshooting | Bash Cheatsheet 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .command-card {
+            transition: all 0.2s ease;
+            border-left: 4px solid transparent;
+        }
+        .command-card:hover {
+            border-left-color: #667eea;
+            background-color: #f9fafb;
+        }
+        .intro-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .intro-card h2 {
+            color: white;
+        }
+        .intro-card h3 {
+            color: #f3f4f6;
+        }
+        .intro-card p {
+            color: #e5e7eb;
+        }
+        .intro-card ul {
+            color: #e5e7eb;
+        }
+        .intro-card strong {
+            color: white;
+        }
+        .copy-btn {
+            transition: all 0.2s ease;
+        }
+        .copy-btn:hover {
+            background-color: #4f46e5;
+        }
+        .copy-btn.copied {
+            background-color: #10b981;
+        }
+        .filter-btn {
+            transition: all 0.2s ease;
+        }
+        .filter-btn.active {
+            background-color: #667eea;
+            color: white;
+        }
+        pre[class*="language-"] {
+            background: #2d3748;
+            margin: 0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+        }
+        .category-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen" x-data="networkCommands()">
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-network-wired text-3xl"></i>
+                    <div>
+                        <h1 class="text-2xl font-bold">Rede Avançada e Troubleshooting</h1>
+                        <p class="text-purple-100">Comandos essenciais para diagnóstico e gerenciamento de redes</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm bg-purple-800 px-3 py-1 rounded-full">v2.0.0</span>
+                    <a href="index.html" class="bg-white text-purple-700 px-4 py-2 rounded-lg hover:bg-purple-50 transition">
+                        <i class="fas fa-home mr-2"></i>Início
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Card de Introdução -->
+        <div class="intro-card rounded-xl shadow-xl p-8 mb-8 card-hover">
+            <div class="flex items-start space-x-4">
+                <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                    <i class="fas fa-network-wired text-3xl"></i>
+                </div>
+                <div class="flex-1">
+                    <h2 class="text-2xl font-bold mb-4">Rede Avançada e Troubleshooting</h2>
+                    <p class="text-lg mb-4">
+                        O troubleshooting de redes é uma habilidade essencial para profissionais de TI e DevOps. 
+                        Dominar ferramentas de diagnóstico e análise permite identificar e resolver problemas complexos 
+                        de conectividade, performance e segurança.
+                    </p>
+                    
+                    <h3 class="text-xl font-semibold mb-3">
+                        <i class="fas fa-graduation-cap mr-2"></i>Por que aprender?
+                    </h3>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li>Essencial para diagnóstico de problemas de conectividade</li>
+                        <li>Fundamental para otimização de performance de rede</li>
+                        <li>Crítico para análise de segurança e detecção de anomalias</li>
+                        <li>Necessário para configuração de infraestrutura complexa</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mb-3">
+                        <i class="fas fa-cogs mr-2"></i>O que você pode fazer?
+                    </h3>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li>Analisar tráfego de rede em tempo real</li>
+                        <li>Diagnosticar problemas de conectividade e performance</li>
+                        <li>Configurar firewalls e políticas de segurança</li>
+                        <li>Monitorar e otimizar throughput e latência</li>
+                        <li>Implementar soluções de load balancing e VPN</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mb-3">
+                        <i class="fas fa-map-marker-alt mr-2"></i>Onde são utilizados?
+                    </h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Data Centers:</strong> Configuração de switches, routers e firewalls</li>
+                        <li><strong>Cloud Computing:</strong> VPCs, security groups, load balancers</li>
+                        <li><strong>DevOps:</strong> Container networking, service mesh</li>
+                        <li><strong>Segurança:</strong> Análise de tráfego, detecção de intrusão</li>
+                        <li><strong>Performance:</strong> Otimização de latência e throughput</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="mb-8 flex flex-wrap gap-2">
+            <button @click="filter = 'all'" :class="{'active': filter === 'all'}" 
+                    class="filter-btn px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300">
+                <i class="fas fa-th mr-2"></i>Todos
+            </button>
+            <template x-for="category in categories" :key="category">
+                <button @click="filter = category" :class="{'active': filter === category}" 
+                        class="filter-btn px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300">
+                    <span x-text="category"></span>
+                </button>
+            </template>
+        </div>
+
+        <!-- Diagnóstico Básico -->
+        <div x-show="filter === 'all' || filter === 'Diagnóstico'" class="mb-8">
+            <div class="category-header">
+                <h2 class="text-xl font-bold">
+                    <i class="fas fa-stethoscope mr-2"></i>Diagnóstico Básico
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Conectividade -->
+                <div class="command-card bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">
+                        <i class="fas fa-plug mr-2"></i>Conectividade
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">ping -c 4 google.com</code>
+                            <button @click="copyToClipboard('ping -c 4 google.com')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Testar conectividade (4 pacotes)</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">ping -i 0.5 192.168.1.1</code>
+                            <button @click="copyToClipboard('ping -i 0.5 192.168.1.1')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Ping rápido (intervalo 0.5s)</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">traceroute google.com</code>
+                            <button @click="copyToClipboard('traceroute google.com')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Rota até destino</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">mtr google.com</code>
+                            <button @click="copyToClipboard('mtr google.com')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Traceroute contínuo</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">arp -a</code>
+                            <button @click="copyToClipboard('arp -a')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Tabela ARP</p>
+                    </div>
+                </div>
+
+                <!-- Informações de Interface -->
+                <div class="command-card bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">
+                        <i class="fas fa-ethernet mr-2"></i>Informações de Interface
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">ip addr show</code>
+                            <button @click="copyToClipboard('ip addr show')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Interfaces e IPs</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">ip link set eth0 up</code>
+                            <button @click="copyToClipboard('ip link set eth0 up')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Ativar interface</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">ethtool eth0</code>
+                            <button @click="copyToClipboard('ethtool eth0')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Detalhes da interface</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">ip -s link show eth0</code>
+                            <button @click="copyToClipboard('ip -s link show eth0')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Estatísticas da interface</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">ss -tuln</code>
+                            <button @click="copyToClipboard('ss -tuln')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Portas abertas</p>
+                    </div>
+                </div>
+
+                <!-- DNS -->
+                <div class="command-card bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">
+                        <i class="fas fa-globe mr-2"></i>DNS
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">nslookup google.com</code>
+                            <button @click="copyToClipboard('nslookup google.com')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Consulta DNS</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">dig google.com ANY</code>
+                            <button @click="copyToClipboard('dig google.com ANY')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Todos os registros</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">dig +trace google.com</code>
+                            <button @click="copyToClipboard('dig +trace google.com')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Rastrear rota DNS</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">host -t mx google.com</code>
+                            <button @click="copyToClipboard('host -t mx google.com')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Registros MX</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">systemd-resolve --status</code>
+                            <button @click="copyToClipboard('systemd-resolve --status')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Status DNS do sistema</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Análise de Tráfego -->
+        <div x-show="filter === 'all' || filter === 'Análise'" class="mb-8">
+            <div class="category-header">
+                <h2 class="text-xl font-bold">
+                    <i class="fas fa-chart-line mr-2"></i>Análise de Tráfego
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- tcpdump -->
+                <div class="command-card bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">
+                        <i class="fas fa-search mr-2"></i>tcpdump
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo tcpdump -i eth0</code>
+                            <button @click="copyToClipboard('sudo tcpdump -i eth0')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Capturar tráfego eth0</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo tcpdump -i eth0 -n</code>
+                            <button @click="copyToClipboard('sudo tcpdump -i eth0 -n')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Sem resolução DNS</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo tcpdump -i eth0 port 80</code>
+                            <button @click="copyToClipboard('sudo tcpdump -i eth0 port 80')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Filtrar porta 80</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo tcpdump -i eth0 host 192.168.1.100</code>
+                            <button @click="copyToClipboard('sudo tcpdump -i eth0 host 192.168.1.100')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Filtrar host específico</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo tcpdump -i eth0 -w capture.pcap</code>
+                            <button @click="copyToClipboard('sudo tcpdump -i eth0 -w capture.pcap')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Salvar para arquivo</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo tcpdump -r capture.pcap -A</code>
+                            <button @click="copyToClipboard('sudo tcpdump -r capture.pcap -A')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Ler arquivo com ASCII</p>
+                    </div>
+                </div>
+
+                <!-- Wireshark CLI -->
+                <div class="command-card bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">
+                        <i class="fas fa-wifi mr-2"></i>Wireshark CLI (tshark)
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">tshark -i eth0</code>
+                            <button @click="copyToClipboard('tshark -i eth0')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Captura em tempo real</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">tshark -r capture.pcap</code>
+                            <button @click="copyToClipboard('tshark -r capture.pcap')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Analisar arquivo</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">tshark -r capture.pcap -Y "http.request"</code>
+                            <button @click="copyToClipboard('tshark -r capture.pcap -Y \"http.request\"')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Filtrar requisições HTTP</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">tshark -r capture.pcap -T fields -e ip.src -e ip.dst</code>
+                            <button @click="copyToClipboard('tshark -r capture.pcap -T fields -e ip.src -e ip.dst')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Extrair IPs origem/destino</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">tshark -r capture.pcap -q -z conv,ip</code>
+                            <button @click="copyToClipboard('tshark -r capture.pcap -q -z conv,ip')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Estatísticas de conversas</p>
+                    </div>
+                </div>
+
+                <!-- Monitoramento -->
+                <div class="command-card bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">
+                        <i class="fas fa-tachometer-alt mr-2"></i>Monitoramento
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">iftop -i eth0</code>
+                            <button @click="copyToClipboard('iftop -i eth0')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Tráfego em tempo real</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">nethogs eth0</code>
+                            <button @click="copyToClipboard('nethogs eth0')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Tráfego por processo</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">bmon</code>
+                            <button @click="copyToClipboard('bmon')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Monitor de banda</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">iptraf-ng</code>
+                            <button @click="copyToClipboard('iptraf-ng')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Estatísticas detalhadas</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sar -n DEV 1 5</code>
+                            <button @click="copyToClipboard('sar -n DEV 1 5')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Estatísticas de rede</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Firewall e Segurança -->
+        <div x-show="filter === 'all' || filter === 'Firewall'" class="mb-8">
+            <div class="category-header">
+                <h2 class="text-xl font-bold">
+                    <i class="fas fa-shield-alt mr-2"></i>Firewall e Segurança
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- UFW -->
+                <div class="command-card bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">
+                        <i class="fas fa-fire mr-2"></i>UFW (Uncomplicated Firewall)
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo ufw enable</code>
+                            <button @click="copyToClipboard('sudo ufw enable')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Ativar firewall</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo ufw status verbose</code>
+                            <button @click="copyToClipboard('sudo ufw status verbose')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Status detalhado</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo ufw allow 22/tcp</code>
+                            <button @click="copyToClipboard('sudo ufw allow 22/tcp')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Permitir SSH</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo ufw deny from 192.168.1.100</code>
+                            <button @click="copyToClipboard('sudo ufw deny from 192.168.1.100')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Bloquear IP específico</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo ufw delete allow 80</code>
+                            <button @click="copyToClipboard('sudo ufw delete allow 80')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Remover regra</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo ufw reload</code>
+                            <button @click="copyToClipboard('sudo ufw reload')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Recarregar regras</p>
+                    </div>
+                </div>
+
+                <!-- iptables -->
+                <div class="command-card bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">
+                        <i class="fas fa-filter mr-2"></i>iptables
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo iptables -L -n -v</code>
+                            <button @click="copyToClipboard('sudo iptables -L -n -v')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Listar regras</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT</code>
+                            <button @click="copyToClipboard('sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Permitir porta 22</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo iptables -A INPUT -s 192.168.1.0/24 -j DROP</code>
+                            <button @click="copyToClipboard('sudo iptables -A INPUT -s 192.168.1.0/24 -j DROP')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Bloquear subnet</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo iptables -F</code>
+                            <button @click="copyToClipboard('sudo iptables -F')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Limpar todas regras</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo iptables-save > /etc/iptables/rules.v4</code>
+                            <button @click="copyToClipboard('sudo iptables-save > /etc/iptables/rules.v4')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Salvar regras</p>
+                    </div>
+                </div>
+
+                <!-- fail2ban -->
+                <div class="command-card bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">
+                        <i class="fas fa-ban mr-2"></i>fail2ban
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo fail2ban-client status</code>
+                            <button @click="copyToClipboard('sudo fail2ban-client status')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Status geral</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo fail2ban-client status sshd</code>
+                            <button @click="copyToClipboard('sudo fail2ban-client status sshd')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Status SSH</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo fail2ban-client set sshd unbanip 192.168.1.100</code>
+                            <button @click="copyToClipboard('sudo fail2ban-client set sshd unbanip 192.168.1.100')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Desbloquear IP</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo fail2ban-client reload</code>
+                            <button @click="copyToClipboard('sudo fail2ban-client reload')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Recarregar configuração</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Load Balancing -->
+        <div x-show="filter === 'all' || filter === 'Load Balancing'" class="mb-8">
+            <div class="category-header">
+                <h2 class="text-xl font-bold">
+                    <i class="fas fa-balance-scale mr-2"></i>Load Balancing
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- HAProxy -->
+                <div class="command-card bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">
+                        <i class="fas fa-server mr-2"></i>HAProxy
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">haproxy -f /etc/haproxy/haproxy.cfg -c</code>
+                            <button @click="copyToClipboard('haproxy -f /etc/haproxy/haproxy.cfg -c')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Validar configuração</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo systemctl restart haproxy</code>
+                            <button @click="copyToClipboard('sudo systemctl restart haproxy')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Reiniciar serviço</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">echo "show info" | socat stdio /var/run/haproxy.sock</code>
+                            <button @click="copyToClipboard('echo \"show info\" | socat stdio /var/run/haproxy.sock')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Informações do HAProxy</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">echo "show stat" | socat stdio /var/run/haproxy.sock</code>
+                            <button @click="copyToClipboard('echo \"show stat\" | socat stdio /var/run/haproxy.sock')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Estatísticas</p>
+                    </div>
+                </div>
+
+                <!-- Nginx -->
+                <div class="command-card bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">
+                        <i class="fas fa-cogs mr-2"></i>Nginx Load Balancer
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">nginx -t</code>
+                            <button @click="copyToClipboard('nginx -t')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Testar configuração</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo nginx -s reload</code>
+                            <button @click="copyToClipboard('sudo nginx -s reload')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Recarregar configuração</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">curl -I http://localhost/nginx_status</code>
+                            <button @click="copyToClipboard('curl -I http://localhost/nginx_status')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Status do load balancer</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">tail -f /var/log/nginx/access.log</code>
+                            <button @click="copyToClipboard('tail -f /var/log/nginx/access.log')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Monitorar acessos</p>
+                    </div>
+                </div>
+
+                <!-- IPVS -->
+                <div class="command-card bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">
+                        <i class="fas fa-project-diagram mr-2"></i>IPVS (Linux Virtual Server)
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo ipvsadm -L -n</code>
+                            <button @click="copyToClipboard('sudo ipvsadm -L -n')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Listar regras IPVS</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo ipvsadm -A -t 192.168.1.100:80 -s rr</code>
+                            <button @click="copyToClipboard('sudo ipvsadm -A -t 192.168.1.100:80 -s rr')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Adicionar virtual service</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo ipvsadm -a -t 192.168.1.100:80 -r 192.168.1.101:80 -m</code>
+                            <button @click="copyToClipboard('sudo ipvsadm -a -t 192.168.1.100:80 -r 192.168.1.101:80 -m')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Adicionar real server</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo ipvsadm -L --rate</code>
+                            <button @click="copyToClipboard('sudo ipvsadm -L --rate')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Taxa de conexões</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VPN -->
+        <div x-show="filter === 'all' || filter === 'VPN'" class="mb-8">
+            <div class="category-header">
+                <h2 class="text-xl font-bold">
+                    <i class="fas fa-lock mr-2"></i>VPN
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- OpenVPN -->
+                <div class="command-card bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">
+                        <i class="fas fa-key mr-2"></i>OpenVPN
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo systemctl status openvpn</code>
+                            <button @click="copyToClipboard('sudo systemctl status openvpn')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Status do serviço</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">openvpn --config client.ovpn</code>
+                            <button @click="copyToClipboard('openvpn --config client.ovpn')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Conectar cliente</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo openvpn --config server.conf --daemon</code>
+                            <button @click="copyToClipboard('sudo openvpn --config server.conf --daemon')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Iniciar servidor</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">tail -f /var/log/openvpn.log</code>
+                            <button @click="copyToClipboard('tail -f /var/log/openvpn.log')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Monitorar logs</p>
+                    </div>
+                </div>
+
+                <!-- WireGuard -->
+                <div class="command-card bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">
+                        <i class="fas fa-shield-alt mr-2"></i>WireGuard
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">wg genkey | tee private.key | wg pubkey > public.key</code>
+                            <button @click="copyToClipboard('wg genkey | tee private.key | wg pubkey > public.key')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Gerar chaves</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo wg-quick up wg0</code>
+                            <button @click="copyToClipboard('sudo wg-quick up wg0')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Ativar interface</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo wg show</code>
+                            <button @click="copyToClipboard('sudo wg show')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Status da VPN</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo wg-quick down wg0</code>
+                            <button @click="copyToClipboard('sudo wg-quick down wg0')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Desativar interface</p>
+                    </div>
+                </div>
+
+                <!-- IPSec -->
+                <div class="command-card bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">
+                        <i class="fas fa-exchange-alt mr-2"></i>IPSec (strongSwan)
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo ipsec status</code>
+                            <button @click="copyToClipboard('sudo ipsec status')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Status do IPSec</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo ipsec up connection-name</code>
+                            <button @click="copyToClipboard('sudo ipsec up connection-name')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Iniciar conexão</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo ipsec down connection-name</code>
+                            <button @click="copyToClipboard('sudo ipsec down connection-name')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Encerrar conexão</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo ipsec reload</code>
+                            <button @click="copyToClipboard('sudo ipsec reload')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Recarregar configuração</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance -->
+        <div x-show="filter === 'all' || filter === 'Performance'" class="mb-8">
+            <div class="category-header">
+                <h2 class="text-xl font-bold">
+                    <i class="fas fa-tachometer-alt mr-2"></i>Performance e Otimização
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Tuning de Rede -->
+                <div class="command-card bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">
+                        <i class="fas fa-sliders-h mr-2"></i>Tuning de Rede
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sysctl net.core.rmem_max</code>
+                            <button @click="copyToClipboard('sysctl net.core.rmem_max')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Buffer de recebimento</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sysctl net.core.wmem_max</code>
+                            <button @click="copyToClipboard('sysctl net.core.wmem_max')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Buffer de envio</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sysctl net.ipv4.tcp_congestion_control</code>
+                            <button @click="copyToClipboard('sysctl net.ipv4.tcp_congestion_control')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Algoritmo de congestionamento</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sysctl net.core.somaxconn</code>
+                            <button @click="copyToClipboard('sysctl net.core.somaxconn')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Tamanho da fila de escuta</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">tc qdisc show dev eth0</code>
+                            <button @click="copyToClipboard('tc qdisc show dev eth0')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Fila de tráfego</p>
+                    </div>
+                </div>
+
+                <!-- QoS -->
+                <div class="command-card bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">
+                        <i class="fas fa-traffic-light mr-2"></i>QoS (Quality of Service)
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo tc qdisc add dev eth0 root handle 1: htb default 30</code>
+                            <button @click="copyToClipboard('sudo tc qdisc add dev eth0 root handle 1: htb default 30')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Criar HTB qdisc</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo tc class add dev eth0 parent 1: classid 1:1 htb rate 1mbit</code>
+                            <button @click="copyToClipboard('sudo tc class add dev eth0 parent 1: classid 1:1 htb rate 1mbit')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Limitar banda</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo tc filter add dev eth0 protocol ip parent 1:0 prio 1 u32 match ip dport 80 0xffff flowid 1:10</code>
+                            <button @click="copyToClipboard('sudo tc filter add dev eth0 protocol ip parent 1:0 prio 1 u32 match ip dport 80 0xffff flowid 1:10')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Filtrar porta 80</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">sudo tc qdisc del dev eth0 root</code>
+                            <button @click="copyToClipboard('sudo tc qdisc del dev eth0 root')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Remover QoS</p>
+                    </div>
+                </div>
+
+                <!-- Testes de Performance -->
+                <div class="command-card bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">
+                        <i class="fas fa-rocket mr-2"></i>Testes de Performance
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">iperf3 -s</code>
+                            <button @click="copyToClipboard('iperf3 -s')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Iniciar servidor iperf3</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">iperf3 -c server_ip -t 30</code>
+                            <button @click="copyToClipboard('iperf3 -c server_ip -t 30')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Teste de throughput (30s)</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">ping -c 100 -i 0.1 server_ip | tail -1</code>
+                            <button @click="copyToClipboard('ping -c 100 -i 0.1 server_ip | tail -1')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Teste de latência</p>
+                        
+                        <div class="flex justify-between items-center">
+                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">netcat -z -v server_ip 80</code>
+                            <button @click="copyToClipboard('netcat -z -v server_ip 80')" class="copy-btn bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600">Testar porta aberta</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-2">Bash Cheatsheet 2025 - Rede Avançada e Troubleshooting</p>
+            <p class="text-purple-200 text-sm">Comandos essenciais para diagnóstico e gerenciamento de redes</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="index.html" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition">
+                    <i class="fas fa-home mr-2"></i>Início
+                </a>
+                <a href="linux.html" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition">
+                    <i class="fab fa-linux mr-2"></i>Linux
+                </a>
+                <a href="git.html" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition">
+                    <i class="fab fa-git-alt mr-2"></i>Git
+                </a>
+                <a href="docker.html" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition">
+                    <i class="fab fa-docker mr-2"></i>Docker
+                </a>
+                <a href="scripts.html" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition">
+                    <i class="fas fa-code mr-2"></i>Scripts
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div x-show="showToast" x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 transform translate-y-full"
+         x-transition:enter-end="opacity-100 transform translate-y-0"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100 transform translate-y-0"
+         x-transition:leave-end="opacity-0 transform translate-y-full"
+         class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle mr-2"></i>
+            <span x-text="toastMessage"></span>
+        </div>
+    </div>
+
+    <script>
+        function networkCommands() {
+            return {
+                filter: 'all',
+                showToast: false,
+                toastMessage: '',
+                categories: ['Diagnóstico', 'Análise', 'Firewall', 'Load Balancing', 'VPN', 'Performance'],
+                
+                copyToClipboard(command) {
+                    navigator.clipboard.writeText(command).then(() => {
+                        this.toastMessage = `Comando copiado: ${command}`;
+                        this.showToast = true;
+                        
+                        setTimeout(() => {
+                            this.showToast = false;
+                        }, 3000);
+                        
+                        // Visual feedback for button
+                        event.target.classList.add('copied');
+                        setTimeout(() => {
+                            event.target.classList.remove('copied');
+                        }, 1000);
+                    });
+                }
+            }
+        }
+    </script>
+</body>
+</html>

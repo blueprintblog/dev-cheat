@@ -1,0 +1,63 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-nunito-sans);
+  --font-mono: var(--font-jetbrains);
+  --font-code: var(--font-fira);
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #ecf0f1;
+  }
+}
+
+/* Utility classes */
+
+@utility container {
+  @apply max-w-[1400px] mx-auto px-4 xl:px-0 sm:px-6 lg:px-8;
+}
+
+@layer components {
+  .card-title {
+    @apply text-center mb-10 p-10 rounded-2xl;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+    span {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .command-card {
+    @apply bg-slate-800/50 backdrop-blur-sm rounded-lg p-4 border border-slate-700/50;
+    transition: all 0.3s ease;
+  }
+
+  .command-card:hover {
+    @apply border-blue-500/50 shadow-lg;
+    transform: translateY(-2px);
+  }
+
+  .category-section {
+    @apply mb-8;
+  }
+
+  .section-title {
+    @apply text-2xl font-semibold mb-4 text-blue-300;
+  }
+
+  .section-card {
+    @apply bg-slate-800/30 backdrop-blur-sm rounded-lg p-6 border border-slate-700/50;
+    transition: all 0.3s ease;
+  }
+
+  .section-card:hover {
+    @apply border-blue-500/30 shadow-lg;
+    transform: translateY(-2px);
+  }
+}
