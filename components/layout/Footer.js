@@ -87,7 +87,7 @@ export default function Footer() {
             target="_blank">
             GitHub
           </Link>
-          ! | Versão v4.0.0
+          ! | Versão v4.2.0
         </p>
       </div>
     </footer>

@@ -2,6 +2,88 @@
 
 Este documento registra todas as mudanças significativas implementadas no projeto de Cheatsheets.
 
+## [v4.2.0] - 2025-11-02
+
+### 🎯 Melhorias na Navegação
+
+#### Dropdowns Otimizados
+
+- **Funcionalidade Corrigida**: Resolvido problema onde os menus dropdown fechavam ao mover o mouse para clicar nos links
+- **Sistema de Timers**: Implementação de sistema de timers inteligente para evitar fechamento prematuro dos dropdowns
+- **Eventos de Mouse**: Melhoria nos eventos onMouseEnter e onMouseLeave com cancelamento adequado de timers
+- **Experiência do Usuário**: Navegação mais fluida e intuitiva pelos menus dropdown
+
+#### Menu Mobile Simplificado e Funcional
+
+- **Menu Hambúrguer Moderno**: Substituição do select por um menu hambúrguer mais intuitivo e visualmente agradável
+- **Simplificação das Animações**: Remoção de animações complexas para focar na funcionalidade
+- **Menu Slide-in**: Menu deslizante da direita com transição simples e direta
+- **Backdrop Simples**: Overlay com opacidade fixa para fechamento ao clicar
+- **Botão de Fechar Claro**: Botão X visível no cabeçalho do menu para fechamento intuitivo
+- **Click Outside**: Fechamento do menu ao clicar no backdrop
+- **Menu Lateral**: Menu deslizante da direita com largura fixa de 320px
+- **Header do Menu**: Cabeçalho do menu com título e botão de fechar
+- **Navegação por Categorias**: Organização clara das tecnologias por categorias no menu mobile
+- **Ícones e Feedback Visual**: Cada item do menu mobile exibe seu ícone correspondente
+- **Footer Informativo**: Adição de rodapé no menu mobile com informações do projeto
+- **Botão Toggle**: Botão com ícone FaBars/FaTimes para indicar estado do menu
+- **Controle de Overflow**: Desabilitação do scroll no body e html quando o menu está aberto
+- **Compensação de Scroll Bar**: Adição de padding para compensar a barra de rolagem que desaparece
+- **Scroll Funcional**: Implementação de overflow-y-auto para permitir scroll quando necessário
+- **Layout Limpo**: Estrutura simples e funcional sem animações desnecessárias
+- **Altura Adequada**: Menu com h-full para ocupar toda a altura disponível
+- **Transições Suaves**: Hover effects simples com transições de cores
+
+#### Ícones Visuais
+
+- **Novos Ícones**: Adicionado ícone `FaBars` nos menus dropdown para melhor identificação visual
+- **Consistência Visual**: Ícones padronizados seguindo o mesmo padrão do menu Home
+- **Design Responsivo**: Ícones adaptados para desktop, tablet e mobile
+
+### 🔧 Melhorias Técnicas
+
+#### Gerenciamento de Estado
+
+- **Timeout Control**: Implementação de estado para controle de timeouts com `useState`
+- **Mobile Menu State**: Novo estado `mobileMenuOpen` para controle do menu mobile
+- **Cancelamento de Timers**: Funções específicas para cancelar timers pendentes
+- **Delay Otimizado**: Ajuste do delay para 200ms para melhor experiência do usuário
+- **Simplified Overflow Control**: Efeito useEffect simplificado para controlar overflow do body e html
+- **Scroll Bar Compensation**: Cálculo dinâmico da largura da barra de rolagem para compensação visual
+- **Cleanup Function**: Função de cleanup para restaurar todos os estilos quando o componente é desmontado
+
+#### Código Refatorado
+
+- **Funções Especializadas**: Criação de funções específicas para cada evento de mouse
+- **Mobile Functions**: Novas funções `toggleMobileMenu` e `closeMobileMenu`
+- **Framer Motion Integration**: Importação e uso de motion, AnimatePresence para animações avançadas
+- **Organização**: Código mais limpo e organizado com responsabilidades bem definidas
+- **Performance**: Otimização no gerenciamento de eventos e estado com animações GPU-acceleradas
+
+### 📱 Design Responsivo
+
+#### Menu Mobile
+
+- **Layout Adaptativo**: Menu mobile otimizado para telas pequenas
+- **Slide Panel**: Menu deslizante da direita com largura responsiva (max-w-full)
+- **Altura Adequada**: Menu com h-full para ocupar toda a altura disponível
+- **Scroll Funcional**: Implementação de overflow-y-auto para permitir scroll quando necessário
+- **Controle de Overflow da Página**: Desabilitação do scroll do body e html quando o menu está aberto
+- **Compensação Visual**: Padding dinâmico para compensar a barra de rolagem que desaparece
+- **Espaçamento Adequado**: Padding e margens otimizadas para toque em dispositivos móveis
+- **Contraste Melhorado**: Cores e contraste otimizados para visibilidade em dispositivos móveis
+- **Transições Simples**: Animações básicas focadas na usabilidade
+- **Touch-Friendly**: Áreas de toque adequadas para interação em dispositivos móveis
+- **Estrutura Limpa**: Layout simples e funcional sem complexidade desnecessária
+
+### 📊 Estatísticas do Projeto
+
+- **Total de Cheatsheets**: 16 (sem alterações)
+- **Tecnologias Cobertas**: HTML5, CSS3, JavaScript, Python, Bash, PowerShell, Git, Docker, Kubernetes, CI/CD, Cloud, Linux, Filesystem, Network, DevSecOps, Scripts
+- **Melhorias**: Navegação aprimorada para desktop e mobile com experiência do usuário superior
+
+---
+
 ## [v4.1.0] - 2025-11-02
 
 ### 🌐 Novas Cheatsheets Web
