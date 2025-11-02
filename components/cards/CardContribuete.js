@@ -38,7 +38,7 @@ export default function CardContribuete() {
           </button>
         </a>
         <a
-          href="https://x.com/FechinLi"
+          href="https://x.com/blue_printblog"
           target="_blank"
           rel="noopener noreferrer"
           title="Follow @FechinLi on X (Twitter)"
