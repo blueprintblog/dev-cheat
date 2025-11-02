@@ -68,7 +68,7 @@ export default function Header({ className = '' }) {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 w-full z-50 border-b-2 border-solid border-blue-500 ',
+        'fixed top-0 left-0 w-full z-50 border-b-2 border-solid border-blue-500 bg-gray-900',
         className
       )}>
       <div className="container py-4 flex items-center justify-between">

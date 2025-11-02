@@ -1,6 +1,8 @@
+import { cn } from '@/lib/utils';
 export default function CardHeader({
   title,
   children,
+  className,
   description_1,
   description_2,
   description_3,
@@ -28,7 +30,7 @@ export default function CardHeader({
           <p>{description_3}</p>
         </div>
       </div>
-      <div className="where-use">{children}</div>
+      <div className={cn('where-use', className)}>{children}</div>
     </div>
   );
 }
