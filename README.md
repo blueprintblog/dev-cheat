@@ -27,12 +27,28 @@ Uma cheatsheet moderna e interativa construída com Next.js, React e Tailwind CS
 
 ### 📋 **Tecnologias Suportadas**
 
+#### **Core Technologies**
 - **🐚 Bash**: Comandos Unix/Linux
 - **🐳 Docker**: Containers e imagens
 - **📜 JavaScript**: ES6+, Node.js
 - **🐍 Python**: Scripts e automação
 - **⚡ PowerShell**: Windows e Azure
 - **🐧 Linux**: Sistema e administração
+
+#### **Development Tools**
+- **📦 Git**: Controle de versão
+- **📝 Scripts**: Scripts utilitários
+
+#### **DevOps & Cloud**
+- **☸️ Kubernetes**: Orquestração de containers
+- **🔒 DevSecOps**: Segurança em desenvolvimento
+- **🔄 CI/CD**: Integração e entrega contínua
+- **☁️ Cloud**: Computação em nuvem
+- **📁 Filesystem**: Sistema de arquivos
+- **🌐 Network**: Redes e conectividade
+
+#### **Roadmap 2025** 🚀
+Estamos trabalhando em 25 novas tecnologias! Veja o plano em [`cheatsheet-improvements.md`](./cheatsheet-improvements.md)
 
 ## 🛠️ **Arquitetura**
 
@@ -117,26 +133,50 @@ open http://localhost:3000
 ```
 dev-cheat/
 ├── app/                    # Páginas Next.js
-│   ├── bash/            # Cheatsheet Bash
-│   ├── docker/           # Cheatsheet Docker
-│   ├── javascript/        # Cheatsheet JavaScript
+│   ├── bash/              # Cheatsheet Bash
+│   ├── cloud/             # Cheatsheet Cloud
+│   ├── cicd/              # Cheatsheet CI/CD
+│   ├── devsecops/         # Cheatsheet DevSecOps
+│   ├── docker/            # Cheatsheet Docker
+│   ├── filesystem/        # Cheatsheet Filesystem
+│   ├── git/               # Cheatsheet Git
 │   ├── globals.css        # Estilos globais
+│   ├── javascript/        # Cheatsheet JavaScript
+│   ├── kubernetes/        # Cheatsheet Kubernetes
 │   ├── layout.js          # Layout principal
-│   └── page.js           # Home
+│   ├── linux/             # Cheatsheet Linux
+│   ├── network/           # Cheatsheet Network
+│   ├── page.js            # Home
+│   ├── powershell/        # Cheatsheet PowerShell
+│   ├── python/            # Cheatsheet Python
+│   └── scripts/           # Cheatsheet Scripts
 ├── components/             # Componentes React
 │   ├── universal/         # Componentes reutilizáveis
 │   ├── cards/           # Cards específicos
 │   └── layout/           # Layout components
 ├── data/                  # Dados das cheatsheets
 │   ├── bash-data.js      # Comandos Bash
-│   ├── docker-data.js     # Comandos Docker
+│   ├── cloud-data.js     # Comandos Cloud
+│   ├── cicd-data.js      # Comandos CI/CD
+│   ├── devsecops-data.js # Comandos DevSecOps
+│   ├── docker-data.js    # Comandos Docker
+│   ├── filesystem-data.js # Comandos Filesystem
+│   ├── git-data.js       # Comandos Git
 │   ├── javascript-data.js # Comandos JavaScript
-│   └── ...              # Outras tecnologias
+│   ├── kubernetes-data.js # Comandos Kubernetes
+│   ├── linux-data.js     # Comandos Linux
+│   ├── network-data.js   # Comandos Network
+│   ├── powershell-data.js # Comandos PowerShell
+│   ├── python-data.js    # Comandos Python
+│   └── scripts-data.js   # Comandos Scripts
 ├── hooks/                 # Hooks personalizados
 │   ├── useLevelFilter.js  # Hook de filtros
 │   └── useSearch.js       # Hook de busca
 ├── public/                # Assets estáticos
-└── lib/                   # Utilitários
+├── lib/                   # Utilitários
+├── cheatsheet-improvements.md # Roadmap e melhorias
+├── CHANGELOG.md           # Histórico de alterações
+└── LICENSE.md             # Licença do projeto
 ```
 
 ## 🎨 **Guia de Estilos**
@@ -360,7 +400,59 @@ npm run test:perf
 
 ## 📄 **Licença**
 
-MIT License - Livre para uso comercial e pessoal
+Este projeto é open source sob a licença MIT - Livre para uso comercial e pessoal.
+
+Veja o arquivo [`LICENSE.md`](./LICENSE.md) para detalhes completos.
+
+## 🗺️ **Roadmap 2025**
+
+### **Tecnologias em Desenvolvimento**
+
+Estamos expandindo para 25 novas tecnologias! Confira nosso plano detalhado em [`cheatsheet-improvements.md`](./cheatsheet-improvements.md):
+
+#### **Q1 2025 - Fundamentos Modernos**
+- **🦀 Rust Programming**: Programação de sistemas segura e performática
+- **🏗️ Terraform & IaC**: Infraestrutura como Código
+- **⚛️ Next.js 13+**: Framework React full-stack
+- **💻 VS Code**: Editor de código completo
+
+#### **Q2 2025 - Ecossistema Avançado**
+- **🐹 Go Programming**: Concorrência e performance
+- **🔍 GraphQL**: API queries eficientes
+- **💚 Vue.js 3**: Framework JavaScript progressivo
+- **🔥 Svelte**: Compiler-based framework
+
+#### **Q3 2025 - Especializações**
+- **🍓 Raspberry Pi & IoT**: Hardware e embarcados
+- **🌐 Web3 & Blockchain**: Tecnologias descentralizadas
+- **📝 Neovim**: Editor de código modal
+- **🐙 Docker Compose Avançado**: Orquestração multi-container
+
+#### **Q4 2025 - Ferramentas e Performance**
+- **🎨 Tailwind CSS Avançado**: Design system
+- **🧪 React Testing**: Testes em React
+- **🗄️ SQL Avançado**: Bancos de dados relacionais
+- **📊 Python Data Science**: Análise de dados
+- **🔐 OWASP Top 10**: Segurança web
+- **⚡ Linux Performance**: Otimização de sistemas
+- **🚀 Web Performance**: Otimização front-end
+- **📱 React Native**: Mobile cross-platform
+- **🦋 Flutter**: Mobile development
+
+### **Como Contribuir com Novas Tecnologias**
+
+1. **Verifique o Roadmap**: Confira se já está planejado
+2. **Abra uma Issue**: Discuta a implementação
+3. **Siga o Padrão**: Use a estrutura de dados definida
+4. **Teste Thoroughly**: Garanta qualidade e usabilidade
+
+### **Critérios de Seleção**
+
+- ✅ **Relevância**: Tecnologia ativamente usada
+- ✅ **Documentação**: Fontes oficiais disponíveis
+- ✅ **Comunidade**: Suporte ativo
+- ✅ **Curva de Aprendizado**: Adequada para cheatsheet
+- ✅ **Casos de Uso**: Aplicações práticas claras
 
 ## 🙏 **Créditos**
 
@@ -377,3 +469,24 @@ MIT License - Livre para uso comercial e pessoal
 **📧 Contribuições são bem-vindas!**
 
 **📧 Issues e sugestões: [GitHub Issues](https://github.com/seu-usuario/dev-cheat/issues)**
+
+---
+
+## 📈 **Estatísticas do Projeto**
+
+- **🚀 Versão Atual**: v4.2.1
+- **📚 Tecnologias**: 15 tecnologias cobertas
+- **📋 Comandos**: 500+ comandos documentados
+- **📱 Mobile-First**: 100% responsivo
+- **🎨 Design**: Neon cyberpunk theme
+- **⚡ Performance**: < 3s Time to Interactive
+- **🔍 Busca**: Tempo real com debounce
+- **📊 Filtros**: Por nível e categoria
+
+---
+
+**🚀 Desenvolvido com ❤️ para a comunidade de desenvolvedores**
+
+**🌟 Star no GitHub se este projeto te ajudar!**
+
+**📧 Contribuições são bem-vindas!**
