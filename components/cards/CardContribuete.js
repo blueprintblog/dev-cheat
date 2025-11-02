@@ -13,7 +13,7 @@ export default function CardContribuete() {
       <div className="flex flex-col md:flex-row justify-center space-x-4">
         {' '}
         <a
-          href="https://github.com/Genildocs/cheatsheet-bash"
+          href="https://github.com/blueprintblog/dev-cheat"
           target="_blank"
           rel="noopener noreferrer"
           title="Contribute on GitHub"

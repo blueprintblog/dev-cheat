@@ -1,5 +1,8 @@
 'use client';
 
+import CardContribuete from '@/components/cards/CardContribuete';
+import CardHeader from '@/components/cards/CardHeader';
+import CardTitle from '@/components/cards/CardTitle';
 import {
   CommandCard,
   LevelFilter,
@@ -9,6 +12,8 @@ import {
   useSearch,
 } from '@/components/universal';
 import { powershellCommands } from '@/data/powershell-data';
+import Link from 'next/link';
+import { FaWindows } from 'react-icons/fa';
 
 export default function PagePowerShell() {
   // Hook para filtro por nível
@@ -47,125 +52,193 @@ export default function PagePowerShell() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      {/* Filtros de Nível */}
-      <LevelFilter
-        activeFilter={activeFilter}
-        onFilterChange={handleFilterChange}
+    <>
+      <Link href="/" className="backToMain">
+        ← Voltar para página principal
+      </Link>
+
+      <CardTitle
+        className={'mb-5'}
+        icon={<FaWindows className="inline-block mr-2 " />}
+        title={'PowerShell Cheatsheet'}
+        subtitle={
+          'Guia completo de PowerShell para automação e administração Windows'
+        }
       />
+      <CardHeader
+        title={'💻 O que é PowerShell?'}
+        description_1={
+          <>
+            <strong>PowerShell</strong> é uma plataforma de automação e
+            configuração da Microsoft, composta por um shell de linha de comando
+            e uma linguagem de script. É a ferramenta padrão para administração
+            de sistemas Windows e ambientes de nuvem Microsoft.
+          </>
+        }
+        description_2={
+          <>
+            • Orientado a objetos <br /> • Cross-platform (Windows, Linux,
+            macOS) <br />• Integração com .NET <br /> • Pipeline poderoso <br />{' '}
+            • Extensível com módulos
+          </>
+        }
+        description_3={
+          <>
+            • Administração de sistemas Windows <br /> • Automação de tarefas
+            repetitivas <br /> • Gerenciamento de Active Directory <br /> •
+            Configuração de nuvem Azure <br /> • DevOps e CI/CD
+          </>
+        }>
+        <>
+          <strong className="text-[#5392ba] text-[18px]">
+            💡 Onde você vai usar:
+          </strong>
+          <div className="where-grid">
+            <div className="where-item">
+              🖥️ <strong>Windows Admin</strong>
+              <br />
+              <span className="opacity-80 text-base ">AD, GPO, Serviços</span>
+            </div>
+            <div className="where-item">
+              ☁️ <strong>Cloud</strong>
+              <br />
+              <span className="opacity-80 text-base ">Azure, Office 365</span>
+            </div>
+            <div className="where-item">
+              🔧 <strong>DevOps</strong>
+              <br />
+              <span className="opacity-80 text-base ">CI/CD, Automação</span>
+            </div>
+            <div className="where-item">
+              ⚡ <strong>Modern</strong>
+              <br />
+              <span className="opacity-80 text-base ">PowerShell 7+, Core</span>
+            </div>
+          </div>
+        </>
+      </CardHeader>
 
-      {/* Barra de Busca */}
-      <SearchBar
-        searchTerm={searchTerm}
-        onSearch={setSearchTerm}
-        placeholder="Buscar comandos PowerShell..."
-        className="mb-6"
-      />
+      <div>
+        {/* Filtros de Nível */}
+        <LevelFilter
+          activeFilter={activeFilter}
+          onFilterChange={handleFilterChange}
+        />
 
-      {/* Estatísticas Combinadas */}
-      <div className="mb-8 flex flex-wrap gap-4 text-sm text-slate-400">
-        <span>Total: {levelCounts.todos} categorias</span>
-        <span>Básico: {levelCounts.basico}</span>
-        <span>Intermediário: {levelCounts.intermediario}</span>
-        <span>Avançado: {levelCounts.avancado}</span>
-        {hasSearchTerm && (
-          <span className="text-purple-400">
-            Busca: {searchStats.foundCommands} comandos encontrados
-          </span>
-        )}
-      </div>
+        {/* Barra de Busca */}
+        <SearchBar
+          searchTerm={searchTerm}
+          onSearch={setSearchTerm}
+          placeholder="Buscar comandos PowerShell..."
+          className="mb-6"
+        />
 
-      {/* Estado de Busca */}
-      {isSearching && (
-        <div className="text-center text-slate-400 mb-6">
-          <p>Buscando...</p>
-        </div>
-      )}
-
-      {/* Estado Vazio */}
-      {isEmpty && (
-        <div className="text-center text-slate-400 mt-12">
-          <p className="text-lg">
-            {hasSearchTerm
-              ? `Nenhum comando encontrado para "${searchTerm}"`
-              : `Nenhum comando encontrado para o nível '${activeFilter}'`}
-          </p>
-          <p className="text-sm mt-2">
-            {hasSearchTerm
-              ? 'Tente outros termos de busca.'
-              : 'Tente selecionar outro nível de dificuldade.'}
-          </p>
+        {/* Estatísticas Combinadas */}
+        <div className="mb-8 flex flex-wrap gap-4 text-sm text-slate-400">
+          <span>Total: {levelCounts.todos} categorias</span>
+          <span>Básico: {levelCounts.basico}</span>
+          <span>Intermediário: {levelCounts.intermediario}</span>
+          <span>Avançado: {levelCounts.avancado}</span>
           {hasSearchTerm && (
-            <button
-              onClick={clearSearch}
-              className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200">
-              Limpar Busca
-            </button>
+            <span className="text-purple-400">
+              Busca: {searchStats.foundCommands} comandos encontrados
+            </span>
           )}
         </div>
-      )}
 
-      {/* Categorias e Comandos */}
-      {!isEmpty && (
-        <>
-          {Object.entries(filteredData).map(([categoryKey, categoryData]) => (
-            <div key={categoryKey} className="mb-12">
-              {/* Cabeçalho da Categoria */}
-              <div className="card-title mb-8">
-                <h1 className="text-3xl font-bold mb-2">
-                  {categoryData.title}
-                </h1>
-                <p className="text-lg opacity-90">{categoryData.useCase}</p>
+        {/* Estado de Busca */}
+        {isSearching && (
+          <div className="text-center text-slate-400 mb-6">
+            <p>Buscando...</p>
+          </div>
+        )}
 
-                {/* Warning */}
-                {categoryData.warning && (
-                  <div className="mt-4 p-3 bg-red-900/30 border border-red-500/50 rounded-lg hover-glow">
-                    <p className="text-red-300 text-sm">
-                      ⚠️ {categoryData.warning}
-                    </p>
-                  </div>
-                )}
+        {/* Estado Vazio */}
+        {isEmpty && (
+          <div className="text-center text-slate-400 mt-12">
+            <p className="text-lg">
+              {hasSearchTerm
+                ? `Nenhum comando encontrado para "${searchTerm}"`
+                : `Nenhum comando encontrado para o nível '${activeFilter}'`}
+            </p>
+            <p className="text-sm mt-2">
+              {hasSearchTerm
+                ? 'Tente outros termos de busca.'
+                : 'Tente selecionar outro nível de dificuldade.'}
+            </p>
+            {hasSearchTerm && (
+              <button
+                onClick={clearSearch}
+                className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200">
+                Limpar Busca
+              </button>
+            )}
+          </div>
+        )}
 
-                {/* Tip */}
-                {categoryData.tip && (
-                  <div className="mt-4 p-3 bg-blue-900/30 border border-blue-500/50 rounded-lg hover-glow">
-                    <p className="text-blue-300 text-sm">
-                      💡 {categoryData.tip}
-                    </p>
-                  </div>
-                )}
-              </div>
+        {/* Categorias e Comandos */}
+        {!isEmpty && (
+          <>
+            {Object.entries(filteredData).map(([categoryKey, categoryData]) => (
+              <div key={categoryKey} className="mb-12">
+                {/* Cabeçalho da Categoria */}
+                <div className="card-title mb-8">
+                  <h1 className="text-3xl font-bold mb-2">
+                    {categoryData.title}
+                  </h1>
+                  <p className="text-lg opacity-90">{categoryData.useCase}</p>
 
-              {/* Sections da Categoria em Grid */}
-              <ResponsiveGrid className="gap-6">
-                {Object.entries(categoryData.sections).map(
-                  ([sectionKey, commands]) => (
-                    <div key={sectionKey} className="section-card">
-                      <h2 className="section-title mb-4 flex items-center gap-2">
-                        <span className="text-lg">📋</span>
-                        {sectionKey}
-                      </h2>
-
-                      {/* Lista de Comandos */}
-                      <div className="space-y-3">
-                        {commands.map((command, index) => (
-                          <CommandCard
-                            key={index}
-                            command={command.command}
-                            comment={command.comment}
-                            level={categoryData.level}
-                            className=""
-                          />
-                        ))}
-                      </div>
+                  {/* Warning */}
+                  {categoryData.warning && (
+                    <div className="mt-4 p-3 bg-red-900/30 border border-red-500/50 rounded-lg hover-glow">
+                      <p className="text-red-300 text-sm">
+                        ⚠️ {categoryData.warning}
+                      </p>
                     </div>
-                  )
-                )}
-              </ResponsiveGrid>
-            </div>
-          ))}
-        </>
-      )}
-    </div>
+                  )}
+
+                  {/* Tip */}
+                  {categoryData.tip && (
+                    <div className="mt-4 p-3 bg-blue-900/30 border border-blue-500/50 rounded-lg hover-glow">
+                      <p className="text-blue-300 text-sm">
+                        💡 {categoryData.tip}
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Sections da Categoria em Grid */}
+                <ResponsiveGrid className="gap-6">
+                  {Object.entries(categoryData.sections).map(
+                    ([sectionKey, commands]) => (
+                      <div key={sectionKey} className="section-card">
+                        <h2 className="section-title mb-4 flex items-center gap-2">
+                          <span className="text-lg">📋</span>
+                          {sectionKey}
+                        </h2>
+
+                        {/* Lista de Comandos */}
+                        <div className="space-y-3">
+                          {commands.map((command, index) => (
+                            <CommandCard
+                              key={index}
+                              command={command.command}
+                              comment={command.comment}
+                              level={categoryData.level}
+                              className=""
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    )
+                  )}
+                </ResponsiveGrid>
+              </div>
+            ))}
+          </>
+        )}
+      </div>
+      <CardContribuete />
+    </>
   );
 }

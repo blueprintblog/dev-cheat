@@ -24,8 +24,9 @@ export default function LinksOnGitBuyMyCoffe({ className }) {
         <span className="font-semibold leading-none">Star on GitHub</span>
       </Link>
       <Link
-        href="/support/"
-        title="Buy Me a Coffee - Support cheatsheets.zip"
+        href="https://buymeacoffee.com/blueprintblog"
+        target="_blank"
+        title="Buy Me a Coffee - Support blueprintblog"
         className="group inline-flex items-center justify-center px-6 py-3 backdrop-blur-sm outline-1 rounded-3xl transition-all duration-300 hover:scale-105 hover:shadow-lg bg-linear-to-r from-orange-500/20 to-yellow-500/20 outline-orange-300/30 text-white hover:from-orange-500/30 hover:to-yellow-500/30">
         <div className="w-5 h-5 shrink-0 flex items-center justify-center mr-3">
           <svg width="20" height="20" viewBox="0 0 25 35" fill="currentColor">
