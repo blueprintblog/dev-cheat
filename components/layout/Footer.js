@@ -83,7 +83,7 @@ export default function Footer() {
         <p className="mt-2.5">
           Esta cheatsheet é um projeto open source. Contribua no{' '}
           <Link
-            href="https://github.com/blueprintblog/bash-cheatsheet"
+            href="https://github.com/blueprintblog/dev-cheat"
             target="_blank">
             GitHub
           </Link>

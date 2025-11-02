@@ -27,7 +27,8 @@ Uma cheatsheet moderna e interativa construída com Next.js, React e Tailwind CS
 
 ### 📋 **Tecnologias Suportadas**
 
-#### **Core Technologies**
+#### **Core Technologies** (6)
+
 - **🐚 Bash**: Comandos Unix/Linux
 - **🐳 Docker**: Containers e imagens
 - **📜 JavaScript**: ES6+, Node.js
@@ -35,11 +36,18 @@ Uma cheatsheet moderna e interativa construída com Next.js, React e Tailwind CS
 - **⚡ PowerShell**: Windows e Azure
 - **🐧 Linux**: Sistema e administração
 
-#### **Development Tools**
+#### **Development Tools** (2)
+
 - **📦 Git**: Controle de versão
 - **📝 Scripts**: Scripts utilitários
 
-#### **DevOps & Cloud**
+#### **Frontend & Web** (2)
+
+- **🎨 HTML/CSS**: Desenvolvimento web
+- **📜 JavaScript**: ES6+, Node.js
+
+#### **DevOps & Cloud** (6)
+
 - **☸️ Kubernetes**: Orquestração de containers
 - **🔒 DevSecOps**: Segurança em desenvolvimento
 - **🔄 CI/CD**: Integração e entrega contínua
@@ -48,7 +56,10 @@ Uma cheatsheet moderna e interativa construída com Next.js, React e Tailwind CS
 - **🌐 Network**: Redes e conectividade
 
 #### **Roadmap 2025** 🚀
+
 Estamos trabalhando em 25 novas tecnologias! Veja o plano em [`cheatsheet-improvements.md`](./cheatsheet-improvements.md)
+
+**Total atual: 16 tecnologias cobertas**
 
 ## 🛠️ **Arquitetura**
 
@@ -134,34 +145,51 @@ open http://localhost:3000
 dev-cheat/
 ├── app/                    # Páginas Next.js
 │   ├── bash/              # Cheatsheet Bash
-│   ├── cloud/             # Cheatsheet Cloud
 │   ├── cicd/              # Cheatsheet CI/CD
+│   ├── cloud/             # Cheatsheet Cloud
+│   ├── css/               # Cheatsheet CSS
 │   ├── devsecops/         # Cheatsheet DevSecOps
 │   ├── docker/            # Cheatsheet Docker
 │   ├── filesystem/        # Cheatsheet Filesystem
 │   ├── git/               # Cheatsheet Git
 │   ├── globals.css        # Estilos globais
+│   ├── html/              # Cheatsheet HTML
 │   ├── javascript/        # Cheatsheet JavaScript
 │   ├── kubernetes/        # Cheatsheet Kubernetes
 │   ├── layout.js          # Layout principal
 │   ├── linux/             # Cheatsheet Linux
 │   ├── network/           # Cheatsheet Network
+│   ├── not-found.js       # Página 404
 │   ├── page.js            # Home
 │   ├── powershell/        # Cheatsheet PowerShell
 │   ├── python/            # Cheatsheet Python
 │   └── scripts/           # Cheatsheet Scripts
 ├── components/             # Componentes React
 │   ├── universal/         # Componentes reutilizáveis
+│   │   ├── CommandCard.js # Card de comando
+│   │   ├── LevelFilter.js # Filtro por nível
+│   │   ├── ResponsiveGrid.js # Grid responsivo
+│   │   ├── SearchBar.js   # Barra de busca
+│   │   ├── Toast.js       # Notificações
+│   │   └── index.js       # Exportações
 │   ├── cards/           # Cards específicos
+│   │   ├── CardContribuete.js
+│   │   ├── CardHeader.js
+│   │   ├── CardTitle.js
+│   │   └── LinksOnGitBuyMyCoffe.js
 │   └── layout/           # Layout components
+│       ├── Footer.js
+│       └── Header.js
 ├── data/                  # Dados das cheatsheets
 │   ├── bash-data.js      # Comandos Bash
-│   ├── cloud-data.js     # Comandos Cloud
 │   ├── cicd-data.js      # Comandos CI/CD
+│   ├── cloud-data.js     # Comandos Cloud
+│   ├── css-data.js       # Comandos CSS
 │   ├── devsecops-data.js # Comandos DevSecOps
 │   ├── docker-data.js    # Comandos Docker
 │   ├── filesystem-data.js # Comandos Filesystem
 │   ├── git-data.js       # Comandos Git
+│   ├── html-data.js      # Comandos HTML
 │   ├── javascript-data.js # Comandos JavaScript
 │   ├── kubernetes-data.js # Comandos Kubernetes
 │   ├── linux-data.js     # Comandos Linux
@@ -411,24 +439,28 @@ Veja o arquivo [`LICENSE.md`](./LICENSE.md) para detalhes completos.
 Estamos expandindo para 25 novas tecnologias! Confira nosso plano detalhado em [`cheatsheet-improvements.md`](./cheatsheet-improvements.md):
 
 #### **Q1 2025 - Fundamentos Modernos**
+
 - **🦀 Rust Programming**: Programação de sistemas segura e performática
 - **🏗️ Terraform & IaC**: Infraestrutura como Código
 - **⚛️ Next.js 13+**: Framework React full-stack
 - **💻 VS Code**: Editor de código completo
 
 #### **Q2 2025 - Ecossistema Avançado**
+
 - **🐹 Go Programming**: Concorrência e performance
 - **🔍 GraphQL**: API queries eficientes
 - **💚 Vue.js 3**: Framework JavaScript progressivo
 - **🔥 Svelte**: Compiler-based framework
 
 #### **Q3 2025 - Especializações**
+
 - **🍓 Raspberry Pi & IoT**: Hardware e embarcados
 - **🌐 Web3 & Blockchain**: Tecnologias descentralizadas
 - **📝 Neovim**: Editor de código modal
 - **🐙 Docker Compose Avançado**: Orquestração multi-container
 
 #### **Q4 2025 - Ferramentas e Performance**
+
 - **🎨 Tailwind CSS Avançado**: Design system
 - **🧪 React Testing**: Testes em React
 - **🗄️ SQL Avançado**: Bancos de dados relacionais
@@ -475,13 +507,15 @@ Estamos expandindo para 25 novas tecnologias! Confira nosso plano detalhado em [
 ## 📈 **Estatísticas do Projeto**
 
 - **🚀 Versão Atual**: v4.2.1
-- **📚 Tecnologias**: 15 tecnologias cobertas
+- **📚 Tecnologias**: 16 tecnologias cobertas
 - **📋 Comandos**: 500+ comandos documentados
 - **📱 Mobile-First**: 100% responsivo
 - **🎨 Design**: Neon cyberpunk theme
 - **⚡ Performance**: < 3s Time to Interactive
 - **🔍 Busca**: Tempo real com debounce
 - **📊 Filtros**: Por nível e categoria
+- **🌐 Navegação**: Menu dropdown categorizado
+- **📄 Documentação**: README + CHANGELOG + Roadmap
 
 ---
 
