@@ -47,7 +47,4 @@ next-env.d.ts
 # HTML source files (converted to data/js)
 *.html
 
-# improvement docs
-docker-improvements.md
-rede-avancada.html
 
