@@ -3,17 +3,22 @@
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import {
+  FaCloud,
   FaDev,
   FaDocker,
+  FaFolder,
   FaGitAlt,
   FaHome,
   FaLinux,
+  FaNetworkWired,
   FaPython,
+  FaShieldAlt,
+  FaSync,
   FaWindows,
 } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io5';
 import { MdDescription } from 'react-icons/md';
-import { SiGnubash } from 'react-icons/si';
+import { SiGnubash, SiKubernetes } from 'react-icons/si';
 export default function Header({ className = '' }) {
   const navLink = [
     {
@@ -36,13 +41,41 @@ export default function Header({ className = '' }) {
       href: '/docker',
       icon: <FaDocker />,
     },
-
+    {
+      name: 'kubernetes',
+      href: '/kubernetes',
+      icon: <SiKubernetes />,
+    },
+    {
+      name: 'devsecops',
+      href: '/devsecops',
+      icon: <FaShieldAlt />,
+    },
+    {
+      name: 'cicd',
+      href: '/cicd',
+      icon: <FaSync />,
+    },
+    {
+      name: 'cloud',
+      href: '/cloud',
+      icon: <FaCloud />,
+    },
+    {
+      name: 'filesystem',
+      href: '/filesystem',
+      icon: <FaFolder />,
+    },
+    {
+      name: 'network',
+      href: '/network',
+      icon: <FaNetworkWired />,
+    },
     {
       name: 'scripts',
       href: '/scripts',
       icon: <MdDescription />,
     },
-
     {
       name: 'javascript',
       href: '/javascript',

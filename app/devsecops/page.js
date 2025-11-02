@@ -11,11 +11,10 @@ import {
   useLevelFilter,
   useSearch,
 } from '@/components/universal';
-import { gitCommands } from '@/data/git-data';
+import { devsecopsCommands } from '@/data/devsecops-data';
 import Link from 'next/link';
-import { FaGitAlt } from 'react-icons/fa';
 
-export default function GitPage() {
+export default function PageDevSecOps() {
   const {
     activeFilter,
     filteredData: filteredByLevel,
@@ -23,7 +22,7 @@ export default function GitPage() {
     handleFilterChange,
     hasData,
     isEmpty: isEmptyLevel,
-  } = useLevelFilter(gitCommands);
+  } = useLevelFilter(devsecopsCommands);
 
   // Hook para busca
   const {
@@ -44,7 +43,7 @@ export default function GitPage() {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="text-center text-slate-400">
-          <p>Carregando comandos Git...</p>
+          <p>Carregando comandos DevSecOps...</p>
         </div>
       </div>
     );
@@ -88,65 +87,67 @@ export default function GitPage() {
 
       <CardTitle
         className={'mb-5'}
-        icon={<FaGitAlt className="inline-block mr-2 " />}
-        title={'Git Cheatsheet'}
-        subtitle={'Guia completo de Git para controle de versão e colaboração'}
+        title={'🛡️ DevSecOps Cheatsheet'}
+        subtitle={
+          'Comandos essenciais para segurança, hardening e proteção de sistemas'
+        }
       />
       <CardHeader
-        title={'🔀 O que é Git?'}
-        className={' border-orange-700'}
+        title={'🛡️ O que é DevSecOps?'}
+        className={' border-blue-700'}
         description_1={
           <>
-            <strong>Git</strong> é um sistema de controle de versão distribuído
-            criado por Linus Torvalds. Permite rastrear mudanças no código,
-            colaborar em projetos e manter histórico completo de
-            desenvolvimento.
+            <strong>DevSecOps</strong> é uma abordagem que integra segurança no
+            ciclo de vida de desenvolvimento de software, desde o planejamento
+            até a produção. Combina práticas de desenvolvimento, operações e
+            segurança para criar sistemas mais resilientes e protegidos contra
+            ameaças cibernéticas.
           </>
         }
         description_2={
           <>
-            • Controle de versão distribuído <br /> • Branching e merging <br />
-            • Histórico completo <br /> • Colaboração em equipe <br /> •
-            Integração com plataformas remotas
+            • Security as Code <br /> • Automated security testing <br />•
+            Vulnerability management <br /> • Infrastructure hardening <br /> •
+            Threat detection and response
           </>
         }
         description_3={
           <>
-            • Desenvolvimento de software <br /> • Controle de versão de código{' '}
-            <br />• Colaboração em projetos <br /> • Deploy e CI/CD <br />•
-            Gerenciamento de configurações
+            • CI/CD security pipelines <br /> • Cloud security <br />• Container
+            security <br /> • Network security <br />• Compliance automation
           </>
         }>
         <>
-          <strong className="text-[#f05032] text-[18px]">
+          <strong className="text-[#FF6B6B] text-[18px]">
             💡 Onde você vai usar:
           </strong>
           <div className="where-grid">
             <div className="where-item">
-              💻 <strong>Desenvolvimento</strong>
+              🔒 <strong>Security</strong>
               <br />
-              <span className="opacity-80 text-base ">Código, Projetos</span>
+              <span className="opacity-80 text-base ">Firewall, IDS/IPS</span>
             </div>
             <div className="where-item">
-              🌐 <strong>Colaboração</strong>
+              🔧 <strong>DevOps</strong>
               <br />
-              <span className="opacity-80 text-base ">GitHub, GitLab</span>
+              <span className="opacity-80 text-base ">CI/CD, Automation</span>
             </div>
             <div className="where-item">
-              ⚡ <strong>DevOps</strong>
+              ☁️ <strong>Cloud</strong>
               <br />
-              <span className="opacity-80 text-base ">CI/CD, Deploy</span>
+              <span className="opacity-80 text-base ">AWS, Azure, GCP</span>
             </div>
             <div className="where-item">
-              🤖 <strong>Modern</strong>
+              ⚡ <strong>Protection</strong>
               <br />
-              <span className="opacity-80 text-base ">GitOps, IaC</span>
+              <span className="opacity-80 text-base ">
+                Hardening, Monitoring
+              </span>
             </div>
           </div>
         </>
       </CardHeader>
-
-      <div className="container mx-auto px-4 py-8">
+      <div>
         {/* Filtros de Nível */}
         <LevelFilter
           activeFilter={activeFilter}
@@ -157,7 +158,7 @@ export default function GitPage() {
         <SearchBar
           searchTerm={searchTerm}
           onSearch={setSearchTerm}
-          placeholder="Buscar comandos Git..."
+          placeholder="Buscar comandos DevSecOps..."
           className="mb-6"
         />
 

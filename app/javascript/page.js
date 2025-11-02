@@ -181,7 +181,7 @@ export default function PageJavaScript() {
             {Object.entries(finalData).map(([categoryKey, categoryData]) => (
               <div key={categoryKey} className="mb-12">
                 {/* Cabeçalho da Categoria */}
-                <div className="card-title mb-8">
+                <div className="category-header mb-8">
                   <h1 className="text-3xl font-bold mb-2">
                     {categoryData.title}
                   </h1>

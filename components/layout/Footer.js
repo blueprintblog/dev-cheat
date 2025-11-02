@@ -19,11 +19,7 @@ export default function Footer() {
             ao avançado, todos os comandos que você precisa em um único lugar.
           </p>
           <div className="social-links">
-            <Link
-              href="https://blueprintblog.tech"
-              target="_blank"
-              className="social-link"
-              title="Website">
+            <Link href="/" className="social-link" title="Website">
               <svg
                 width="20"
                 height="20"
@@ -91,7 +87,7 @@ export default function Footer() {
             target="_blank">
             GitHub
           </Link>
-          ! | Versão v1.9.0
+          ! | Versão v4.0.0
         </p>
       </div>
     </footer>

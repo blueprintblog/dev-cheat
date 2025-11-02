@@ -11,11 +11,10 @@ import {
   useLevelFilter,
   useSearch,
 } from '@/components/universal';
-import { gitCommands } from '@/data/git-data';
+import { cloudCommands } from '@/data/cloud-data';
 import Link from 'next/link';
-import { FaGitAlt } from 'react-icons/fa';
 
-export default function GitPage() {
+export default function PageCloud() {
   const {
     activeFilter,
     filteredData: filteredByLevel,
@@ -23,7 +22,7 @@ export default function GitPage() {
     handleFilterChange,
     hasData,
     isEmpty: isEmptyLevel,
-  } = useLevelFilter(gitCommands);
+  } = useLevelFilter(cloudCommands);
 
   // Hook para busca
   const {
@@ -44,7 +43,7 @@ export default function GitPage() {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="text-center text-slate-400">
-          <p>Carregando comandos Git...</p>
+          <p>Carregando comandos Cloud...</p>
         </div>
       </div>
     );
@@ -88,65 +87,70 @@ export default function GitPage() {
 
       <CardTitle
         className={'mb-5'}
-        icon={<FaGitAlt className="inline-block mr-2 " />}
-        title={'Git Cheatsheet'}
-        subtitle={'Guia completo de Git para controle de versão e colaboração'}
+        title={'☁️ Cloud Computing Cheatsheet'}
+        subtitle={
+          'Comandos essenciais para gerenciamento de recursos em nuvem e infraestrutura como código'
+        }
       />
       <CardHeader
-        title={'🔀 O que é Git?'}
-        className={' border-orange-700'}
+        title={'☁️ O que é Cloud Computing?'}
+        className={' border-blue-700'}
         description_1={
           <>
-            <strong>Git</strong> é um sistema de controle de versão distribuído
-            criado por Linus Torvalds. Permite rastrear mudanças no código,
-            colaborar em projetos e manter histórico completo de
-            desenvolvimento.
+            <strong>Cloud Computing</strong> é a entrega de serviços de
+            computação através da internet, incluindo servidores, storage,
+            bancos de dados, networking e software. Oferece escalabilidade,
+            flexibilidade e redução de custos operacionais comparado à
+            infraestrutura tradicional.
           </>
         }
         description_2={
           <>
-            • Controle de versão distribuído <br /> • Branching e merging <br />
-            • Histórico completo <br /> • Colaboração em equipe <br /> •
-            Integração com plataformas remotas
+            • On-demand resource provisioning <br /> • Pay-as-you-go pricing{' '}
+            <br />• Global infrastructure <br /> • High availability and
+            scalability <br /> • Managed services
           </>
         }
         description_3={
           <>
-            • Desenvolvimento de software <br /> • Controle de versão de código{' '}
-            <br />• Colaboração em projetos <br /> • Deploy e CI/CD <br />•
-            Gerenciamento de configurações
+            • Web and mobile applications <br /> • Big data and analytics <br />
+            • Machine learning and AI <br /> • Disaster recovery <br />•
+            Enterprise workloads
           </>
         }>
         <>
-          <strong className="text-[#f05032] text-[18px]">
+          <strong className="text-[#FF9900] text-[18px]">
             💡 Onde você vai usar:
           </strong>
           <div className="where-grid">
             <div className="where-item">
-              💻 <strong>Desenvolvimento</strong>
+              ☁️ <strong>Cloud Providers</strong>
               <br />
-              <span className="opacity-80 text-base ">Código, Projetos</span>
+              <span className="opacity-80 text-base ">AWS, Azure, GCP</span>
             </div>
             <div className="where-item">
-              🌐 <strong>Colaboração</strong>
+              🔧 <strong>DevOps</strong>
               <br />
-              <span className="opacity-80 text-base ">GitHub, GitLab</span>
+              <span className="opacity-80 text-base ">IaC, Automation</span>
             </div>
             <div className="where-item">
-              ⚡ <strong>DevOps</strong>
+              🚀 <strong>Deployment</strong>
               <br />
-              <span className="opacity-80 text-base ">CI/CD, Deploy</span>
+              <span className="opacity-80 text-base ">
+                Containers, Serverless
+              </span>
             </div>
             <div className="where-item">
-              🤖 <strong>Modern</strong>
+              📊 <strong>Scaling</strong>
               <br />
-              <span className="opacity-80 text-base ">GitOps, IaC</span>
+              <span className="opacity-80 text-base ">
+                Auto-scaling, Load Balancing
+              </span>
             </div>
           </div>
         </>
       </CardHeader>
-
-      <div className="container mx-auto px-4 py-8">
+      <div>
         {/* Filtros de Nível */}
         <LevelFilter
           activeFilter={activeFilter}
@@ -157,7 +161,7 @@ export default function GitPage() {
         <SearchBar
           searchTerm={searchTerm}
           onSearch={setSearchTerm}
-          placeholder="Buscar comandos Git..."
+          placeholder="Buscar comandos Cloud..."
           className="mb-6"
         />
 

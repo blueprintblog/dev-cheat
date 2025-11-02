@@ -67,6 +67,7 @@ export default function PagePowerShell() {
       />
       <CardHeader
         title={'💻 O que é PowerShell?'}
+        className={' border-blue-600'}
         description_1={
           <>
             <strong>PowerShell</strong> é uma plataforma de automação e
@@ -182,7 +183,7 @@ export default function PagePowerShell() {
             {Object.entries(filteredData).map(([categoryKey, categoryData]) => (
               <div key={categoryKey} className="mb-12">
                 {/* Cabeçalho da Categoria */}
-                <div className="card-title mb-8">
+                <div className="category-header mb-8">
                   <h1 className="text-3xl font-bold mb-2">
                     {categoryData.title}
                   </h1>

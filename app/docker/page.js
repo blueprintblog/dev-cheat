@@ -94,6 +94,7 @@ export default function PageDocker() {
       />
       <CardHeader
         title={'🐳 O que é Docker?'}
+        className={' border-blue-700'}
         description_1={
           <>
             <strong>Docker</strong> é uma plataforma de contêineres que permite
@@ -184,7 +185,7 @@ export default function PageDocker() {
         {Object.entries(filteredData).map(([categoryKey, categoryData]) => (
           <div key={categoryKey} className="mb-12">
             {/* Cabeçalho da Categoria */}
-            <div className="card-title mb-8">
+            <div className="category-header mb-8">
               <h1 className="text-3xl font-bold mb-2">{categoryData.title}</h1>
               <p className="text-lg opacity-90">{categoryData.useCase}</p>
 

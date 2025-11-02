@@ -1,6 +1,8 @@
 'use client';
 
 import CardContribuete from '@/components/cards/CardContribuete';
+import CardHeader from '@/components/cards/CardHeader';
+import CardTitle from '@/components/cards/CardTitle';
 import {
   CommandCard,
   LevelFilter,
@@ -10,6 +12,8 @@ import {
   useSearch,
 } from '@/components/universal';
 import { bashCommands } from '@/data/bash-data';
+import Link from 'next/link';
+import { SiGnubash } from 'react-icons/si';
 
 export default function PageBash() {
   const {
@@ -78,6 +82,72 @@ export default function PageBash() {
 
   return (
     <>
+      <Link href="/" className="backToMain">
+        ← Voltar para página principal
+      </Link>
+
+      <CardTitle
+        className={'mb-5'}
+        icon={<SiGnubash className="inline-block mr-2 " />}
+        title={'Bash Cheatsheet'}
+        subtitle={
+          'Guia completo de Bash para automação e administração de sistemas'
+        }
+      />
+      <CardHeader
+        title={'💻 O que é Bash?'}
+        className={' border-green-600'}
+        description_1={
+          <>
+            <strong>Bash</strong> (Bourne Again Shell) é o shell mais popular em
+            sistemas Unix/Linux. É uma interface de linha de comando poderosa
+            que permite executar comandos, automatizar tarefas e gerenciar
+            sistemas operacionais.
+          </>
+        }
+        description_2={
+          <>
+            • Interface de linha de comando <br /> • Scripting e automação{' '}
+            <br />• Compatibilidade com POSIX <br /> • Extensível com plugins{' '}
+            <br /> • Padrão da maioria das distribuições Linux
+          </>
+        }
+        description_3={
+          <>
+            • Automação de tarefas <br /> • Administração de sistemas <br />•
+            Desenvolvimento de scripts <br /> • Processamento de dados <br />•
+            DevOps e CI/CD
+          </>
+        }>
+        <>
+          <strong className="text-[#4EAA25] text-[18px]">
+            💡 Onde você vai usar:
+          </strong>
+          <div className="where-grid">
+            <div className="where-item">
+              🖥️ <strong>Terminal</strong>
+              <br />
+              <span className="opacity-80 text-base ">Linux, macOS, WSL</span>
+            </div>
+            <div className="where-item">
+              🔧 <strong>Scripts</strong>
+              <br />
+              <span className="opacity-80 text-base ">Automação, Deploy</span>
+            </div>
+            <div className="where-item">
+              ⚡ <strong>DevOps</strong>
+              <br />
+              <span className="opacity-80 text-base ">CI/CD, Docker</span>
+            </div>
+            <div className="where-item">
+              🤖 <strong>Modern</strong>
+              <br />
+              <span className="opacity-80 text-base ">Cloud, Containers</span>
+            </div>
+          </div>
+        </>
+      </CardHeader>
+
       <div>
         {/* Filtros de Nível */}
         <LevelFilter
@@ -117,7 +187,7 @@ export default function PageBash() {
         {Object.entries(filteredData).map(([categoryKey, categoryData]) => (
           <div key={categoryKey} className="mb-12">
             {/* Cabeçalho da Categoria */}
-            <div className="card-title mb-8">
+            <div className="category-header mb-8">
               <h1 className="text-3xl font-bold mb-2">{categoryData.title}</h1>
               <p className="text-lg opacity-90">{categoryData.useCase}</p>
 

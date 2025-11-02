@@ -11,11 +11,10 @@ import {
   useLevelFilter,
   useSearch,
 } from '@/components/universal';
-import { gitCommands } from '@/data/git-data';
+import { filesystemCommands } from '@/data/filesystem-data';
 import Link from 'next/link';
-import { FaGitAlt } from 'react-icons/fa';
 
-export default function GitPage() {
+export default function PageFilesystem() {
   const {
     activeFilter,
     filteredData: filteredByLevel,
@@ -23,7 +22,7 @@ export default function GitPage() {
     handleFilterChange,
     hasData,
     isEmpty: isEmptyLevel,
-  } = useLevelFilter(gitCommands);
+  } = useLevelFilter(filesystemCommands);
 
   // Hook para busca
   const {
@@ -44,7 +43,7 @@ export default function GitPage() {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="text-center text-slate-400">
-          <p>Carregando comandos Git...</p>
+          <p>Carregando comandos de Sistema de Arquivos...</p>
         </div>
       </div>
     );
@@ -88,65 +87,70 @@ export default function GitPage() {
 
       <CardTitle
         className={'mb-5'}
-        icon={<FaGitAlt className="inline-block mr-2 " />}
-        title={'Git Cheatsheet'}
-        subtitle={'Guia completo de Git para controle de versão e colaboração'}
+        title={'📁 Sistema de Arquivos Cheatsheet'}
+        subtitle={
+          'Comandos essenciais para gerenciamento de arquivos, diretórios e sistemas de arquivos'
+        }
       />
       <CardHeader
-        title={'🔀 O que é Git?'}
-        className={' border-orange-700'}
+        title={'📁 O que é Sistema de Arquivos?'}
+        className={' border-blue-700'}
         description_1={
           <>
-            <strong>Git</strong> é um sistema de controle de versão distribuído
-            criado por Linus Torvalds. Permite rastrear mudanças no código,
-            colaborar em projetos e manter histórico completo de
-            desenvolvimento.
+            <strong>Sistema de Arquivos</strong> é a estrutura que organiza e
+            gerencia como os dados são armazenados, acessados e manipulados em
+            dispositivos de armazenamento. Inclui operações de navegação,
+            criação, modificação e gerenciamento de permissões de arquivos e
+            diretórios.
           </>
         }
         description_2={
           <>
-            • Controle de versão distribuído <br /> • Branching e merging <br />
-            • Histórico completo <br /> • Colaboração em equipe <br /> •
-            Integração com plataformas remotas
+            • File and directory management <br /> • Permission and ownership
+            control <br />• Disk space management <br /> • File system
+            maintenance <br /> • Data backup and recovery
           </>
         }
         description_3={
           <>
-            • Desenvolvimento de software <br /> • Controle de versão de código{' '}
-            <br />• Colaboração em projetos <br /> • Deploy e CI/CD <br />•
-            Gerenciamento de configurações
+            • System administration <br /> • Data management <br />• Backup
+            operations <br /> • Security and permissions <br />• Storage
+            optimization
           </>
         }>
         <>
-          <strong className="text-[#f05032] text-[18px]">
+          <strong className="text-[#4CAF50] text-[18px]">
             💡 Onde você vai usar:
           </strong>
           <div className="where-grid">
             <div className="where-item">
-              💻 <strong>Desenvolvimento</strong>
+              📁 <strong>Files</strong>
               <br />
-              <span className="opacity-80 text-base ">Código, Projetos</span>
+              <span className="opacity-80 text-base ">Create, Copy, Move</span>
             </div>
             <div className="where-item">
-              🌐 <strong>Colaboração</strong>
+              🔧 <strong>System</strong>
               <br />
-              <span className="opacity-80 text-base ">GitHub, GitLab</span>
+              <span className="opacity-80 text-base ">Admin, Maintenance</span>
             </div>
             <div className="where-item">
-              ⚡ <strong>DevOps</strong>
+              🔒 <strong>Security</strong>
               <br />
-              <span className="opacity-80 text-base ">CI/CD, Deploy</span>
+              <span className="opacity-80 text-base ">
+                Permissions, Ownership
+              </span>
             </div>
             <div className="where-item">
-              🤖 <strong>Modern</strong>
+              💾 <strong>Storage</strong>
               <br />
-              <span className="opacity-80 text-base ">GitOps, IaC</span>
+              <span className="opacity-80 text-base ">
+                Disk, Backup, Recovery
+              </span>
             </div>
           </div>
         </>
       </CardHeader>
-
-      <div className="container mx-auto px-4 py-8">
+      <div>
         {/* Filtros de Nível */}
         <LevelFilter
           activeFilter={activeFilter}
@@ -157,7 +161,7 @@ export default function GitPage() {
         <SearchBar
           searchTerm={searchTerm}
           onSearch={setSearchTerm}
-          placeholder="Buscar comandos Git..."
+          placeholder="Buscar comandos de Sistema de Arquivos..."
           className="mb-6"
         />
 

@@ -5,7 +5,7 @@ export default function LinksOnGitBuyMyCoffe({ className }) {
     <div
       className={`flex flex-col md:flex-row items-center justify-center gap-5 ${className}`}>
       <Link
-        href="https://github.com/Genildocs/cheatsheet-bash"
+        href="https://github.com/blueprintblog/dev-cheat"
         target="_blank"
         rel="noopener noreferrer"
         title="Star cheatsheets.zip on GitHub"

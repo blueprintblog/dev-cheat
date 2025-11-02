@@ -11,11 +11,10 @@ import {
   useLevelFilter,
   useSearch,
 } from '@/components/universal';
-import { gitCommands } from '@/data/git-data';
+import { networkCommands } from '@/data/network-data';
 import Link from 'next/link';
-import { FaGitAlt } from 'react-icons/fa';
 
-export default function GitPage() {
+export default function PageNetwork() {
   const {
     activeFilter,
     filteredData: filteredByLevel,
@@ -23,7 +22,7 @@ export default function GitPage() {
     handleFilterChange,
     hasData,
     isEmpty: isEmptyLevel,
-  } = useLevelFilter(gitCommands);
+  } = useLevelFilter(networkCommands);
 
   // Hook para busca
   const {
@@ -44,7 +43,7 @@ export default function GitPage() {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="text-center text-slate-400">
-          <p>Carregando comandos Git...</p>
+          <p>Carregando comandos de Rede...</p>
         </div>
       </div>
     );
@@ -88,65 +87,68 @@ export default function GitPage() {
 
       <CardTitle
         className={'mb-5'}
-        icon={<FaGitAlt className="inline-block mr-2 " />}
-        title={'Git Cheatsheet'}
-        subtitle={'Guia completo de Git para controle de versão e colaboração'}
+        title={'🌐 Rede Avançada Cheatsheet'}
+        subtitle={
+          'Comandos essenciais para diagnóstico, análise e troubleshooting de redes'
+        }
       />
       <CardHeader
-        title={'🔀 O que é Git?'}
-        className={' border-orange-700'}
+        title={'🌐 O que é Rede Avançada?'}
+        className={' border-blue-700'}
         description_1={
           <>
-            <strong>Git</strong> é um sistema de controle de versão distribuído
-            criado por Linus Torvalds. Permite rastrear mudanças no código,
-            colaborar em projetos e manter histórico completo de
-            desenvolvimento.
+            <strong>Rede Avançada</strong> envolve o estudo e aplicação de
+            conceitos complexos de redes, incluindo protocolos avançados,
+            segurança, análise de tráfego, troubleshooting e otimização de
+            performance. Essencial para profissionais de TI, DevOps e
+            engenheiros de rede.
           </>
         }
         description_2={
           <>
-            • Controle de versão distribuído <br /> • Branching e merging <br />
-            • Histórico completo <br /> • Colaboração em equipe <br /> •
-            Integração com plataformas remotas
+            • Network troubleshooting <br /> • Traffic analysis and monitoring{' '}
+            <br />• Security and firewall management <br />• Load balancing and
+            VPN <br /> • Performance optimization
           </>
         }
         description_3={
           <>
-            • Desenvolvimento de software <br /> • Controle de versão de código{' '}
-            <br />• Colaboração em projetos <br /> • Deploy e CI/CD <br />•
-            Gerenciamento de configurações
+            • Data centers and infrastructure <br /> • Cloud networking <br />•
+            DevOps and container networking <br /> • Security analysis <br />•
+            Performance optimization
           </>
         }>
         <>
-          <strong className="text-[#f05032] text-[18px]">
+          <strong className="text-[#667eea] text-[18px]">
             💡 Onde você vai usar:
           </strong>
           <div className="where-grid">
             <div className="where-item">
-              💻 <strong>Desenvolvimento</strong>
+              🔍 <strong>Diagnosis</strong>
               <br />
-              <span className="opacity-80 text-base ">Código, Projetos</span>
+              <span className="opacity-80 text-base ">
+                Ping, Traceroute, DNS
+              </span>
             </div>
             <div className="where-item">
-              🌐 <strong>Colaboração</strong>
+              🔧 <strong>Analysis</strong>
               <br />
-              <span className="opacity-80 text-base ">GitHub, GitLab</span>
+              <span className="opacity-80 text-base ">tcpdump, Wireshark</span>
             </div>
             <div className="where-item">
-              ⚡ <strong>DevOps</strong>
+              🔒 <strong>Security</strong>
               <br />
-              <span className="opacity-80 text-base ">CI/CD, Deploy</span>
+              <span className="opacity-80 text-base ">Firewall, VPN, IPS</span>
             </div>
             <div className="where-item">
-              🤖 <strong>Modern</strong>
+              ⚡ <strong>Performance</strong>
               <br />
-              <span className="opacity-80 text-base ">GitOps, IaC</span>
+              <span className="opacity-80 text-base ">Load Balancing, QoS</span>
             </div>
           </div>
         </>
       </CardHeader>
-
-      <div className="container mx-auto px-4 py-8">
+      <div>
         {/* Filtros de Nível */}
         <LevelFilter
           activeFilter={activeFilter}
@@ -157,7 +159,7 @@ export default function GitPage() {
         <SearchBar
           searchTerm={searchTerm}
           onSearch={setSearchTerm}
-          placeholder="Buscar comandos Git..."
+          placeholder="Buscar comandos de Rede..."
           className="mb-6"
         />
 

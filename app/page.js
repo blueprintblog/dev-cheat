@@ -229,7 +229,7 @@ export default function Home() {
             <li>Jenkins</li>
             <li>Best practices</li>
           </ul>
-          <Link href="/cicd-pipelines" className="card-button">
+          <Link href="/cicd" className="card-button">
             Acessar Cheatsheet →
           </Link>
         </div>
@@ -250,7 +250,7 @@ export default function Home() {
             <li>Google Cloud Platform</li>
             <li>Serverless</li>
           </ul>
-          <Link href="/cloud-computing" className="card-button">
+          <Link href="/cloud" className="card-button">
             Acessar Cheatsheet →
           </Link>
         </div>
@@ -301,7 +301,7 @@ export default function Home() {
             <li>Compressão</li>
             <li>Backup e restore</li>
           </ul>
-          <a href="sistema-arquivos.html" className="card-button">
+          <a href="/filesystem" className="card-button">
             Acessar Cheatsheet →
           </a>
         </div>
@@ -323,7 +323,7 @@ export default function Home() {
             <li>Firewall e segurança</li>
             <li>VPN e túneis</li>
           </ul>
-          <a href="rede-avancada.html" className="card-button">
+          <a href="/network" className="card-button">
             Acessar Cheatsheet →
           </a>
         </div>
@@ -345,7 +345,7 @@ export default function Home() {
             <li>Scan de vulnerabilidades</li>
             <li>Monitoramento</li>
           </ul>
-          <a href="seguranca-devsecops.html" className="card-button">
+          <a href="/devsecops" className="card-button">
             Acessar Cheatsheet →
           </a>
         </div>

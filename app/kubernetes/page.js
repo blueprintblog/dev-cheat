@@ -11,11 +11,10 @@ import {
   useLevelFilter,
   useSearch,
 } from '@/components/universal';
-import { gitCommands } from '@/data/git-data';
+import { kubernetesCommands } from '@/data/kubernetes-data';
 import Link from 'next/link';
-import { FaGitAlt } from 'react-icons/fa';
 
-export default function GitPage() {
+export default function PageKubernetes() {
   const {
     activeFilter,
     filteredData: filteredByLevel,
@@ -23,7 +22,7 @@ export default function GitPage() {
     handleFilterChange,
     hasData,
     isEmpty: isEmptyLevel,
-  } = useLevelFilter(gitCommands);
+  } = useLevelFilter(kubernetesCommands);
 
   // Hook para busca
   const {
@@ -44,7 +43,7 @@ export default function GitPage() {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="text-center text-slate-400">
-          <p>Carregando comandos Git...</p>
+          <p>Carregando comandos Kubernetes...</p>
         </div>
       </div>
     );
@@ -88,65 +87,70 @@ export default function GitPage() {
 
       <CardTitle
         className={'mb-5'}
-        icon={<FaGitAlt className="inline-block mr-2 " />}
-        title={'Git Cheatsheet'}
-        subtitle={'Guia completo de Git para controle de versão e colaboração'}
+        title={'☸️ Kubernetes Cheatsheet'}
+        subtitle={
+          'Comandos essenciais para orquestração de containers e gerenciamento de clusters'
+        }
       />
       <CardHeader
-        title={'🔀 O que é Git?'}
-        className={' border-orange-700'}
+        title={'☸️ O que é Kubernetes?'}
+        className={' border-blue-700'}
         description_1={
           <>
-            <strong>Git</strong> é um sistema de controle de versão distribuído
-            criado por Linus Torvalds. Permite rastrear mudanças no código,
-            colaborar em projetos e manter histórico completo de
-            desenvolvimento.
+            <strong>Kubernetes</strong> é uma plataforma de orquestração de
+            containers open-source que automatiza o deployment, scaling e
+            management de aplicações containerizadas. Ele fornece um framework
+            para executar sistemas distribuídos de forma resiliente, com
+            escalabilidade e auto-recuperação.
           </>
         }
         description_2={
           <>
-            • Controle de versão distribuído <br /> • Branching e merging <br />
-            • Histórico completo <br /> • Colaboração em equipe <br /> •
-            Integração com plataformas remotas
+            • Orquestração de containers <br /> • Auto-scaling e load balancing{' '}
+            <br />• Service discovery e storage orchestration <br /> • Rollouts
+            e rollbacks automatizados <br /> • Configuração e secrets management
           </>
         }
         description_3={
           <>
-            • Desenvolvimento de software <br /> • Controle de versão de código{' '}
-            <br />• Colaboração em projetos <br /> • Deploy e CI/CD <br />•
-            Gerenciamento de configurações
+            • Microserviços e APIs <br /> • CI/CD pipelines <br />• Cloud Native
+            applications <br /> • High availability systems <br />• Multi-cloud
+            deployments
           </>
         }>
         <>
-          <strong className="text-[#f05032] text-[18px]">
+          <strong className="text-[#326CE5] text-[18px]">
             💡 Onde você vai usar:
           </strong>
           <div className="where-grid">
             <div className="where-item">
-              💻 <strong>Desenvolvimento</strong>
+              ☸️ <strong>Clusters</strong>
               <br />
-              <span className="opacity-80 text-base ">Código, Projetos</span>
+              <span className="opacity-80 text-base ">
+                Pods, Services, Deployments
+              </span>
             </div>
             <div className="where-item">
-              🌐 <strong>Colaboração</strong>
+              🔧 <strong>DevOps</strong>
               <br />
-              <span className="opacity-80 text-base ">GitHub, GitLab</span>
+              <span className="opacity-80 text-base ">CI/CD, GitOps</span>
             </div>
             <div className="where-item">
-              ⚡ <strong>DevOps</strong>
+              ☁️ <strong>Cloud</strong>
               <br />
-              <span className="opacity-80 text-base ">CI/CD, Deploy</span>
+              <span className="opacity-80 text-base ">EKS, GKE, AKS</span>
             </div>
             <div className="where-item">
-              🤖 <strong>Modern</strong>
+              ⚡ <strong>Scaling</strong>
               <br />
-              <span className="opacity-80 text-base ">GitOps, IaC</span>
+              <span className="opacity-80 text-base ">
+                Auto-scaling, Load Balancing
+              </span>
             </div>
           </div>
         </>
       </CardHeader>
-
-      <div className="container mx-auto px-4 py-8">
+      <div>
         {/* Filtros de Nível */}
         <LevelFilter
           activeFilter={activeFilter}
@@ -157,7 +161,7 @@ export default function GitPage() {
         <SearchBar
           searchTerm={searchTerm}
           onSearch={setSearchTerm}
-          placeholder="Buscar comandos Git..."
+          placeholder="Buscar comandos Kubernetes..."
           className="mb-6"
         />
 

@@ -1,0 +1,530 @@
+# Changelog
+
+Este documento registra todas as mudanças significativas implementadas no projeto de Cheatsheets.
+
+## [v4.0.0] - 2025-11-02
+
+### 🚀 Arquitetura Universal Refatorada
+
+#### Novos Componentes Universais
+
+- **CommandCard Component** (`components/universal/CommandCard.js`):
+
+  - Sistema de cópia de comandos com fallback para navegadores antigos
+  - Indicadores visuais de nível (básico, intermediário, avançado)
+  - Design responsivo com efeitos hover e feedback visual
+  - Suporte para modo compacto e personalização via props
+
+- **LevelFilter Component** (`components/universal/LevelFilter.js`):
+
+  - Filtros visuais por nível de dificuldade
+  - Interface desktop com botões estilizados
+  - Menu mobile responsivo com dropdown
+  - Persistência de estado no localStorage
+  - Indicadores visuais de filtro ativo
+
+- **SearchBar Component** (`components/universal/SearchBar.js`):
+
+  - Busca em tempo real com debounce configurável
+  - Interface limpa com ícones intuitivos
+  - Suporte a teclas de atalho (ESC para limpar)
+  - Feedback visual de foco e resultados
+
+- **ResponsiveGrid Component** (`components/universal/ResponsiveGrid.js`):
+  - Grid responsivo adaptativo para diferentes telas
+  - Configurações de breakpoints personalizáveis
+  - Otimização para mobile e desktop
+
+#### Hooks Personalizados
+
+- **useLevelFilter Hook** (`hooks/useLevelFilter.js`):
+
+  - Gerenciamento de estado para filtros por nível
+  - Persistência no localStorage
+  - Estatísticas de contagem por nível
+  - Funções utilitárias para reset e controle
+
+- **useSearch Hook** (`hooks/useSearch.js`):
+  - Busca avançada com múltiplos campos configuráveis
+  - Suporte a busca case-sensitive/insensitive
+  - Estatísticas detalhadas de busca
+  - Comprimento mínimo de busca configurável
+
+### 🎨 Sistema de Design Unificado
+
+#### Padrões Visuais Implementados
+
+- **Cores Temáticas por Categoria**:
+
+  - Bash: Verde (#2ecc71)
+  - Git: Laranja (#e74c3c)
+  - JavaScript: Amarelo (#f7df1e)
+  - Docker: Azul (#3498db)
+  - Python: Azul (#3776ab)
+  - PowerShell: Azul (#5392ba)
+  - Linux: Laranja (#d35400)
+  - Scripts: Roxo (#9b59b6)
+
+- **Bordas Personalizadas**:
+  - Cada categoria tem sua borda característica nos CardHeaders
+  - Classe `category-header` padronizada para todos os cabeçalhos
+  - Consistência visual entre todas as páginas
+
+#### Cards Explicativos
+
+- **CardHeader Component** aprimorado com:
+  - Descrições detalhadas de cada tecnologia
+  - Seções "Onde você vai usar" com ícones e aplicações práticas
+  - Grid responsivo para exibição de casos de uso
+  - Cores temáticas consistentes
+
+### 📱 Navegação e Responsividade
+
+#### Header.js Refatorado
+
+- **Menu Desktop**: Navegação horizontal completa com todos os links
+- **Menu Mobile**: Dropdown responsivo com todas as opções
+- **Links Implementados**:
+  - Home (/)
+  - Bash (/bash)
+  - Git (/git)
+  - Docker (/docker)
+  - Scripts (/scripts)
+  - JavaScript (/javascript)
+  - Python (/python)
+  - PowerShell (/powershell)
+  - Linux (/linux)
+
+#### Design Responsivo
+
+- Breakpoints otimizados para mobile, tablet e desktop
+- Componentes adaptativos com diferentes layouts
+- Menu hambúrguer para dispositivos móveis
+- Grids responsivos com colunas dinâmicas
+
+### 🔧 Estrutura de Dados Padronizada
+
+#### Formato Consistente
+
+- **Níveis Padronizados**: "iniciante" → "básico" em todos os arquivos
+- **Estrutura de Categorias**: title, useCase, level, sections, tip
+- **Sections**: Organização lógica dos comandos por funcionalidade
+- **Comandos**: Estrutura com command, comment, level
+
+#### Arquivos de Dados
+
+- `data/bash-data.js` - Comandos Bash com níveis padronizados
+- `data/docker-data.js` - Docker e Docker Compose expandido
+- `data/git-data.js` - Comandos Git extraídos do HTML
+- `data/javascript-data.js` - JavaScript ES6+ e Node.js
+- `data/linux-data.js` - Administração de sistemas Linux
+- `data/powershell-data.js` - PowerShell para Windows
+- `data/python-data.js` - Python 3.x e ecossistema
+- `data/scripts-data.js` - Scripts utilitários extraídos do HTML
+
+### 🌟 Funcionalidades Avançadas
+
+#### Sistema de Filtros
+
+- **Filtro por Nível**: Básico, Intermediário, Avançado, Todos
+- **Busca em Tempo Real**: Com debounce e estatísticas
+- **Combinação de Filtros**: Busca + nível simultâneos
+- **Persistência**: Estado salvo no localStorage
+
+#### Experiência do Usuário
+
+- **Feedback Visual**: Animações, transições e estados hover
+- **Cópia de Comandos**: Com feedback visual de sucesso
+- **Estatísticas**: Contadores de comandos e categorias
+- **Estado Vazio**: Mensagens informativas quando não há resultados
+
+### 🏗️ Arquitetura de Componentes
+
+#### Estrutura Modular
+
+```
+components/
+├── cards/           # Cards especializados
+├── layout/          # Header, Footer
+└── universal/       # Componentes reutilizáveis
+    ├── CommandCard.js
+    ├── LevelFilter.js
+    ├── SearchBar.js
+    ├── ResponsiveGrid.js
+    ├── Toast.js
+    └── index.js     # Exportações centralizadas
+```
+
+#### Hooks Personalizados
+
+```
+hooks/
+├── useLevelFilter.js    # Gerenciamento de filtros
+└── useSearch.js         # Funcionalidades de busca
+```
+
+### 📊 Estatísticas do Projeto
+
+- **Total de Cheatsheets**: 14 (Bash, Git, JavaScript, Scripts, Docker, Python, PowerShell, Linux, Kubernetes, DevSecOps, CI/CD, Cloud, Filesystem, Network)
+- **Total de Comandos**: 2000+ comandos organizados por nível e categoria
+- **Componentes Universais**: 5 componentes reutilizáveis
+- **Hooks Personalizados**: 2 hooks para funcionalidades avançadas
+- **Cobertura**:
+  - ✅ Desenvolvimento Web (JavaScript, Python)
+  - ✅ Controle de Versão (Git)
+  - ✅ Sistemas Operacionais (Bash/Linux, PowerShell)
+  - ✅ DevOps/Infraestrutura (Docker, Kubernetes, CI/CD)
+  - ✅ Automação (Scripts)
+  - ✅ Cloud Computing (AWS, Azure, GCP)
+  - ✅ Segurança (DevSecOps)
+  - ✅ Redes (Network)
+  - ✅ Sistemas de Arquivos (Filesystem)
+
+### 🔄 Melhorias Técnicas
+
+- **Performance**: Otimização de renderização com useMemo
+- **Acessibilidade**: Componentes com navegação por teclado
+- **Código**: Arquitetura modular e reutilizável
+- **Documentação**: Componentes e hooks documentados com JSDoc
+
+### 🌐 Novas Cheatsheets Adicionadas
+
+#### ☸️ Kubernetes Cheatsheet
+
+- **Arquivo**: `data/kubernetes-data.js` e `app/kubernetes/page.js`
+- **Conteúdo**:
+  - **Comandos Básicos**: kubectl get, describe, create, apply, delete
+  - **Pods e Contêineres**: logs, exec, port-forward, top
+  - **Serviços e Networking**: expose, ingress, network policies
+  - **ConfigMaps e Secrets**: create, edit, from-file, from-literal
+  - **Deployments**: rollout, scale, history, undo, status
+  - **Volumes e Storage**: persistent volumes, storage classes
+  - **Namespaces**: create, switch, context, quota
+  - **Cluster Management**: cluster-info, top nodes, cordon, drain
+  - **Monitoramento e Debug**: events, logs, debug, troubleshooting
+  - **Helm**: install, upgrade, rollback, repo, values
+- **Design**: Tema azul (#326ce5) característico do Kubernetes
+- **Funcionalidades**: Sistema de filtros, busca, cópia de comandos
+
+#### 🔒 DevSecOps Cheatsheet
+
+- **Arquivo**: `data/devsecops-data.js` e `app/devsecops/page.js`
+- **Conteúdo**:
+  - **Varredura de Vulnerabilidades**: Nessus, OpenVAS, Nikto, OWASP ZAP
+  - **Análise Estática**: SonarQube, ESLint, Bandit, Semgrep
+  - **Segurança de Contêineres**: Trivy, Clair, Docker Bench, Falco
+  - **Hardening de Sistemas**: Lynis, SSH hardening, sysctl
+  - **Monitoramento de Segurança**: OSSEC, Wazuh, ELK Stack
+  - **Criptografia**: GPG, OpenSSL, certificados, chaves SSH
+  - **Firewall e Redes**: iptables, UFW, nftables, fail2ban
+  - **Auditoria e Logs**: auditd, journalctl, log analysis
+  - **Segurança em CI/CD**: GitHub Actions, GitLab CI, Jenkins
+  - **Testes de Invasão**: Metasploit, Burp Suite, SQLMap
+- **Design**: Tema vermelho (#e74c3c) característico de segurança
+- **Funcionalidades**: Sistema de filtros, busca, cópia de comandos
+
+#### 🔄 CI/CD Pipelines Cheatsheet
+
+- **Arquivo**: `data/cicd-data.js` e `app/cicd/page.js`
+- **Conteúdo**:
+  - **Jenkins**: Pipeline, stages, steps, plugins, Blue Ocean
+  - **GitHub Actions**: Workflows, actions, secrets, runners
+  - **GitLab CI**: .gitlab-ci.yml, stages, jobs, artifacts
+  - **Azure DevOps**: Pipelines, releases, agents, variables
+  - **Docker em CI/CD**: build, push, multi-stage, caching
+  - **Testes Automatizados**: unitários, integração, E2E, cobertura
+  - **Deploy**: canary, blue-green, rolling, A/B testing
+  - **Monitoramento**: métricas, alertas, notificações
+  - **Infraestrutura como Código**: Terraform, Ansible, CloudFormation
+  - **Segurança em CI/CD**: SAST, DAST, scanning de dependências
+- **Design**: Tema roxo (#9b59b6) característico de automação
+- **Funcionalidades**: Sistema de filtros, busca, cópia de comandos
+
+#### ☁️ Cloud Computing Cheatsheet
+
+- **Arquivo**: `data/cloud-data.js` e `app/cloud/page.js`
+- **Conteúdo**:
+  - **AWS**: EC2, S3, RDS, Lambda, CloudFormation, IAM
+  - **Azure**: VMs, Storage, SQL Database, Functions, ARM Templates
+  - **GCP**: Compute Engine, Cloud Storage, Cloud SQL, Cloud Functions
+  - **Contêineres na Nuvem**: ECS, EKS, AKS, GKE, Container Registry
+  - **Serverless**: Lambda, Functions, Cloud Run, App Engine
+  - **Bancos de Dados**: RDS, DocumentDB, Cosmos DB, Cloud SQL
+  - **Redes e CDN**: VPC, Load Balancers, CloudFront, CDN
+  - **Monitoramento**: CloudWatch, Monitor, Stackdriver, alertas
+  - **Segurança**: IAM, Security Center, IAM, VPC Security Groups
+  - **Custos e Otimização**: Cost Explorer, Budgets, Reserved Instances
+- **Design**: Tema laranja (#f39c12) característico de cloud
+- **Funcionalidades**: Sistema de filtros, busca, cópia de comandos
+
+#### 📁 Filesystem Cheatsheet
+
+- **Arquivo**: `data/filesystem-data.js` e `app/filesystem/page.js`
+- **Conteúdo**:
+  - **Navegação**: ls, cd, pwd, find, locate, tree
+  - **Criação e Remoção**: mkdir, rmdir, rm, touch, truncate
+  - **Cópia e Movimentação**: cp, mv, rsync, scp
+  - **Permissões**: chmod, chown, chgrp, ACL, umask
+  - **Links Simbólicos**: ln, readlink, symlink
+  - **Busca e Filtros**: grep, find, locate, which, whereis
+  - **Compactação**: tar, gzip, zip, unzip, 7z
+  - **Informações de Arquivos**: file, stat, du, df, lsblk
+  - **Montagem**: mount, umount, fstab, automount
+  - **Recuperação de Dados**: testdisk, photorec, fsck
+- **Design**: Tema verde (#27ae60) característico de sistemas de arquivos
+- **Funcionalidades**: Sistema de filtros, busca, cópia de comandos
+
+#### 🌐 Network Cheatsheet
+
+- **Arquivo**: `data/network-data.js` e `app/network/page.js`
+- **Conteúdo**:
+  - **Configuração Básica**: ip, ifconfig, netstat, ss
+  - **Resolução DNS**: dig, nslookup, host, resolv.conf
+  - **Conectividade**: ping, traceroute, mtr, telnet, nc
+  - **Transferência de Arquivos**: scp, rsync, wget, curl, ftp
+  - **Firewall**: iptables, ufw, firewalld, nftables
+  - **Monitoramento**: tcpdump, wireshark, nmap, netstat
+  - **Redes Sem Fio**: iwconfig, wpa_supplicant, hostapd
+  - **VPN**: OpenVPN, WireGuard, IPSec, SSH tunneling
+  - **HTTP/HTTPS**: curl, wget, httpie, POSTMAN
+  - **Troubleshooting**: arp, route, ethtool, mtr
+- **Design**: Tema azul claro (#3498db) característico de redes
+- **Funcionalidades**: Sistema de filtros, busca, cópia de comandos
+
+### 🔧 Melhorias nos Dados
+
+#### Padrão de Comentários
+
+- **Padronização**: Adicionado `#` antes de todos os comentários nos arquivos de dados
+- **Consistência**: Todos os arquivos seguem agora o mesmo padrão de comentários
+- **Arquivos Atualizados**:
+  - `data/kubernetes-data.js`
+  - `data/devsecops-data.js`
+  - `data/cicd-data.js`
+  - `data/cloud-data.js`
+  - `data/filesystem-data.js`
+  - `data/network-data.js`
+
+---
+
+## [v3.0.0] - 2025-11-01
+
+### 🐳 Docker Cheatsheet (Expandida)
+
+#### Novidades Implementadas
+
+- **Docker Compose Expandido** com 8 novas categorias:
+  - **Comandos Básicos**: up, down, build, scale, opções avançadas
+  - **Parar e Remover**: down, stop, rm, timeout, órfãos
+  - **Logs e Execução**: logs, exec, tail, since, usuário específico
+  - **Build e Scale**: build, pull, config, ps, paralelo, múltiplos
+  - **Variáveis de Ambiente**: inline, arquivo, configuração, verificação
+  - **Volumes e Redes**: drivers, listagem, conectividade, compartilhamento
+  - **Dependências e Serviços**: no-deps, restart, pause, kill, scale
+  - **Configuração Avançada**: arquivos, compatibilidade, perfis, resolução
+  - **Integração e CI/CD**: testes, ambiente CI, lint, migrations
+  - **Docker Compose V2**: comandos modernos, watch, convert, JSON
+
+#### Comandos Adicionados (50+ novos)
+
+- `docker-compose up --remove-orphans` - Remove órfãos
+- `docker-compose up --no-deps` - Sem dependências
+- `docker-compose up --timeout 30` - Timeout customizado
+- `docker-compose down --rmi all` - Remove imagens
+- `docker-compose logs --tail 50 backend` - Últimas 50 linhas
+- `docker-compose logs --since="1h" backend` - Última hora
+- `docker-compose exec -T backend ls -la` - Sem TTY
+- `docker-compose exec -u root backend bash` - Como usuário específico
+- `docker-compose up -d --scale backend=3` - 3 instâncias
+- `docker-compose build --parallel` - Build paralelo
+- `docker-compose --profile dev up` - Perfil específico
+- `docker compose version` - Versão V2
+- `docker compose watch` - Modo watch
+- `docker compose alpha convert` - Converter para V2
+
+#### Melhorias Técnicas
+
+- **Organização**: Categorias bem estruturadas e progressivas
+- **Documentação**: Comentários detalhados para cada comando
+- **Cobertura**: Desde básico até avançado/CI-CD
+- **Compatibilidade**: Suporte para Docker Compose V1 e V2
+
+---
+
+## [v2.0.0] - 2025-01-30
+
+### 🆕 Novas Cheatsheets
+
+#### 🐍 Python Cheatsheet
+
+- **Arquivo**: `data/python-data.js` e `app/python/page.js`
+- **Conteúdo**:
+  - Variáveis e Tipos (declaração, tipos primitivos, conversão)
+  - Estruturas de Dados (listas, tuplas, dicionários)
+  - Estruturas de Controle (if/else, loops, break/continue)
+  - Funções (definição, lambda, decoradores, built-ins)
+  - Programação Orientada a Objetos (classes, herança, métodos especiais)
+  - Módulos e Pacotes (importação, pip, criação)
+  - Tratamento de Erros (try/except, finally, exceções personalizadas)
+  - Manipulação de Arquivos (leitura, escrita, pathlib)
+  - List Comprehensions (básicas, aninhadas, com funções)
+  - Geradores e Iteradores (geradores, iteradores, itertools)
+  - Decoradores Avançados (com parâmetros, de classe, singleton)
+  - Programação Funcional (funções ordem superior, map/filter/reduce)
+  - Testes Unitários (unittest, pytest, mock, fixtures)
+  - Performance e Otimização (profiling, otimizações, memória)
+- **Design**: Tema azul (#3776ab) característico do Python
+- **Funcionalidades**: Botões de cópia, cards interativos, design responsivo
+
+#### 💻 PowerShell Cheatsheet
+
+- **Arquivo**: `data/powershell-data.js` e `app/powershell/page.js`
+- **Conteúdo**:
+  - Comandos Básicos (navegação, informações do sistema, ajuda)
+  - Gerenciamento de Arquivos (criação, cópia, leitura/escrita)
+  - Variáveis e Tipos (declaração, arrays, hashtables)
+  - Estruturas de Controle (if/else, loops, switch)
+  - Funções e Scripts (definição, parâmetros, módulos)
+  - Pipeline e Operadores (pipeline, comparação, lógicos, Select-Object)
+  - Gerenciamento de Processos (listar, iniciar/parar, serviços)
+  - Rede e Conectividade (informações, configuração, HTTP)
+  - Active Directory (usuários, grupos, consultas)
+  - Segurança e Permissões (políticas, certificados, ACL)
+  - Automação e Agendamento (tarefas, jobs, workflows)
+  - WMI e CIM (consultas, monitoramento)
+- **Design**: Tema azul (#5392ba) característico do PowerShell/Windows
+- **Funcionalidades**: Botões de cópia, cards interativos, design responsivo
+
+#### 🐧 Linux Cheatsheet (Completa)
+
+- **Arquivo**: `data/linux-data.js` e `app/linux/page.js`
+- **Conteúdo**:
+  - Sistema e Informações (kernel, hardware, módulos)
+  - Gerenciamento de Pacotes (APT, YUM/DNF, Pacman, Snap)
+  - Usuários e Permissões (gerenciamento, básicas, avançadas, ACL)
+  - Processos e Serviços (gerenciamento, monitoramento, systemd)
+  - Rede e Conectividade (configuração, diagnóstico, ferramentas, firewall)
+  - Sistema de Arquivos (estrutura, links, montagem, quotas)
+  - Compressão e Backup (tar/gzip, zip, rsync, backup completo)
+  - Monitoramento e Logs (visualização, systemd, recursos, alertas)
+  - Segurança (hardening, SSH, criptografia, análise)
+  - Virtualização e Containers (KVM/QEMU, Docker básico/avançado, Podman)
+  - Scripting e Automação (Bash, processamento texto, cron, ferramentas)
+- **Design**: Tema laranja (#d35400) característico do Linux
+- **Funcionalidades**: Botões de cópia, cards interativos, design responsivo
+
+### 🏠 Página Principal Atualizada
+
+- **Arquivo**: `app/page.js`
+- **Novidades**:
+  - Adicionado card **Python** com ícone e descrição
+  - Adicionado card **PowerShell** com ícone e descrição
+  - Reorganização dos cards em categorias claras
+  - Importação dos ícones necessários (FaPython, FaWindows)
+
+### 🧭 Navegação Atualizada
+
+- **Arquivo**: `components/layout/Header.js`
+- **Novidades**:
+  - Adicionado link para **Python** (🐍)
+  - Adicionado link para **PowerShell** (💻)
+  - Adicionado link para **Linux** (🐧)
+  - Navegação completa para todas as cheatsheets
+
+### 🎨 Design e Funcionalidades
+
+- **Padronização**: Todas as páginas seguem o mesmo padrão de design
+- **Cores Temáticas**: Cada cheatsheet tem sua cor característica
+  - Bash: Verde (#2ecc71)
+  - Git: Vermelho (#e74c3c)
+  - JavaScript: Amarelo (#f7df1e)
+  - Docker: Azul (#3498db)
+  - Python: Azul (#3776ab)
+  - PowerShell: Azul (#5392ba)
+  - Linux: Laranja (#d35400)
+- **Funcionalidades Comuns**:
+  - Botões de cópia para todos os comandos
+  - Cards interativos com efeitos hover
+  - Design responsivo para mobile/desktop
+  - Seções introdutórias informativas
+  - Grid responsivo para organização
+
+### 📊 Estatísticas do Projeto
+
+- **Total de Cheatsheets**: 8 (Bash, Git, JavaScript, Scripts, Docker, Python, PowerShell, Linux)
+- **Total de Comandos**: 800+ comandos organizados
+- **Cobertura**:
+  - ✅ Desenvolvimento Web (JavaScript, Python)
+  - ✅ Controle de Versão (Git)
+  - ✅ Sistemas Operacionais (Bash/Linux, PowerShell)
+  - ✅ DevOps/Infraestrutura (Docker)
+  - ✅ Automação (Scripts)
+
+### 🔄 Melhorias Técnicas
+
+- **Performance**: Otimização do carregamento de dados
+- **Acessibilidade**: Melhorias na navegação e usabilidade
+- **Código**: Padronização de estrutura e organização
+- **Documentação**: Changelog detalhado para rastreabilidade
+
+---
+
+## [v1.0.0] - Versão Inicial
+
+- Cheatsheets básicas: Bash, Git, JavaScript, Scripts, Docker
+- Estrutura inicial do projeto
+- Design responsivo e moderno
+
+---
+
+## 🚧 Roadmap Futuro
+
+### Próximas Implementações Planejadas
+
+- [ ] Banco de Dados Cheatsheet
+- [ ] Ferramentas de Monitoramento Cheatsheet
+- [ ] Machine Learning Cheatsheet
+- [ ] Blockchain Cheatsheet
+- [ ] IoT (Internet of Things) Cheatsheet
+- [ ] API Development Cheatsheet
+
+### Melhorias Planejadas
+
+- [ ] Sistema de busca entre comandos
+- [ ] Modo escuro/claro
+- [ ] Exportação de cheatsheets para PDF
+- [ ] Contribuições da comunidade
+- [ ] Sistema de favoritos
+- [ ] Integração com ferramentas externas
+
+---
+
+## 🤝 Contribuição
+
+Este projeto é open source e aceita contribuições da comunidade. Para contribuir:
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature
+3. Implemente as mudanças seguindo os padrões estabelecidos
+4. Adicione entrada neste CHANGELOG
+5. Abra um Pull Request
+
+### Padrões Estabelecidos
+
+- Estrutura de dados consistente em `data/*-data.js`
+- Design padronizado com cores temáticas
+- Funcionalidades obrigatórias: botões de cópia, responsividade
+- Documentação adequada e comentários nos comandos
+
+---
+
+## 📝 Notas de Versão
+
+- **v4.0.0**: Versão com expansão para DevOps, Cloud e Segurança
+- **v3.0.0**: Versão com arquitetura universal refatorada
+- **v2.1.0**: Versão com Docker Compose expandido
+- **v2.0.0**: Versão de expansão com Python, PowerShell e Linux completo
+- **v1.8.0**: Versão estável com cheatsheets essenciais
+- **v1.0.0**: Versão inicial do projeto
+
+Para informações detalhadas sobre cada versão, consulte as releases no GitHub.
