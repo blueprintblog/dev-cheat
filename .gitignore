@@ -43,3 +43,6 @@ next-env.d.ts
 # temp directories
 .roo/
 .temp/
+
+# HTML source files (converted to data/js)
+*.html

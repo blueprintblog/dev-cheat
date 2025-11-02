@@ -1,3 +1,5 @@
+'use client';
+
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import {
@@ -80,8 +82,37 @@ export default function Header({ className = '' }) {
             </h1>
           </Link>
         </div>
-        <div>
-          <Link href={'/docker'}>Docker</Link>
+        <nav className="hidden md:flex items-center space-x-4">
+          {navLink.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-white hover:text-blue-300 transition-colors duration-200 flex items-center gap-2">
+              <span className="text-lg">{link.icon}</span>
+              <span className="capitalize">{link.name}</span>
+            </Link>
+          ))}
+        </nav>
+
+        {/* Menu Mobile */}
+        <div className="md:hidden">
+          <select
+            className="bg-transparent text-white border border-white rounded px-2 py-1"
+            onChange={(e) => {
+              if (e.target.value) {
+                window.location.href = e.target.value;
+              }
+            }}
+            defaultValue="">
+            <option value="" disabled>
+              Menu
+            </option>
+            {navLink.map((link) => (
+              <option key={link.name} value={link.href}>
+                {link.name}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
     </header>
