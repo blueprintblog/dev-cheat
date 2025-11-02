@@ -15,6 +15,8 @@ import { MdOutlineSecurity } from 'react-icons/md';
 import { GoFileSubmodule } from 'react-icons/go';
 import { FaPython } from 'react-icons/fa';
 import { FaWindows } from 'react-icons/fa';
+import { FaHtml5 } from 'react-icons/fa';
+import { FaCss3Alt } from 'react-icons/fa';
 import Link from 'next/link';
 
 export default function Home() {
@@ -159,6 +161,48 @@ export default function Home() {
             <li>Web e automação</li>
           </ul>
           <Link href="/python" className="card-button">
+            Acessar Cheatsheet →
+          </Link>
+        </div>
+        <div
+          className="cheatsheet-card html"
+          data-category="development"
+          data-tags="html web frontend">
+          <span className="text-5xl block mb-5">
+            <FaHtml5 className="text-[#e34c26]" />
+          </span>
+          <h3 className="card-hub-title">HTML5</h3>
+          <p className="card-description">
+            Estrutura semântica e elementos modernos para desenvolvimento web
+          </p>
+          <ul className="card-features">
+            <li>Estrutura básica</li>
+            <li>Elementos semânticos</li>
+            <li>Formulários avançados</li>
+            <li>Multimídia e acessibilidade</li>
+          </ul>
+          <Link href="/html" className="card-button">
+            Acessar Cheatsheet →
+          </Link>
+        </div>
+        <div
+          className="cheatsheet-card css"
+          data-category="development"
+          data-tags="css web frontend design">
+          <span className="text-5xl block mb-5">
+            <FaCss3Alt className="text-[#1572b6]" />
+          </span>
+          <h3 className="card-hub-title">CSS3</h3>
+          <p className="card-description">
+            Estilização moderna, layouts responsivos e animações avançadas
+          </p>
+          <ul className="card-features">
+            <li>Seletores e box model</li>
+            <li>Flexbox e Grid</li>
+            <li>Animações e transições</li>
+            <li>Design responsivo</li>
+          </ul>
+          <Link href="/css" className="card-button">
             Acessar Cheatsheet →
           </Link>
         </div>

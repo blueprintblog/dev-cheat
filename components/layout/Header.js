@@ -4,10 +4,12 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import {
   FaCloud,
+  FaCss3Alt,
   FaDev,
   FaDocker,
   FaFolder,
   FaGitAlt,
+  FaHtml5,
   FaHome,
   FaLinux,
   FaNetworkWired,
@@ -95,6 +97,16 @@ export default function Header({ className = '' }) {
       name: 'linux',
       href: '/linux',
       icon: <FaLinux />,
+    },
+    {
+      name: 'css',
+      href: '/css',
+      icon: <FaCss3Alt />,
+    },
+    {
+      name: 'html',
+      href: '/html',
+      icon: <FaHtml5 />,
     },
   ];
 

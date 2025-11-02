@@ -2,6 +2,74 @@
 
 Este documento registra todas as mudanças significativas implementadas no projeto de Cheatsheets.
 
+## [v4.1.0] - 2025-11-02
+
+### 🌐 Novas Cheatsheets Web
+
+#### 📄 HTML5 Cheatsheet
+
+- **Arquivo**: `data/html-data.js` e `app/html/page.js`
+- **Conteúdo**:
+  - **Estrutura Básica**: DOCTYPE, head, body, metadados essenciais
+  - **Elementos Semânticos**: header, nav, main, section, article, aside, footer
+  - **Listas e Tabelas**: ul, ol, dl, table, thead, tbody, tfoot
+  - **Formulários**: inputs, selects, textareas, validação HTML5
+  - **Formulários Avançados**: date, time, color, range, file, datalist
+  - **Multimídia**: audio, video, canvas, svg, picture
+  - **Metadados e SEO**: meta tags, Open Graph, Twitter Cards
+  - **Acessibilidade**: ARIA attributes, roles, navegação por teclado
+- **Design**: Tema laranja (#e34c26) característico do HTML5
+- **Funcionalidades**: Sistema de filtros, busca, cópia de comandos
+
+#### 🎨 CSS3 Cheatsheet
+
+- **Arquivo**: `data/css-data.js` e `app/css/page.js`
+- **Conteúdo**:
+  - **Seletores Básicos**: elemento, classe, ID, combinados
+  - **Box Model**: width, height, margin, padding, border
+  - **Tipografia**: font-family, font-size, font-weight, text-align
+  - **Cores e Fundos**: cores, gradientes, imagens de fundo
+  - **Layout e Posicionamento**: display, position, float, clear
+  - **Flexbox**: container, itens, alinhamento, wrapping
+  - **CSS Grid**: template areas, posicionamento, alinhamento
+  - **Responsividade**: media queries, unidades responsivas
+  - **Animações e Transições**: transform, transition, keyframes
+  - **Pseudo-classes e Pseudo-elementos**: hover, active, ::before, ::after
+  - **Propriedades Avançadas**: filtros, sombras, clipping
+  - **CSS Custom Properties**: variáveis, fallback, temas dinâmicos
+- **Design**: Tema azul (#1572b6) característico do CSS3
+- **Funcionalidades**: Sistema de filtros, busca, cópia de comandos
+
+### 🏠 Página Principal Atualizada
+
+#### Novos Cards na Categoria "Desenvolvimento & Programação"
+
+- **HTML5 Card**: Com ícone FaHtml5 e descrição completa
+- **CSS3 Card**: Com ícone FaCss3Alt e descrição completa
+- **Categorias Reorganizadas**: HTML5 e CSS3 integradas na seção de desenvolvimento web
+
+### 🔧 Navegação Atualizada
+
+#### Header.js Expandido
+
+- **Novos Links**:
+  - HTML5 (/html) com ícone FaHtml5
+  - CSS3 (/css) com ícone FaCss3Alt
+- **Menu Completo**: Agora com 16 cheatsheets acessíveis
+
+### 📊 Estatísticas Atualizadas
+
+- **Total de Cheatsheets**: 16 (adicionadas HTML5 e CSS3)
+- **Total de Comandos**: 2500+ comandos organizados
+- **Cobertura Web Completa**:
+  - ✅ Estrutura (HTML5)
+  - ✅ Estilização (CSS3)
+  - ✅ Interatividade (JavaScript)
+  - ✅ Backend (Python, Node.js)
+  - ✅ Controle de Versão (Git)
+
+---
+
 ## [v4.0.0] - 2025-11-02
 
 ### 🚀 Arquitetura Universal Refatorada
@@ -165,12 +233,12 @@ hooks/
 
 ### 📊 Estatísticas do Projeto
 
-- **Total de Cheatsheets**: 14 (Bash, Git, JavaScript, Scripts, Docker, Python, PowerShell, Linux, Kubernetes, DevSecOps, CI/CD, Cloud, Filesystem, Network)
-- **Total de Comandos**: 2000+ comandos organizados por nível e categoria
+- **Total de Cheatsheets**: 16 (Bash, Git, JavaScript, Scripts, Docker, Python, PowerShell, Linux, Kubernetes, DevSecOps, CI/CD, Cloud, Filesystem, Network, HTML5, CSS3)
+- **Total de Comandos**: 2500+ comandos organizados por nível e categoria
 - **Componentes Universais**: 5 componentes reutilizáveis
 - **Hooks Personalizados**: 2 hooks para funcionalidades avançadas
 - **Cobertura**:
-  - ✅ Desenvolvimento Web (JavaScript, Python)
+  - ✅ Desenvolvimento Web Completo (HTML5, CSS3, JavaScript, Python)
   - ✅ Controle de Versão (Git)
   - ✅ Sistemas Operacionais (Bash/Linux, PowerShell)
   - ✅ DevOps/Infraestrutura (Docker, Kubernetes, CI/CD)

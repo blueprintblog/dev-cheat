@@ -176,6 +176,18 @@
   --card-color-light: #007acc;
 }
 
+@utility css {
+  border-color: #2731f5;
+  --card-color: #2731f5;
+  --card-color-light: #2731f5;
+}
+
+@utility html {
+  border-color: #f54927;
+  --card-color: #f54927;
+  --card-color-light: #f54927;
+}
+
 @utility card {
   backdrop-filter: blur(10px);
   border-radius: 15px;
