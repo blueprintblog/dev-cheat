@@ -46,7 +46,7 @@ export default function Footer() {
               </svg>
             </Link>
             <Link
-              href="https://github.com/blueprintblog"
+              href="https://github.com/blueprintblog/dev-cheat"
               className="social-link"
               target="_blank"
               title="GitHub">

@@ -46,6 +46,208 @@
   }
 }
 
+@utility grid-cards-hub {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+@utility grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 25px;
+}
+
+@utility cheatsheet-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  border: 2px solid;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      var(--card-color) 0%,
+      var(--card-color-light) 100%
+    );
+  }
+}
+
+@utility bash {
+  border-color: #2ecc71;
+  --card-color: #2ecc71;
+  --card-color-light: #27ae60;
+}
+
+@utility git {
+  border-color: #f05032;
+  --card-color: #f05032;
+  --card-color-light: #e74c3c;
+}
+
+@utility javascript {
+  border-color: #f7df1e;
+  --card-color: #f7df1e;
+  --card-color-light: #f0db4f;
+}
+
+@utility scripts {
+  border-color: #9b59b6;
+  --card-color: #9b59b6;
+  --card-color-light: #8e44ad;
+}
+
+@utility docker {
+  border-color: #2496ed;
+  --card-color: #2496ed;
+  --card-color-light: #3498db;
+}
+
+@utility kubernetes {
+  border-color: #326ce5;
+  --card-color: #326ce5;
+  --card-color-light: #2874c7;
+}
+
+@utility cicd {
+  border-color: #95a5a6;
+  --card-color: #95a5a6;
+  --card-color-light: #7f8c8d;
+}
+
+@utility cloud {
+  border-color: #e74c3c;
+  --card-color: #e74c3c;
+  --card-color-light: #c0392b;
+}
+
+@utility linux {
+  border-color: #e67e22;
+  --card-color: #e67e22;
+  --card-color-light: #d35400;
+}
+
+@utility files {
+  border-color: #1abc9c;
+  --card-color: #1abc9c;
+  --card-color-light: #16a085;
+}
+
+@utility network {
+  border-color: #3498db;
+  --card-color: #3498db;
+  --card-color-light: #2980b9;
+}
+
+@utility security {
+  border-color: #f39c12;
+  --card-color: #f39c12;
+  --card-color-light: #e67e22;
+}
+
+@utility python {
+  border-color: #3776ab;
+  --card-color: #3776ab;
+  --card-color-light: #3776ab;
+}
+
+@utility powershell {
+  border-color: #007acc;
+  --card-color: #007acc;
+  --card-color-light: #007acc;
+}
+
+@utility card {
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 25px;
+  border: 2px solid;
+  background: linear-gradient(
+    135deg,
+    rgba(55, 118, 171, 0.1) 0%,
+    rgba(55, 118, 171, 0.05) 100%
+  );
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@utility card-features {
+  list-style: none;
+  margin-bottom: 25px;
+
+  li {
+    padding: 5px 0;
+    font-size: 14px;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &::before {
+      content: '✓';
+      color: var(--card-color);
+      font-weight: bold;
+    }
+  }
+}
+
+@utility card-hub-title {
+  @apply font-bold text-base md:text-2xl mb-2;
+  color: var(--card-color);
+}
+
+@utility card-description {
+  @apply text-sm md:text-base;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+@utility card-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(
+    135deg,
+    var(--card-color) 0%,
+    var(--card-color-light) 100%
+  );
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@utility title-icon-card {
+  @apply text-5xl block mb-5;
+}
+
 @layer components {
   .card-title {
     @apply text-center mb-10 p-10 rounded-2xl;
