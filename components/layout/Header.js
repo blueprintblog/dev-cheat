@@ -27,6 +27,7 @@ import {
 import { IoLogoJavascript } from 'react-icons/io5';
 import { MdDescription } from 'react-icons/md';
 import { SiGnubash, SiKubernetes } from 'react-icons/si';
+import { SiGoland } from 'react-icons/si';
 
 export default function Header({ className = '' }) {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -40,7 +41,8 @@ export default function Header({ className = '' }) {
       document.body.style.overflow = 'hidden';
       document.documentElement.style.overflow = 'hidden';
       // Adiciona padding para compensar a barra de rolagem que some
-      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+      const scrollBarWidth =
+        window.innerWidth - document.documentElement.clientWidth;
       document.body.style.paddingRight = `${scrollBarWidth}px`;
     } else {
       // Restaura o scroll
@@ -48,7 +50,7 @@ export default function Header({ className = '' }) {
       document.documentElement.style.overflow = '';
       document.body.style.paddingRight = '';
     }
-    
+
     // Cleanup function para restaurar o overflow quando o componente for desmontado
     return () => {
       document.body.style.overflow = '';
@@ -135,6 +137,11 @@ export default function Header({ className = '' }) {
           name: 'python',
           href: '/python',
           icon: <FaPython />,
+        },
+        {
+          name: 'golang',
+          href: '/go',
+          icon: <SiGoland />,
         },
         {
           name: 'bash',
@@ -359,10 +366,9 @@ export default function Header({ className = '' }) {
             className="md:hidden fixed inset-0 z-40 bg-black bg-opacity-50"
             onClick={closeMobileMenu}
           />
-          
+
           {/* Menu Panel */}
           <div className="md:hidden fixed top-0 right-0 h-full w-80 max-w-full z-50 bg-gray-900 shadow-xl flex flex-col">
-            
             {/* Menu Header */}
             <div className="flex items-center justify-between p-4 border-b border-gray-700">
               <h2 className="text-white text-lg font-semibold">Menu</h2>
@@ -373,13 +379,16 @@ export default function Header({ className = '' }) {
                 <FaTimes className="text-xl" />
               </button>
             </div>
-            
+
             {/* Menu Content */}
             <div className="flex-1 overflow-y-auto">
               <div className="p-4">
                 {navCategories.map((category) => (
-                  <div key={category.standalone ? category.name : category.category} className={category.standalone ? 'mb-4' : 'mb-6'}>
-                    
+                  <div
+                    key={
+                      category.standalone ? category.name : category.category
+                    }
+                    className={category.standalone ? 'mb-4' : 'mb-6'}>
                     {category.standalone ? (
                       <Link
                         href={category.href}
@@ -412,7 +421,7 @@ export default function Header({ className = '' }) {
                   </div>
                 ))}
               </div>
-              
+
               {/* Footer do Menu Mobile */}
               <div className="border-t border-gray-700 p-4">
                 <div className="text-center text-gray-400 text-sm">

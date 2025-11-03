@@ -1,24 +1,28 @@
 import CardContribuete from '@/components/cards/CardContribuete';
 import CardTitle from '@/components/cards/CardTitle';
-import { IoLibrary } from 'react-icons/io5';
-import { FaLinux } from 'react-icons/fa';
-import { FaGitAlt } from 'react-icons/fa';
-import { IoLogoJavascript } from 'react-icons/io5';
-import { FaDocker } from 'react-icons/fa';
-import { MdDescription } from 'react-icons/md';
-import { SiKubernetes } from 'react-icons/si';
-import { AiOutlineDeploymentUnit } from 'react-icons/ai';
-import { SiGnubash } from 'react-icons/si';
-import { TiCloudStorage } from 'react-icons/ti';
-import { TbWorldWww } from 'react-icons/tb';
-import { MdOutlineSecurity } from 'react-icons/md';
-import { GoFileSubmodule } from 'react-icons/go';
-import { FaPython } from 'react-icons/fa';
-import { FaWindows } from 'react-icons/fa';
-import { FaHtml5 } from 'react-icons/fa';
-import { FaCss3Alt } from 'react-icons/fa';
 import Link from 'next/link';
-
+import { AiOutlineDeploymentUnit } from 'react-icons/ai';
+import {
+  FaCss3Alt,
+  FaDocker,
+  FaGitAlt,
+  FaHtml5,
+  FaLinux,
+  FaPython,
+  FaWindows,
+} from 'react-icons/fa';
+import { GoFileSubmodule } from 'react-icons/go';
+import { IoLibrary, IoLogoJavascript } from 'react-icons/io5';
+import { MdDescription, MdOutlineSecurity } from 'react-icons/md';
+import {
+  SiGnubash,
+  SiGoland,
+  SiKubernetes,
+  SiVisualstudiocode,
+} from 'react-icons/si';
+import { TbWorldWww } from 'react-icons/tb';
+import { TiCloudStorage } from 'react-icons/ti';
+import { BiLogoVisualStudio } from 'react-icons/bi';
 export default function Home() {
   return (
     <>
@@ -206,6 +210,70 @@ export default function Home() {
             Acessar Cheatsheet →
           </Link>
         </div>
+        <div
+          className="cheatsheet-card go"
+          data-category="development"
+          data-tags="go golang backend cloud">
+          <span className="text-5xl block mb-5">
+            <SiGoland className="text-[#00ADD8]" />
+          </span>
+          <h3 className="card-hub-title">Go Programming</h3>
+          <p className="card-description">
+            Linguagem moderna para desenvolvimento concorrente e sistemas
+            distribuídos
+          </p>
+          <ul className="card-features">
+            <li>Goroutines e canais</li>
+            <li>Interfaces e tipos</li>
+            <li>Build e deployment</li>
+            <li>Cloud e microserviços</li>
+          </ul>
+          <Link href="/go" className="card-button">
+            Acessar Cheatsheet →
+          </Link>
+        </div>
+        <div
+          className="cheatsheet-card vscode"
+          data-category="development"
+          data-tags="vscode editor desenvolvimento">
+          <span className="text-5xl block mb-5">
+            <BiLogoVisualStudio className="text-[#007ACC]" />
+          </span>
+          <h3 className="card-hub-title">VS Code</h3>
+          <p className="card-description">
+            Editor de código mais popular do mundo com extensões e produtividade
+          </p>
+          <ul className="card-features">
+            <li>Atalhos essenciais</li>
+            <li>Extensions recomendadas</li>
+            <li>Debugging e breakpoints</li>
+            <li>Multi-cursor e seleção</li>
+          </ul>
+          <Link href="/vscode" className="card-button">
+            Acessar Cheatsheet →
+          </Link>
+        </div>
+        {/* <div
+          className="cheatsheet-card typescript"
+          data-category="development"
+          data-tags="typescript types javascript frontend">
+          <span className="text-5xl block mb-5">
+            <SiTypescript className="text-[#3178c6]" />
+          </span>
+          <h3 className="card-hub-title">TypeScript Avançado</h3>
+          <p className="card-description">
+            Tipagem avançada e recursos modernos para desenvolvimento escalável
+          </p>
+          <ul className="card-features">
+            <li>Generics e utility types</li>
+            <li>Mapped types e conditional types</li>
+            <li>Template literal types</li>
+            <li>Decorators e metadados</li>
+          </ul>
+          <Link href="/typescript" className="card-button">
+            Acessar Cheatsheet →
+          </Link>
+        </div> */}
       </div>
 
       <div className="grid-cards-hub">

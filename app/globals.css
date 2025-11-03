@@ -188,6 +188,24 @@
   --card-color-light: #f54927;
 }
 
+@utility go {
+  border-color: #007d9c;
+  --card-color: #007d9c;
+  --card-color-light: #007d9c;
+}
+
+@utility typescript {
+  border-color: #3178c6;
+  --card-color: #3178c6;
+  --card-color-light: #235a97;
+}
+
+@utility vscode {
+  border-color: #007ACC;
+  --card-color: #007ACC;
+  --card-color-light: #005A9E;
+}
+
 @utility card {
   backdrop-filter: blur(10px);
   border-radius: 15px;

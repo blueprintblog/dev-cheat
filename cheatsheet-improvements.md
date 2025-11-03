@@ -485,6 +485,7 @@
 ## 📈 Roadmap Visual
 
 ### Status Atual: v4.2.1
+
 - **✅ Implementadas**: 15 cheatsheets
 - **📋 Planejadas**: 25 novas tecnologias
 - **🎯 Foco**: Expansão e aprofundamento

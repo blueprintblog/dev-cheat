@@ -2,6 +2,94 @@
 
 Este documento registra todas as mudanças significativas implementadas no projeto de Cheatsheets.
 
+---
+
+## [v4.2.4] - 2025-11-03
+
+### 📝 Nova Cheatsheet: VS Code
+
+#### VS Code Editor
+
+- **Arquivos**: `data/vscode-data.js` e `app/vscode/page.js`
+- **Conteúdo**:
+  - **Nível Básico**:
+    - **Atalhos Essenciais**: Navegação e edição, seleção e movimentação, navegação rápida
+    - **Integrated Terminal**: Terminal básico, gerenciamento de terminais, configurações
+  - **Nível Intermediário**:
+    - **Multi-Cursor e Seleção**: Multi-cursor básico, seleção colunar, edição multi-cursor
+    - **Debugging e Breakpoints**: Breakpoints essenciais, navegação no debug, debug console, watch e inspect
+    - **Git Integration**: Git básico no VS Code, stage e unstage, branch e merge, git history
+    - **Extensions Recomendadas**: Essenciais para desenvolvimento, produtividade, themes e ícones, debugging e testing
+    - **Workspace Management**: Multi-workspace, navegação entre arquivos, configurações de workspace
+    - **Snippets e Templates**: Snippets essenciais, criando snippets personalizados, snippets avançados
+    - **Customização e Themes**: Configurações essenciais, configurações avançadas, keybindings personalizados
+  - **Nível Avançado**:
+    - **Remote Development**: Remote SSH, remote containers, remote WSL, remote tunnels
+- **Design**: Tema azul (#007ACC) característico do VS Code
+- **Funcionalidades**: Sistema de filtros, busca, cópia de comandos
+
+#### Atualizações na Página Principal
+
+- **Novo Card**: VS Code adicionado à categoria "Desenvolvimento & Programação"
+- **Ícone**: SiVisualstudiocode com cor característica do VS Code
+- **Descrição**: Foco em produtividade, atalhos, extensões e desenvolvimento remoto
+- **Navegação**: Link direto para `/vscode` com todas as funcionalidades
+
+#### Estilos CSS Adicionados
+
+- **Nova Classe**: `.vscode` com cor tema #007ACC
+- **Integração**: Cores consistentes com o ecossistema VS Code
+- **Design**: Segue o padrão visual das outras cheatsheets
+
+#### Estatísticas do Projeto
+
+- **Total de Cheatsheets**: 19 (adicionada VS Code)
+- **Cobertura de Ferramentas**: Agora incluindo VS Code como editor principal
+- **Produtividade**: Fortalecimento em ferramentas de desenvolvimento
+- **Editor Universal**: Cobertura completa do editor mais popular do mundo
+
+---
+
+## [v4.2.3] - 2025-11-02
+
+### 🐹 Nova Cheatsheet: Go Programming
+
+#### Go Programming Language
+
+- **Arquivos**: `data/go-data.js` e `app/go/page.js`
+- **Conteúdo**:
+  - **Instalação e Ambiente**: Setup, variáveis de ambiente, ferramentas
+  - **Estrutura de Projetos**: Módulos Go, organização de diretórios, build e cross-compilation
+  - **Variáveis e Tipos**: Declaração, tipos básicos, constantes, inferência
+  - **Estruturas de Dados**: Arrays, slices, maps, structs
+  - **Estruturas de Controle**: If/Else, loops (for), switch, break/continue
+  - **Funções**: Básicas, anônimas, closures, recursão, variadic arguments
+  - **Métodos e Interfaces**: Methods em structs, definição e implementação de interfaces, type assertions
+  - **Goroutines e Canais**: Concorrência, comunicação, select statements, worker pools
+  - **Error Handling**: Errors básicos, customizados, wrapping, panic/recover
+  - **Testing**: Testes básicos, assertions, benchmarks, table-driven tests
+  - **Context e Cancelamento**: Context básico, timeout, cancelamento, propagação
+  - **Reflection e Generics**: Type e Value, modificação, funções genéricas, interfaces genéricas
+  - **Build e Deployment**: Build options, cross-compilation, Docker, CI/CD
+- **Design**: Tema ciano (#00ADD8) característico do Go
+- **Funcionalidades**: Sistema de filtros, busca, cópia de comandos
+
+#### Atualizações na Página Principal
+
+- **Novo Card**: Go Programming adicionado à categoria "Desenvolvimento & Programação"
+- **Ícone**: FaGolang com cor característica do Go
+- **Descrição**: Foco em concorrência, sistemas distribuídos e cloud
+- **Navegação**: Link direto para `/go` com todas as funcionalidades
+
+#### Estatísticas do Projeto
+
+- **Total de Cheatsheets**: 17 (adicionada Go Programming)
+- **Cobertura de Linguagens**: Agora incluindo Go como linguagem moderna
+- **Tecnologias Cloud**: Fortalecimento em cloud e backend
+- **Concorrência**: Cobertura completa de programação concorrente
+
+---
+
 ## [v4.2.0] - 2025-11-02
 
 ### 🎯 Melhorias na Navegação
