@@ -1,5 +1,7 @@
 # 🚀 Dev Cheat - Cheatsheet Interativa para Desenvolvedores
 
+![Screenshot](screen/screen.png)
+
 Uma cheatsheet moderna e interativa construída com Next.js, React e Tailwind CSS, featuring design neon e experiência mobile-first.
 
 ## ✨ Funcionalidades

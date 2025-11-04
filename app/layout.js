@@ -1,8 +1,9 @@
-import Header from '@/components/layout/Header';
-import { jetbrainsMono, firaCode, nunitoSans } from './fonts/fonts';
-import './globals.css';
 import Footer from '@/components/layout/Footer';
+import Header from '@/components/layout/Header';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { firaCode, jetbrainsMono, nunitoSans } from './fonts/fonts';
+import './globals.css';
 
 export const metadata = {
   title: 'Dev Cheat',
@@ -18,7 +19,8 @@ export default function RootLayout({ children }) {
           <Header />
           <main className="container flex-1 pt-30">{children}</main>
           <Footer />
-          <Analytics />
+          {process.env.NODE_ENV === 'production' && <Analytics />}
+          {process.env.NODE_ENV === 'production' && <SpeedInsights />}
         </div>
       </body>
     </html>
