@@ -28,7 +28,7 @@ import { IoLogoJavascript } from 'react-icons/io5';
 import { MdDescription } from 'react-icons/md';
 import { SiGnubash, SiKubernetes } from 'react-icons/si';
 import { SiGoland } from 'react-icons/si';
-
+import { BiLogoVisualStudio } from 'react-icons/bi';
 export default function Header({ className = '' }) {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [timeoutId, setTimeoutId] = useState(null);
@@ -157,6 +157,11 @@ export default function Header({ className = '' }) {
           name: 'scripts',
           href: '/scripts',
           icon: <MdDescription />,
+        },
+        {
+          name: 'vscode',
+          href: '/vscode',
+          icon: <BiLogoVisualStudio />,
         },
       ],
     },

@@ -8,7 +8,7 @@ export default function LinksOnGitBuyMyCoffe({ className }) {
         href="https://github.com/blueprintblog/dev-cheat"
         target="_blank"
         rel="noopener noreferrer"
-        title="Star cheatsheets.zip on GitHub"
+        title="Star dev-cheat on GitHub"
         className="group inline-flex items-center justify-center px-6 py-3 backdrop-blur-sm outline-1 rounded-3xl transition-all duration-300 hover:scale-105 hover:shadow-lg bg-white/10 outline-white/20 text-white hover:bg-white/20">
         <div className="w-5 h-5 shrink-0 flex items-center justify-center mr-3">
           {' '}
