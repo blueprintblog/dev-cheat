@@ -201,9 +201,9 @@
 }
 
 @utility vscode {
-  border-color: #007ACC;
-  --card-color: #007ACC;
-  --card-color-light: #005A9E;
+  border-color: #007acc;
+  --card-color: #007acc;
+  --card-color-light: #005a9e;
 }
 
 @utility card {
@@ -446,8 +446,8 @@
   }
 
   .footer-content {
+    @apply grid-cols-1 sm:grid-cols-[2fr_1fr_1fr_1fr];
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
   }
 
   .footer-bottom {

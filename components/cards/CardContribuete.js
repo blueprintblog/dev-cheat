@@ -1,18 +1,19 @@
+import Link from 'next/link';
+
 export default function CardContribuete() {
   return (
     <div className="text-center w-full  mt-20">
       <h3 className="sm:text-4xl text-3xl mb-4 font-medium text-gray-100 ">
-        Encontrou alguma coisa faltando?
+        🤝 Contribuindo
       </h3>
-      <p className="mb-8 leading-relaxed dark:text-slate-300 w-1/2 mx-auto">
+      <p className="mb-8 leading-relaxed dark:text-slate-300 sm:w-1/2 mx-auto">
         {' '}
-        Sinta-se à vontade para contribuir com o código no meu repositório do
-        GitHub ou me siga para ficar por dentro das últimas atualizações em
-        tempo real. É a melhor maneira de fazer isso!
+        Encontrou um erro? Quer melhorar um cheatsheet? Tem uma sugestão?
+        Adoraríamos suas contribuições! Abra uma issue ou submeta um PR.
       </p>
-      <div className="flex flex-col md:flex-row justify-center space-x-4">
+      <div className="inline-flex flex-col md:flex-row justify-center space-x-4">
         {' '}
-        <a
+        <Link
           href="https://github.com/blueprintblog/dev-cheat"
           target="_blank"
           rel="noopener noreferrer"
@@ -36,13 +37,13 @@ export default function CardContribuete() {
               Contribute on GitHub
             </span>
           </button>
-        </a>
-        <a
+        </Link>
+        <Link
           href="https://x.com/blue_printblog"
           target="_blank"
           rel="noopener noreferrer"
           title="Follow @FechinLi on X (Twitter)"
-          className="group inline-flex items-center justify-center px-6 py-3 backdrop-blur-sm outline-1 rounded-3xl transition-all duration-300 hover:scale-105 hover:shadow-lg bg-blue-600/80 outline-blue-500/50 text-white hover:bg-blue-500/90 dark:bg-blue-500/20 dark:outline-blue-400/30 dark:text-white dark:hover:bg-blue-500/30">
+          className="group inline-flex items-center justify-center mt-5 sm:mt-0 px-6 py-3 backdrop-blur-sm outline-1 rounded-3xl transition-all duration-300 hover:scale-105 hover:shadow-lg bg-blue-600/80 outline-blue-500/50 text-white hover:bg-blue-500/90 dark:bg-blue-500/20 dark:outline-blue-400/30 dark:text-white dark:hover:bg-blue-500/30">
           <div className="w-5 h-5 shrink-0 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform">
             {' '}
             <svg
@@ -59,7 +60,7 @@ export default function CardContribuete() {
             {' '}
             →
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   );
