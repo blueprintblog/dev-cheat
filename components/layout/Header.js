@@ -2,9 +2,8 @@
 
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import { useState } from 'react';
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from 'react';
+import { BiLogoVisualStudio } from 'react-icons/bi';
 import {
   FaBars,
   FaCaretDown,
@@ -24,11 +23,9 @@ import {
   FaTimes,
   FaWindows,
 } from 'react-icons/fa';
-import { IoLogoJavascript } from 'react-icons/io5';
+import { IoBarChart, IoLogoJavascript } from 'react-icons/io5';
 import { MdDescription } from 'react-icons/md';
-import { SiGnubash, SiKubernetes } from 'react-icons/si';
-import { SiGoland } from 'react-icons/si';
-import { BiLogoVisualStudio } from 'react-icons/bi';
+import { SiGnubash, SiGoland, SiKubernetes } from 'react-icons/si';
 export default function Header({ className = '' }) {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [timeoutId, setTimeoutId] = useState(null);
@@ -137,6 +134,11 @@ export default function Header({ className = '' }) {
           name: 'python',
           href: '/python',
           icon: <FaPython />,
+        },
+        {
+          name: 'python-data-science',
+          href: '/python-data-science',
+          icon: <IoBarChart />,
         },
         {
           name: 'golang',

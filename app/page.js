@@ -12,7 +12,7 @@ import {
   FaWindows,
 } from 'react-icons/fa';
 import { GoFileSubmodule } from 'react-icons/go';
-import { IoLibrary, IoLogoJavascript } from 'react-icons/io5';
+import { IoLibrary, IoLogoJavascript, IoBarChart } from 'react-icons/io5';
 import { MdDescription, MdOutlineSecurity } from 'react-icons/md';
 import {
   SiGnubash,
@@ -165,6 +165,27 @@ export default function Home() {
             <li>Web e automação</li>
           </ul>
           <Link href="/python" className="card-button">
+            Acessar Cheatsheet →
+          </Link>
+        </div>
+        <div
+          className="cheatsheet-card python-data-science"
+          data-category="development"
+          data-tags="python data science pandas numpy matplotlib">
+          <span className="text-5xl block mb-5">
+            <IoBarChart className="text-[#ff6b6b]" />
+          </span>
+          <h3 className="card-hub-title">Python Data Science</h3>
+          <p className="card-description">
+            Análise de dados e machine learning com pandas, numpy e scikit-learn
+          </p>
+          <ul className="card-features">
+            <li>Manipulação de dados com pandas</li>
+            <li>Visualização com matplotlib/seaborn</li>
+            <li>Machine learning com scikit-learn</li>
+            <li>Análise estatística e exploração</li>
+          </ul>
+          <Link href="/python-data-science" className="card-button">
             Acessar Cheatsheet →
           </Link>
         </div>

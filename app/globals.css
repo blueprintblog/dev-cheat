@@ -206,6 +206,12 @@
   --card-color-light: #005a9e;
 }
 
+@utility python-data-science {
+  border-color: #ff6b6b;
+  --card-color: #ff6b6b;
+  --card-color-light: #ff6b6b;
+}
+
 @utility card {
   backdrop-filter: blur(10px);
   border-radius: 15px;

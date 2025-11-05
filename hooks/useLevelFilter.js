@@ -9,8 +9,7 @@ import { useEffect, useMemo, useState } from 'react';
  * @returns {Object} - Estado e funções do filtro
  */
 export const useLevelFilter = (data, initialFilter = 'todos') => {
-  // Inicializa com o valor salvo no localStorage ou com o filtro inicial
-  const getInitialFilter = () => {
+  const [activeFilter, setActiveFilter] = useState(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('cheatsheet-level-filter');
       if (
@@ -21,9 +20,7 @@ export const useLevelFilter = (data, initialFilter = 'todos') => {
       }
     }
     return initialFilter;
-  };
-
-  const [activeFilter, setActiveFilter] = useState(getInitialFilter);
+  });
 
   // Filtra os dados com base no nível selecionado
   const filteredData = useMemo(() => {

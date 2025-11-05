@@ -4,6 +4,83 @@ Este documento registra todas as mudanças significativas implementadas no proje
 
 ---
 
+## [v4.2.6] - 2025-11-05
+
+### 🐍 Nova Cheatsheet: Python Data Science
+
+#### Python Data Science
+
+- **Arquivos**: `data/python-data-science.js` e `app/python-data-science/page.js`
+- **Conteúdo**:
+  - **Pandas Básico**: Importação, criação de DataFrames, leitura/escrita de arquivos, seleção de dados
+  - **Pandas Intermediário**: Filtros e condições, agrupamento, junção de DataFrames, manipulação de colunas
+  - **Pandas Avançado**: Time series, análise estatística, visualização com pandas, performance
+  - **NumPy**: Arrays básicos, operações matemáticas, indexação avançada, álgebra linear
+  - **Matplotlib**: Gráficos básicos, customização, subplots, tipos de gráficos avançados
+  - **Seaborn**: Visualização estatística, gráficos de distribuição, correlação, paletas de cores
+  - **Scikit-learn**: Pré-processamento, modelos de classificação, regressão, clustering, métricas
+- **Design**: Tema roxo (#9b59b6) característico de data science
+- **Funcionalidades**: Sistema de filtros, busca, cópia de comandos
+
+#### Atualizações na Página Principal
+
+- **Novo Card**: Python Data Science adicionado à categoria "Desenvolvimento & Programação"
+- **Ícone**: IoBarChart com cor característica de data science
+- **Descrição**: Foco em análise de dados, machine learning e visualização
+- **Navegação**: Link direto para `/python-data-science` com todas as funcionalidades
+
+#### Atualizações na Navegação
+
+- **Header.js**: Adicionado link para Python Data Science com ícone IoBarChart
+- **Menu Completo**: Agora com 20 cheatsheets acessíveis
+
+#### Correções Técnicas
+
+- **useLevelFilter Hook**: Corrigido erro de hidratação ao acessar localStorage
+- **Estrutura de Dados**: Padronização do formato para compatibilidade com componentes universais
+
+#### Estatísticas do Projeto
+
+- **Total de Cheatsheets**: 20 (adicionada Python Data Science)
+- **Cobertura de Data Science**: Agora incluindo pandas, numpy, matplotlib, seaborn, scikit-learn
+- **Análise de Dados**: Fortalecimento em ciência de dados e machine learning
+
+---
+
+## [v4.2.5] - 2025-11-05
+
+### 🎨 Componente BackToTop Corrigido
+
+#### Correções Implementadas
+
+- **Arquivo**: `components/common/BackToTop.jsx` (convertido de .tsx para .jsx)
+- **Ícone Corrigido**: Substituição de `BiChevronDown` por `BiChevronUp` para direção correta
+- **Background Neutro**: Atualização do esquema de cores para refletir o layout atual:
+  - Gradientes alterados de azul/rosa para tons de slate/cinza
+  - Cores harmonizadas com o design do projeto
+  - Remoção de cores vibrantes em favor de paleta neutra
+- **Classes CSS Corrigidas**:
+  - Correção de `w-13 h-13` para `w-12 h-12` (classe válida no Tailwind)
+  - Remoção de referências a modo dark desnecessárias
+- **Tooltip Melhorado**: Ajuste nas cores do tooltip para combinar com o novo tema
+- **Anel Animado**: Atualização das cores do ring animado para slate
+
+#### Melhorias Técnicas
+
+- **Conversão para JavaScript**: Remoção de tipagens TypeScript para compatibilidade
+- **Performance**: Otimização das classes CSS e remoção de estilos desnecessários
+- **Consistência Visual**: Alinhamento com a paleta de cores do projeto
+- **Acessibilidade**: Mantida a estrutura semântica e atributos ARIA
+
+#### Design Responsivo
+
+- **Layout Adaptativo**: Botão mantém funcionalidade em todos os dispositivos
+- **Cores Neutras**: Esquema de cores que não compete com o conteúdo principal
+- **Hover Effects**: Efeitos de hover sutis e profissionais
+- **Animações**: Mantidas as animações suaves com cores apropriadas
+
+---
+
 ## [v4.2.4] - 2025-11-03
 
 ### 📝 Nova Cheatsheet: VS Code

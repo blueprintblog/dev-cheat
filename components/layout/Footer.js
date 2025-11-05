@@ -153,7 +153,13 @@ export default function Footer() {
             target="_blank">
             GitHub
           </Link>
-          ! | Versão v4.2.3
+          ! |{' '}
+          <Link
+            href="/updates"
+            className="text-purple-400 hover:text-purple-300 transition-colors">
+            Ver atualizações
+          </Link>{' '}
+          | Versão v4.2.6
         </p>
       </div>
     </footer>
