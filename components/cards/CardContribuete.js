@@ -2,65 +2,44 @@ import Link from 'next/link';
 
 export default function CardContribuete() {
   return (
-    <div className="text-center w-full  mt-20">
-      <h3 className="sm:text-4xl text-3xl mb-4 font-medium text-gray-100 ">
-        🤝 Contribuindo
-      </h3>
-      <p className="mb-8 leading-relaxed dark:text-slate-300 sm:w-1/2 mx-auto">
-        {' '}
-        Encontrou um erro? Quer melhorar um cheatsheet? Tem uma sugestão?
-        Adoraríamos suas contribuições! Abra uma issue ou submeta um PR.
-      </p>
-      <div className="inline-flex flex-col md:flex-row justify-center space-x-4">
-        {' '}
-        <Link
-          href="https://github.com/blueprintblog/dev-cheat"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Contribute on GitHub"
-          className="">
-          <button
-            type="button"
-            className="group inline-flex items-center justify-center px-6 py-3 backdrop-blur-sm outline-1 rounded-3xl transition-all duration-300 hover:scale-105 hover:shadow-lg bg-slate-800/80 outline-slate-700/50 text-white hover:bg-slate-700/90 dark:bg-white/10 dark:outline-white/20 dark:text-white dark:hover:bg-white/20">
-            <div className="w-5 h-5 shrink-0 flex items-center justify-center mr-3">
-              {' '}
-              <svg
-                viewBox="0 0 1024 1024"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                height="1em"
-                width="1em">
-                <path d="M989.86666667 512a464.21333333 464.21333333 0 0 1-91.47733334 280.91733333 469.33333333 469.33333333 0 0 1-235.17866666 172.71466667 28.672 28.672 0 0 1-24.576-4.43733333 24.23466667 24.23466667 0 0 1-7.50933334-18.77333334v-131.072a111.616 111.616 0 0 0-32.42666666-88.40533333 443.73333333 443.73333333 0 0 0 63.488-10.92266667 232.78933333 232.78933333 0 0 0 58.368-24.576 175.78666667 175.78666667 0 0 0 50.176-40.96 196.26666667 196.26666667 0 0 0 34.13333333-65.536 313.344 313.344 0 0 0 12.97066667-93.86666666 179.88266667 179.88266667 0 0 0-49.49333334-128 165.20533333 165.20533333 0 0 0-4.77866666-126.976 81.57866667 81.57866667 0 0 0-50.176 6.82666666 320.512 320.512 0 0 0-57.344 27.30666667l-23.552 14.67733333a443.73333333 443.73333333 0 0 0-238.93333334 0c-6.82666667-4.77866667-15.36-9.89866667-26.28266666-16.72533333A347.81866667 347.81866667 0 0 0 314.02666667 238.93333333a88.40533333 88.40533333 0 0 0-53.58933334-8.53333333 167.25333333 167.25333333 0 0 0-4.43733333 128 185.344 185.344 0 0 0-49.152 128.68266667A307.2 307.2 0 0 0 219.81866667 580.26666667a209.57866667 209.57866667 0 0 0 34.13333333 65.536 162.13333333 162.13333333 0 0 0 50.176 41.64266666 285.696 285.696 0 0 0 58.368 24.576 441.68533333 441.68533333 0 0 0 63.82933333 10.92266667 98.64533333 98.64533333 0 0 0-30.72 64.17066667 105.81333333 105.81333333 0 0 1-28.33066666 8.87466666 178.51733333 178.51733333 0 0 1-34.13333334 3.072A73.728 73.728 0 0 1 289.45066667 785.06666667a116.736 116.736 0 0 1-34.13333334-38.912 102.4 102.4 0 0 0-30.03733333-32.42666667 86.016 86.016 0 0 0-30.72-15.01866667h-12.288a44.37333333 44.37333333 0 0 0-18.09066667 2.73066667q-5.12 3.072-3.072 7.168a47.104 47.104 0 0 0 5.80266667 8.53333333 59.05066667 59.05066667 0 0 0 8.192 7.85066667l4.43733333 2.73066667a83.28533333 83.28533333 0 0 1 27.30666667 23.552 168.27733333 168.27733333 0 0 1 19.456 31.40266666l6.144 14.336a77.14133333 77.14133333 0 0 0 27.30666667 38.57066667 102.4 102.4 0 0 0 41.30133333 17.74933333 209.23733333 209.23733333 0 0 0 43.008 4.43733334 194.21866667 194.21866667 0 0 0 34.13333333-2.38933334l14.336-2.38933333v89.42933333a24.576 24.576 0 0 1-8.192 18.77333334 29.696 29.696 0 0 1-24.91733333 4.43733333 467.28533333 467.28533333 0 0 1-233.81333333-173.73866667A456.36266667 456.36266667 0 0 1 34.13333333 512a466.60266667 466.60266667 0 0 1 64.17066667-238.93333333A473.088 473.088 0 0 1 273.06666667 98.304 466.60266667 466.60266667 0 0 1 512 34.13333333a466.60266667 466.60266667 0 0 1 238.93333333 64.17066667A473.088 473.088 0 0 1 925.696 273.06666667 465.92 465.92 0 0 1 989.86666667 512z"></path>
-              </svg>
-            </div>{' '}
-            <span className="font-semibold leading-none">
-              Contribute on GitHub
-            </span>
-          </button>
-        </Link>
-        <Link
-          href="https://x.com/blue_printblog"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Follow @FechinLi on X (Twitter)"
-          className="group inline-flex items-center justify-center mt-5 sm:mt-0 px-6 py-3 backdrop-blur-sm outline-1 rounded-3xl transition-all duration-300 hover:scale-105 hover:shadow-lg bg-blue-600/80 outline-blue-500/50 text-white hover:bg-blue-500/90 dark:bg-blue-500/20 dark:outline-blue-400/30 dark:text-white dark:hover:bg-blue-500/30">
-          <div className="w-5 h-5 shrink-0 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform">
-            {' '}
+    <div className="mt-16 text-center">
+      <div className="bg-linear-to-r from-purple-500/20 to-blue-500/20 rounded-xl p-8 border border-purple-500/30">
+        <h3 className="text-2xl font-bold text-white mb-4">🤝 Contribuindo</h3>
+        <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+          Encontrou um erro? Quer melhorar um cheatsheet? Tem uma sugestão?
+          Adoraríamos suas contribuições! Abra uma issue ou submeta um PR.
+        </p>
+        <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+          Gostou do projeto? Apoie o desenvolvimento com um café e ajude a
+          manter tudo open source ☕
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://github.com/blueprintblog/dev-cheat"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors">
             <svg
-              viewBox="0 0 1024 1024"
-              xmlns="http://www.w3.org/2000/svg"
+              stroke="currentColor"
               fill="currentColor"
+              strokeWidth="0"
+              viewBox="0 0 448 512"
+              className="w-5 h-5"
               height="1em"
-              width="1em">
-              <path d="M714.163 519.284L1160.89 0h-105.86L667.137 450.887L357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152L826.647 1226.37H1183.98L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894L144.011 79.6944h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z"></path>
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path>
             </svg>
-          </div>{' '}
-          <span className="font-semibold leading-none">Follow us on X</span>
-          <div className="ml-2 group-hover:translate-x-1 transition-transform leading-none">
-            {' '}
-            →
-          </div>
-        </Link>
+            Contribuir no GitHub
+          </a>
+          <a
+            href="https://buymeacoffee.com/blueprintblog"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg transition-colors">
+            ☕ Apoiar o Projeto
+          </a>
+        </div>
       </div>
     </div>
   );

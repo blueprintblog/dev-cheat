@@ -1,3 +1,4 @@
+import CardContribuete from '@/components/cards/CardContribuete';
 import {
   FaBug,
   FaCode,
@@ -233,34 +234,7 @@ export default function Updates() {
         </div>
 
         {/* Footer CTA */}
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-xl p-8 border border-purple-500/30">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              🚀 Contribua com o Projeto
-            </h3>
-            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Este projeto é open source e cresce com a ajuda da comunidade.
-              Contribua com novas cheatsheets, correções ou melhorias!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://github.com/blueprintblog/dev-cheat"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors">
-                <FaGitAlt className="w-5 h-5" />
-                Contribuir no GitHub
-              </a>
-              <a
-                href="https://buymeacoffee.com/blueprintblog"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg transition-colors">
-                ☕ Apoiar o Projeto
-              </a>
-            </div>
-          </div>
-        </div>
+        <CardContribuete />
       </div>
     </div>
   );
