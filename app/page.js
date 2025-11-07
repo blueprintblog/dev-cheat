@@ -23,6 +23,7 @@ import {
 import { TbWorldWww } from 'react-icons/tb';
 import { TiCloudStorage } from 'react-icons/ti';
 import { BiLogoVisualStudio } from 'react-icons/bi';
+import GoogleAd from '@/components/GoogleAd';
 export default function Home() {
   return (
     <>
@@ -295,6 +296,7 @@ export default function Home() {
             Acessar Cheatsheet →
           </Link>
         </div> */}
+        <GoogleAd slot="5729248756" />
       </div>
 
       <div className="grid-cards-hub">
