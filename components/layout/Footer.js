@@ -93,7 +93,7 @@ export default function Footer() {
             className="text-purple-400 hover:text-purple-300 transition-colors">
             Ver atualizações
           </Link>{' '}
-          | Versão v4.2.6
+          | Versão v4.2.7
         </p>
       </div>
     </footer>

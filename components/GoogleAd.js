@@ -7,6 +7,7 @@ export default function GoogleAd({
   format = 'auto',
   responsive = true,
   className = 'my-8',
+  showOpensourceMessage = false,
 }) {
   useEffect(() => {
     try {
@@ -20,6 +21,16 @@ export default function GoogleAd({
 
   return (
     <div className={className}>
+      {showOpensourceMessage && (
+        <div className="mb-4 p-4 bg-gradient-to-r from-green-900/20 to-blue-900/20 border border-green-500/30 rounded-lg text-center">
+          <p className="text-sm text-green-300 mb-2">
+            🎯 <span className="font-semibold">Ajude a manter este projeto opensource!</span>
+          </p>
+          <p className="text-xs text-gray-400">
+            A publicidade exibida abaixo ajuda a manter os cheatsheets gratuitos e open source para toda a comunidade.
+          </p>
+        </div>
+      )}
       <ins
         className="adsbygoogle"
         style={{

@@ -296,10 +296,12 @@ export default function Home() {
             Acessar Cheatsheet →
           </Link>
         </div> */}
-        <div>
-          <GoogleAd slot="5729248756" />
-        </div>
-        
+
+        <GoogleAd
+          slot="5729248756"
+          showOpensourceMessage={true}
+          className="cheatsheet-card"
+        />
       </div>
 
       <div className="grid-cards-hub">
@@ -392,9 +394,12 @@ export default function Home() {
             Acessar Cheatsheet →
           </Link>
         </div>
-         <div>
-          <GoogleAd slot="5729248756" />
-        </div>
+
+        <GoogleAd
+          slot="5729248756"
+          showOpensourceMessage={true}
+          className="cheatsheet-card"
+        />
       </div>
 
       <div className="grid-cards-hub">
@@ -490,6 +495,11 @@ export default function Home() {
             Acessar Cheatsheet →
           </a>
         </div>
+        <GoogleAd
+          slot="5729248756"
+          showOpensourceMessage={true}
+          className="cheatsheet-card"
+        />
       </div>
 
       <CardContribuete />
