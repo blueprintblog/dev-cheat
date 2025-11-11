@@ -7,9 +7,9 @@ export const troubleshootingData = [
     solution: {
       description: "Verificar se o sistema detectou o USB",
       commands: [
-        "lsusb                    # Lista dispositivos USB",
-        "sudo dmesg | tail -10    # Verifica mensagens do kernel",
-        "sudo fdisk -l            # Lista todas as partições"
+        { command: "lsusb", comment: "# Lista dispositivos USB" },
+        { command: "sudo dmesg | tail -10", comment: "# Verifica mensagens do kernel" },
+        { command: "sudo fdisk -l", comment: "# Lista todas as partições" }
       ]
     }
   },
@@ -19,9 +19,9 @@ export const troubleshootingData = [
     solution: {
       description: "Montar com privilégios adequados",
       commands: [
-        "sudo mount /dev/sdb1 /mnt/usb           # Monta com sudo",
-        "sudo chown $USER:$USER /mnt/usb         # Define dono do ponto",
-        "sudo usermod -aG disk $USER             # Adiciona ao grupo disk (reboot necessário)"
+        { command: "sudo mount /dev/sdb1 /mnt/usb", comment: "# Monta com sudo" },
+        { command: "sudo chown $USER:$USER /mnt/usb", comment: "# Define dono do ponto" },
+        { command: "sudo usermod -aG disk $USER", comment: "# Adiciona ao grupo disk (reboot necessário)" }
       ]
     }
   },
@@ -31,10 +31,10 @@ export const troubleshootingData = [
     solution: {
       description: "Identificar e liberar o dispositivo",
       commands: [
-        "sudo lsof /mnt/usb                       # Mostra processos usando",
-        "sudo fuser -km /mnt/usb                  # Mata processos usando",
-        "sudo umount -f /mnt/usb                  # Força desmontagem",
-        "sudo umount -l /mnt/usb                  # Desmontagem preguiçosa"
+        { command: "sudo lsof /mnt/usb", comment: "# Mostra processos usando" },
+        { command: "sudo fuser -km /mnt/usb", comment: "# Mata processos usando" },
+        { command: "sudo umount -f /mnt/usb", comment: "# Força desmontagem" },
+        { command: "sudo umount -l /mnt/usb", comment: "# Desmontagem preguiçosa" }
       ]
     }
   },
@@ -44,10 +44,10 @@ export const troubleshootingData = [
     solution: {
       description: "Instalar suporte e especificar tipo correto",
       commands: [
-        "sudo apt install ntfs-3g                 # Instala suporte NTFS",
-        "sudo mount -t ntfs-3g /dev/sdb1 /mnt/usb # Monta NTFS",
-        "sudo mount -t vfat /dev/sdb1 /mnt/usb    # Monta FAT32",
-        "sudo mount -t auto /dev/sdb1 /mnt/usb    # Detecta automaticamente"
+        { command: "sudo apt install ntfs-3g", comment: "# Instala suporte NTFS" },
+        { command: "sudo mount -t ntfs-3g /dev/sdb1 /mnt/usb", comment: "# Monta NTFS" },
+        { command: "sudo mount -t vfat /dev/sdb1 /mnt/usb", comment: "# Monta FAT32" },
+        { command: "sudo mount -t auto /dev/sdb1 /mnt/usb", comment: "# Detecta automaticamente" }
       ]
     }
   },
@@ -57,10 +57,10 @@ export const troubleshootingData = [
     solution: {
       description: "Verificar e reparar o sistema de arquivos",
       commands: [
-        "sudo fsck /dev/sdb1                      # Verifica e repara",
-        "sudo fsck -y /dev/sdb1                   # Repara automaticamente (responde yes)",
-        "sudo ntfsfix /dev/sdb1                   # Repara NTFS específico",
-        "sudo mount -o ro /dev/sdb1 /mnt/usb      # Monta como somente leitura temporariamente"
+        { command: "sudo fsck /dev/sdb1", comment: "# Verifica e repara" },
+        { command: "sudo fsck -y /dev/sdb1", comment: "# Repara automaticamente (responde yes)" },
+        { command: "sudo ntfsfix /dev/sdb1", comment: "# Repara NTFS específico" },
+        { command: "sudo mount -o ro /dev/sdb1 /mnt/usb", comment: "# Monta como somente leitura temporariamente" }
       ]
     }
   },
@@ -72,12 +72,12 @@ export const troubleshootingData = [
     solution: {
       description: "Verificar interface e configuração de rede",
       commands: [
-        "ip link show                               # Verifica status interfaces",
-        "sudo ip link set eth0 up                   # Ativa interface desativada",
-        "ping 8.8.8.8                              # Testa conectividade IP",
-        "ping google.com                           # Testa resolução DNS",
-        "sudo dhclient eth0                        # Solicita IP via DHCP",
-        "sudo systemctl restart NetworkManager     # Reinicia serviço de rede"
+        { command: "ip link show", comment: "# Verifica status interfaces" },
+        { command: "sudo ip link set eth0 up", comment: "# Ativa interface desativada" },
+        { command: "ping 8.8.8.8", comment: "# Testa conectividade IP" },
+        { command: "ping google.com", comment: "# Testa resolução DNS" },
+        { command: "sudo dhclient eth0", comment: "# Solicita IP via DHCP" },
+        { command: "sudo systemctl restart NetworkManager", comment: "# Reinicia serviço de rede" }
       ]
     }
   },
@@ -87,10 +87,10 @@ export const troubleshootingData = [
     solution: {
       description: "Configurar servidores DNS manualmente",
       commands: [
-        "cat /etc/resolv.conf                      # Verifica DNS atual",
-        "echo 'nameserver 8.8.8.8' | sudo tee /etc/resolv.conf     # Google DNS",
-        "echo 'nameserver 1.1.1.1' | sudo tee -a /etc/resolv.conf   # Cloudflare DNS",
-        "sudo resolvectl flush-caches              # Limpa cache DNS"
+        { command: "cat /etc/resolv.conf", comment: "# Verifica DNS atual" },
+        { command: "echo 'nameserver 8.8.8.8' | sudo tee /etc/resolv.conf", comment: "# Google DNS" },
+        { command: "echo 'nameserver 1.1.1.1' | sudo tee -a /etc/resolv.conf", comment: "# Cloudflare DNS" },
+        { command: "sudo resolvectl flush-caches", comment: "# Limpa cache DNS" }
       ]
     }
   },
@@ -100,11 +100,11 @@ export const troubleshootingData = [
     solution: {
       description: "Verificar hardware e reconectar",
       commands: [
-        "rfkill list                                # Verifica se WiFi bloqueado",
-        "sudo rfkill unblock wifi                   # Desbloqueia WiFi se necessário",
-        "nmcli dev wifi list                        # Lista redes disponíveis",
-        "nmcli dev wifi connect 'NOME_REDE' password 'SENHA'  # Conecta à rede",
-        "sudo systemctl restart NetworkManager     # Reinicia serviço"
+        { command: "rfkill list", comment: "# Verifica se WiFi bloqueado" },
+        { command: "sudo rfkill unblock wifi", comment: "# Desbloqueia WiFi se necessário" },
+        { command: "nmcli dev wifi list", comment: "# Lista redes disponíveis" },
+        { command: "nmcli dev wifi connect 'NOME_REDE' password 'SENHA'", comment: "# Conecta à rede" },
+        { command: "sudo systemctl restart NetworkManager", comment: "# Reinicia serviço" }
       ]
     }
   },
@@ -114,11 +114,11 @@ export const troubleshootingData = [
     solution: {
       description: "Abrir porta no firewall UFW",
       commands: [
-        "sudo ufw status                            # Verifica status firewall",
-        "sudo ufw allow 80/tcp                      # Libera porta 80 (HTTP)",
-        "sudo ufw allow 443/tcp                     # Libera porta 443 (HTTPS)",
-        "sudo ufw allow 22/tcp                      # Libera porta 22 (SSH)",
-        "sudo ufw disable                           # Desativa temporariamente (para teste)"
+        { command: "sudo ufw status", comment: "# Verifica status firewall" },
+        { command: "sudo ufw allow 80/tcp", comment: "# Libera porta 80 (HTTP)" },
+        { command: "sudo ufw allow 443/tcp", comment: "# Libera porta 443 (HTTPS)" },
+        { command: "sudo ufw allow 22/tcp", comment: "# Libera porta 22 (SSH)" },
+        { command: "sudo ufw disable", comment: "# Desativa temporariamente (para teste)" }
       ]
     }
   },
@@ -130,12 +130,12 @@ export const troubleshootingData = [
     solution: {
       description: "Localizar e finalizar o processo",
       commands: [
-        "ps aux | grep nome_programa              # Encontra processo",
-        "pgrep nome_programa                       # Retorna apenas o PID",
-        "htop                                       # Monitor visual (use F9 para kill)",
-        "kill -15 PID                               # Finaliza graciosamente",
-        "kill -9 PID                                # Força kill (último recurso)",
-        "killall nome_programa                      # Mata todos com mesmo nome"
+        { command: "ps aux | grep nome_programa", comment: "# Encontra processo" },
+        { command: "pgrep nome_programa", comment: "# Retorna apenas o PID" },
+        { command: "htop", comment: "# Monitor visual (use F9 para kill)" },
+        { command: "kill -15 PID", comment: "# Finaliza graciosamente" },
+        { command: "kill -9 PID", comment: "# Força kill (último recurso)" },
+        { command: "killall nome_programa", comment: "# Mata todos com mesmo nome" }
       ]
     }
   },
@@ -145,12 +145,12 @@ export const troubleshootingData = [
     solution: {
       description: "Verificar logs e reparar configuração",
       commands: [
-        "systemctl status nginx                     # Verifica status detalhado",
-        "sudo journalctl -u nginx -f                # Logs em tempo real",
-        "sudo journalctl -u nginx -p err            # Apenas erros do serviço",
-        "sudo nginx -t                              # Testa configuração nginx",
-        "sudo systemctl restart nginx               # Reinicia o serviço",
-        "sudo systemctl enable nginx                # Habilita início automático"
+        { command: "systemctl status nginx", comment: "# Verifica status detalhado" },
+        { command: "sudo journalctl -u nginx -f", comment: "# Logs em tempo real" },
+        { command: "sudo journalctl -u nginx -p err", comment: "# Apenas erros do serviço" },
+        { command: "sudo nginx -t", comment: "# Testa configuração nginx" },
+        { command: "sudo systemctl restart nginx", comment: "# Reinicia o serviço" },
+        { command: "sudo systemctl enable nginx", comment: "# Habilita início automático" }
       ]
     }
   },
@@ -160,11 +160,11 @@ export const troubleshootingData = [
     solution: {
       description: "Identificar e liberar a porta",
       commands: [
-        "sudo lsof -i :8080                        # Mostra processo na porta 8080",
-        "sudo netstat -tulpn | grep :8080          # Socket listening na porta",
-        "sudo ss -lptn | grep :8080                # Informações detalhadas",
-        "sudo kill -15 PID                          # Finaliza processo usando porta",
-        "sudo fuser -k 8080/tcp                    # Mata processo na porta"
+        { command: "sudo lsof -i :8080", comment: "# Mostra processo na porta 8080" },
+        { command: "sudo netstat -tulpn | grep :8080", comment: "# Socket listening na porta" },
+        { command: "sudo ss -lptn | grep :8080", comment: "# Informações detalhadas" },
+        { command: "sudo kill -15 PID", comment: "# Finaliza processo usando porta" },
+        { command: "sudo fuser -k 8080/tcp", comment: "# Mata processo na porta" }
       ]
     }
   },
@@ -176,12 +176,12 @@ export const troubleshootingData = [
     solution: {
       description: "Analisar uso e limpar espaço",
       commands: [
-        "df -h                                       # Espaço por filesystem",
-        "du -sh * | sort -hr | head -10             # Maiores diretórios",
-        "sudo apt clean                              # Limpa cache de pacotes",
-        "sudo journalctl --vacuum-time=7d            # Remove logs antigos (7 dias)",
-        "rm -rf ~/.cache/*                          # Limpa cache do usuário",
-        "find / -type f -size +100M 2>/dev/null      # Arquivos >100MB"
+        { command: "df -h", comment: "# Espaço por filesystem" },
+        { command: "du -sh * | sort -hr | head -10", comment: "# Maiores diretórios" },
+        { command: "sudo apt clean", comment: "# Limpa cache de pacotes" },
+        { command: "sudo journalctl --vacuum-time=7d", comment: "# Remove logs antigos (7 dias)" },
+        { command: "rm -rf ~/.cache/*", comment: "# Limpa cache do usuário" },
+        { command: "find / -type f -size +100M 2>/dev/null", comment: "# Arquivos >100MB" }
       ]
     }
   },
@@ -191,12 +191,12 @@ export const troubleshootingData = [
     solution: {
       description: "Ajustar permissões do arquivo/diretório",
       commands: [
-        "ls -la /caminho/arquivo                    # Verifica permissões",
-        "sudo chown usuario:grupo /caminho          # Muda dono e grupo",
-        "sudo chmod 755 /caminho                    # Permissões padrão diretório",
-        "sudo chmod 644 arquivo.txt                 # Permissões padrão arquivo",
-        "sudo chmod +x script.sh                     # Torna executável",
-        "groups $USER                               # Verifica grupos do usuário"
+        { command: "ls -la /caminho/arquivo", comment: "# Verifica permissões" },
+        { command: "sudo chown usuario:grupo /caminho", comment: "# Muda dono e grupo" },
+        { command: "sudo chmod 755 /caminho", comment: "# Permissões padrão diretório" },
+        { command: "sudo chmod 644 arquivo.txt", comment: "# Permissões padrão arquivo" },
+        { command: "sudo chmod +x script.sh", comment: "# Torna executável" },
+        { command: "groups $USER", comment: "# Verifica grupos do usuário" }
       ]
     }
   },
@@ -206,10 +206,10 @@ export const troubleshootingData = [
     solution: {
       description: "Verificar e liberar inodes",
       commands: [
-        "df -i                                       # Verifica inodes disponíveis",
-        "sudo find /tmp -type f -delete              # Remove arquivos temporários",
-        "sudo find /var/log -name '*.log.*' -delete  # Remove logs rotacionados",
-        "sudo find / -type f | wc -l                 # Conta total de arquivos"
+        { command: "df -i", comment: "# Verifica inodes disponíveis" },
+        { command: "sudo find /tmp -type f -delete", comment: "# Remove arquivos temporários" },
+        { command: "sudo find /var/log -name '*.log.*' -delete", comment: "# Remove logs rotacionados" },
+        { command: "sudo find / -type f | wc -l", comment: "# Conta total de arquivos" }
       ]
     }
   },
@@ -219,10 +219,10 @@ export const troubleshootingData = [
     solution: {
       description: "Remontar como leitura/escrita",
       commands: [
-        "mount | grep ' / '                         # Verifica se root está readonly",
-        "sudo mount -o remount,rw /                 # Remonta como leitura/escrita",
-        "sudo fsck -f /                              # Força checagem disco root",
-        "sudo dmesg | grep -i error                  # Verifica erros no kernel"
+        { command: "mount | grep ' / '", comment: "# Verifica se root está readonly" },
+        { command: "sudo mount -o remount,rw /", comment: "# Remonta como leitura/escrita" },
+        { command: "sudo fsck -f /", comment: "# Força checagem disco root" },
+        { command: "sudo dmesg | grep -i error", comment: "# Verifica erros no kernel" }
       ]
     }
   },
@@ -234,10 +234,10 @@ export const troubleshootingData = [
     solution: {
       description: "Analisar e recuperar do kernel panic",
       commands: [
-        "sudo dmesg -T                               # Logs do kernel com timestamps",
-        "sudo journalctl -k -f                       # Logs do kernel em tempo real",
-        "sudo sysctl kernel.panic=60                 # Auto-reboot após panic (60s)",
-        "cat /var/crash/*                            # Arquivos de crash se existirem"
+        { command: "sudo dmesg -T", comment: "# Logs do kernel com timestamps" },
+        { command: "sudo journalctl -k -f", comment: "# Logs do kernel em tempo real" },
+        { command: "sudo sysctl kernel.panic=60", comment: "# Auto-reboot após panic (60s)" },
+        { command: "cat /var/crash/*", comment: "# Arquivos de crash se existirem" }
       ]
     }
   },
@@ -247,10 +247,10 @@ export const troubleshootingData = [
     solution: {
       description: "Reparar boot e GRUB",
       commands: [
-        "sudo grub-install /dev/sda                 # Reinstala GRUB",
-        "sudo update-grub                            # Atualiza menu GRUB",
-        "sudo efibootmgr -v                          # Verifica boot entries UEFI",
-        "sudo boot-repair                            # Ferramenta de reparo (se instalada)"
+        { command: "sudo grub-install /dev/sda", comment: "# Reinstala GRUB" },
+        { command: "sudo update-grub", comment: "# Atualiza menu GRUB" },
+        { command: "sudo efibootmgr -v", comment: "# Verifica boot entries UEFI" },
+        { command: "sudo boot-repair", comment: "# Ferramenta de reparo (se instalada)" }
       ]
     }
   },
@@ -262,11 +262,11 @@ export const troubleshootingData = [
     solution: {
       description: "Liberar memória e otimizar uso",
       commands: [
-        "free -h                                     # Uso atual de memória",
-        "echo 1 | sudo tee /proc/sys/vm/drop_caches # Limpa cache de memória",
-        "sudo swapoff -a && sudo swapon -a          # Reativa swap",
-        "ps aux --sort=-%mem | head -10             # Top 10 processos memória",
-        "kill -15 PID                                # Finaliza processo usando muita memória"
+        { command: "free -h", comment: "# Uso atual de memória" },
+        { command: "echo 1 | sudo tee /proc/sys/vm/drop_caches", comment: "# Limpa cache de memória" },
+        { command: "sudo swapoff -a && sudo swapon -a", comment: "# Reativa swap" },
+        { command: "ps aux --sort=-%mem | head -10", comment: "# Top 10 processos memória" },
+        { command: "kill -15 PID", comment: "# Finaliza processo usando muita memória" }
       ]
     }
   }

@@ -62,6 +62,11 @@ export default function Home() {
             Acessar Cheatsheet →
           </Link>
         </div>
+        <GoogleAd
+          slot="5729248756"
+          showOpensourceMessage={true}
+          className="cheatsheet-card"
+        />
         <div
           className="cheatsheet-card powershell"
           data-category="development"
@@ -296,12 +301,6 @@ export default function Home() {
             Acessar Cheatsheet →
           </Link>
         </div> */}
-
-        <GoogleAd
-          slot="5729248756"
-          showOpensourceMessage={true}
-          className="cheatsheet-card"
-        />
       </div>
 
       <div className="grid-cards-hub">
@@ -373,6 +372,12 @@ export default function Home() {
             Acessar Cheatsheet →
           </Link>
         </div>
+
+        <GoogleAd
+          slot="5729248756"
+          showOpensourceMessage={true}
+          className="cheatsheet-card"
+        />
         <div
           className="cheatsheet-card cloud"
           data-category="devops"
@@ -394,12 +399,6 @@ export default function Home() {
             Acessar Cheatsheet →
           </Link>
         </div>
-
-        <GoogleAd
-          slot="5729248756"
-          showOpensourceMessage={true}
-          className="cheatsheet-card"
-        />
       </div>
 
       <div className="grid-cards-hub">
@@ -474,6 +473,12 @@ export default function Home() {
           </a>
         </div>
 
+        <GoogleAd
+          slot="5729248756"
+          showOpensourceMessage={true}
+          className="cheatsheet-card"
+        />
+
         <div
           className="cheatsheet-card security"
           data-category="system"
@@ -495,11 +500,6 @@ export default function Home() {
             Acessar Cheatsheet →
           </a>
         </div>
-        <GoogleAd
-          slot="5729248756"
-          showOpensourceMessage={true}
-          className="cheatsheet-card"
-        />
       </div>
 
       <CardContribuete />

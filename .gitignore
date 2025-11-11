@@ -48,3 +48,9 @@ next-env.d.ts
 *.html
 CLAUDE.md
 
+# Planejamento e documentos internos
+PLANO_*.md
+*_PLANO.md
+ESTRATEGIA_*.md
+ESTRATÉGIA_*.md
+

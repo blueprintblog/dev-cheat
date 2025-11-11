@@ -26,6 +26,7 @@ import {
 import { IoBarChart, IoLogoJavascript } from 'react-icons/io5';
 import { MdDescription } from 'react-icons/md';
 import { SiGnubash, SiGoland, SiKubernetes } from 'react-icons/si';
+import { GrTroubleshoot } from 'react-icons/gr';
 export default function Header({ className = '' }) {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [timeoutId, setTimeoutId] = useState(null);
@@ -110,6 +111,12 @@ export default function Header({ className = '' }) {
       name: 'home',
       href: '/',
       icon: <FaHome />,
+      standalone: true,
+    },
+    {
+      name: 'troubleshooting',
+      href: '/troubleshooting',
+      icon: <GrTroubleshoot />,
       standalone: true,
     },
     {
