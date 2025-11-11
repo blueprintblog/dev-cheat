@@ -4,6 +4,81 @@ Este documento registra todas as mudanças significativas implementadas no proje
 
 ---
 
+## [v4.2.7] - 2025-11-11
+
+### 🛠️ Nova Funcionalidade: Linux Troubleshooting
+
+#### Página de Troubleshooting
+
+- **Arquivos**: `data/troubleshooting-data.js` e `app/troubleshooting/page.js`
+- **Conceito**: Formato inovador "ERRO → SOLUÇÃO" para resolver problemas Linux rapidamente
+- **Conteúdo**: 20+ problemas comuns documentados com soluções diretas
+
+#### Estrutura de Dados
+
+- **Formato Simplificado**: `error → errorMessage → solution → commands`
+- **Sem Níveis**: Foco exclusivo na resolução de problemas
+- **Comandos Copiáveis**: Botão de cópia instantânea para cada comando
+- **Soluções Claras**: Descrição direta do que fazer
+
+#### Problemas Documentados
+
+- **Montagem de Dispositivos**:
+  - USB/Dispositivo não aparece
+  - Permissão negada ao montar USB
+  - Dispositivo ocupado/em uso
+  - Sistema de arquivos não reconhecido
+  - Sistema de arquivos corrompido
+
+- **Rede e Conectividade**:
+  - Sem conexão com internet
+  - DNS não funciona
+  - WiFi não conecta
+  - Porta bloqueada pelo firewall
+
+- **Processos e Serviços**:
+  - Aplicação/processo travado
+  - Serviço não inicia
+  - Porta já está em uso
+
+- **Disco e Espaço**:
+  - Disco cheio
+  - Permissão negada
+  - Inodes esgotados
+  - Disco readonly
+
+- **Kernel e Boot**:
+  - Kernel Panic
+  - Boot falhou
+
+- **Memória**:
+  - Memória insuficiente
+
+#### Design e Funcionalidades
+
+- **Interface Direta**: Erro em vermelho, solução em verde
+- **Busca Eficiente**: Barra de pesquisa para encontrar problemas rapidamente
+- **Cópia Instantânea**: Feedback visual "Copiado!" ao copiar comandos
+- **Layout Responsivo**: Otimizado para desktop e mobile
+- **Cores Intuitivas**: Vermelho para problemas, verde para soluções
+- **Estatísticas**: Contador total de problemas documentados
+
+#### Experiência do Usuário
+
+- **Formato Linear**: Sem categorias complexas ou navegação desnecessária
+- **Solução Imediata**: Vê o erro, copia a solução, resolve o problema
+- **Feedback Visual**: Confirmação visual quando comando é copiado
+- **Acesso Rápido**: Página acessível via `/troubleshooting`
+
+#### Estatísticas do Projeto
+
+- **Novo Total**: 21 páginas funcionais (adicionada troubleshooting)
+- **Formato Inovador**: Primeira página com formato ERRO → SOLUÇÃO
+- **Cobertura de Problemas**: Complementa as cheatsheets existentes com soluções práticas
+- **Foco em Produtividade**: Reduz tempo de diagnóstico e resolução
+
+---
+
 ## [v4.2.6] - 2025-11-05
 
 ### 🐍 Nova Cheatsheet: Python Data Science

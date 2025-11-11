@@ -6,11 +6,28 @@ import {
   FaGitAlt,
   FaRocket,
   FaStar,
+  FaTools,
 } from 'react-icons/fa';
 import { IoBarChart } from 'react-icons/io5';
 
 export default function Updates() {
   const updates = [
+    {
+      version: 'v4.2.7',
+      date: '2025-11-11',
+      title: '🛠️ Nova Funcionalidade: Linux Troubleshooting',
+      icon: <FaTools className="w-6 h-6 text-red-400" />,
+      description:
+        'Nova página de troubleshooting com formato inovador "ERRO → SOLUÇÃO" para resolver problemas Linux rapidamente.',
+      features: [
+        'Formato ERRO → SOLUÇÃO direto e eficiente',
+        '20+ problemas comuns documentados',
+        'Comandos copiáveis com feedback visual',
+        'Busca rápida de problemas',
+        'Categorias: Montagem, Rede, Processos, Disco, Kernel, Memória',
+      ],
+      type: 'feature',
+    },
     {
       version: 'v4.2.6',
       date: '2025-11-05',
@@ -168,7 +185,7 @@ export default function Updates() {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
           <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 text-center border border-slate-700/50">
-            <div className="text-3xl font-bold text-purple-400 mb-2">20+</div>
+            <div className="text-3xl font-bold text-purple-400 mb-2">21+</div>
             <div className="text-gray-400">Cheatsheets</div>
           </div>
           <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 text-center border border-slate-700/50">
@@ -176,12 +193,12 @@ export default function Updates() {
             <div className="text-gray-400">Comandos</div>
           </div>
           <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 text-center border border-slate-700/50">
-            <div className="text-3xl font-bold text-green-400 mb-2">15+</div>
-            <div className="text-gray-400">Tecnologias</div>
+            <div className="text-3xl font-bold text-green-400 mb-2">20+</div>
+            <div className="text-gray-400">Problemas Resolvidos</div>
           </div>
           <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 text-center border border-slate-700/50">
             <div className="text-3xl font-bold text-yellow-400 mb-2">
-              v4.2.6
+              v4.2.7
             </div>
             <div className="text-gray-400">Versão Atual</div>
           </div>

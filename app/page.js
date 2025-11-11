@@ -296,7 +296,10 @@ export default function Home() {
             Acessar Cheatsheet →
           </Link>
         </div> */}
-        <GoogleAd slot="5729248756" />
+        <div>
+          <GoogleAd slot="5729248756" />
+        </div>
+        
       </div>
 
       <div className="grid-cards-hub">
@@ -388,6 +391,9 @@ export default function Home() {
           <Link href="/cloud" className="card-button">
             Acessar Cheatsheet →
           </Link>
+        </div>
+         <div>
+          <GoogleAd slot="5729248756" />
         </div>
       </div>
 

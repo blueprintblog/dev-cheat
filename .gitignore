@@ -46,5 +46,5 @@ next-env.d.ts
 .prototipo/
 # HTML source files (converted to data/js)
 *.html
-
+CLAUDE.md
 
