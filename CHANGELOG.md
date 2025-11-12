@@ -4,6 +4,68 @@ Este documento registra todas as mudanças significativas implementadas no proje
 
 ---
 
+## [v4.2.8] - 2025-11-11
+
+### 📡 Expansão: Troubleshooting WiFi e Rede Sem Fio
+
+#### Novos Cenários de Troubleshooting WiFi
+
+- **Arquivo**: `data/troubleshooting-data.js` (expandido)
+- **Baseado em Caso Real**: Problema documentado a partir de troubleshooting real de placa Intel AX210
+- **5 Novos Cenários WiFi**: Problemas comuns de wireless com soluções específicas
+
+#### Problemas WiFi Documentados
+
+- **"WiFi Intel AX210/AX210 160MHz não funciona"**:
+  - Sintomas: `wlp7s0: não disponível / Couldn't initialize supplicant interface`
+  - Solução: Reset completo de drivers e firmware Intel WiFi
+  - Sequência correta: `cfg80211 → mac80211 → iwlwifi → iwlmvm`
+
+- **"WiFi detectado mas não lista redes"**:
+  - Sintomas: `wlp7s0: não disponível / Scanning not allowed while unavailable`
+  - Solução: Forçar re-detectar e escanear redes WiFi
+  - Reinício de serviços: NetworkManager, wpa_supplicant
+
+- **"Placa WiFi Intel com firmware corrompido"**:
+  - Sintomas: `Failed to start RT ucode: -110 / Failed to dump region`
+  - Solução: Recarregar firmware e resetar hardware WiFi Intel
+  - Ordem específica de módulos Intel
+
+- **"WiFi conectado mas sem internet"**:
+  - Sintomas: Conectado à rede mas ping falha / sites não abrem
+  - Solução: Diagnóstico e reparo de conectividade em rede WiFi
+  - Testes de DNS, DHCP e roteamento
+
+- **"WiFi desativa após suspender/hibernar"**:
+  - Sintomas: WiFi não funciona após retornar do modo suspensão
+  - Solução: Reinicializar WiFi após sair do modo de suspensão
+  - Recuperação completa do serviço wireless
+
+#### Comandos Específicos Adicionados
+
+- **Diagnóstico Intel**: `sudo dmesg | grep -i iwlwifi`
+- **Módulos WiFi**: `sudo modprobe -r iwlwifi mac80211 cfg80211`
+- **Recarregamento**: `sudo modprobe cfg80211 mac80211 iwlwifi`
+- **Gerenciamento**: `sudo systemctl restart wpa_supplicant NetworkManager`
+- **Hardware Check**: `lspci -k | grep -A 3 -i network`
+- **Status WiFi**: `nmcli device wifi list | grep 'IN-USE'`
+
+#### Abordagem Prática
+
+- **Base Real**: Documentação de problema real enfrentado e resolvido
+- **Solução Testada**: Comandos validados em ambiente real
+- **Feedback Loop**: O próprio processo de debugging documentado se torna conteúdo útil
+- **Reprodutibilidade**: Passos claros para reproduzir a solução
+
+#### Estatísticas do Projeto
+
+- **Novo Total**: 21 páginas funcionais (troubleshooting expandido)
+- **Cobertura WiFi**: Primeira cobertura completa de troubleshooting wireless
+- **Casos Reais**: Conteúdo baseado em problemas reais documentados
+- **Documentação Viva**: Exemplo perfeito de "dogfooding" (usar própria ferramenta)
+
+---
+
 ## [v4.2.7] - 2025-11-11
 
 ### 🛠️ Nova Funcionalidade: Linux Troubleshooting

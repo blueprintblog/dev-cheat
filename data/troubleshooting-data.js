@@ -269,5 +269,95 @@ export const troubleshootingData = [
         { command: "kill -15 PID", comment: "# Finaliza processo usando muita memória" }
       ]
     }
+  },
+
+  // WIFI E REDE SEM FIO
+  {
+    error: "WiFi Intel AX210/AX210 160MHz não funciona",
+    errorMessage: "wlp7s0: não disponível / Couldn't initialize supplicant interface: O tempo limite foi alcançado",
+    solution: {
+      description: "Reset completo de drivers e firmware Intel WiFi",
+      commands: [
+        { command: "nmcli device", comment: "# Verifica status atual das interfaces" },
+        { command: "journalctl -u NetworkManager -n 20 --no-pager", comment: "# Logs recentes do NetworkManager" },
+        { command: "sudo dmesg | grep -i iwlwifi | tail -10", comment: "# Erros específicos do driver Intel" },
+        { command: "rfkill list all", comment: "# Verifica se WiFi não está bloqueado" },
+        { command: "sudo systemctl restart wpa_supplicant.service", comment: "# Reinicia serviço de autenticação WiFi" },
+        { command: "sudo modprobe -r iwlwifi mac80211 cfg80211", comment: "# Remove módulos na ordem correta" },
+        { command: "sudo modprobe cfg80211 mac80211 iwlwifi", comment: "# Recarrega módulos na ordem correta" },
+        { command: "nmcli radio wifi on", comment: "# Ativa radio WiFi" },
+        { command: "sudo nmcli device set wlp7s0 managed yes", comment: "# Define dispositivo como gerenciado" },
+        { command: "sudo systemctl restart NetworkManager", comment: "# Reinicia NetworkManager final" }
+      ]
+    }
+  },
+  {
+    error: "WiFi detectado mas não lista redes",
+    errorMessage: "wlp7s0: não disponível / Scanning not allowed while unavailable",
+    solution: {
+      description: "Forçar re-detectar e escanear redes WiFi",
+      commands: [
+        { command: "sudo systemctl restart NetworkManager", comment: "# Reinicia serviço de rede" },
+        { command: "nmcli radio wifi off && nmcli radio wifi on", comment: "# Desliga/liga rádio WiFi" },
+        { command: "sudo nmcli device set wlp7s0 managed yes", comment: "# Força gerenciamento NetworkManager" },
+        { command: "sudo systemctl restart wpa_supplicant", comment: "# Reinicia supplicant" },
+        { command: "sudo ip link set wlp7s0 down && sudo ip link set wlp7s0 up", comment: "# Reset da interface" },
+        { command: "nmcli device wifi rescan 2>/dev/null || echo 'Aguarde...' && sleep 3", comment: "# Tenta escanear novamente" },
+        { command: "nmcli device wifi list", comment: "# Lista redes disponíveis" }
+      ]
+    }
+  },
+  {
+    error: "Placa WiFi Intel com firmware corrompido",
+    errorMessage: "Failed to start RT ucode: -110 / Failed to dump region",
+    solution: {
+      description: "Recarregar firmware e resetar hardware WiFi Intel",
+      commands: [
+        { command: "lspci -k | grep -A 3 -i network", comment: "# Identifica placa e driver" },
+        { command: "sudo dmesg | grep -i iwlwifi | grep -i fail", comment: "# Verifica falhas de firmware" },
+        { command: "sudo rmmod iwlmvm iwlwifi", comment: "# Remove módulos Intel específicos" },
+        { command: "sudo rmmod mac80211 cfg80211", comment: "# Remove módulos WiFi base" },
+        { command: "sleep 2", comment: "# Aguarda descarregar completamente" },
+        { command: "sudo modprobe cfg80211", comment: "# Recarrega na ordem correta" },
+        { command: "sudo modprobe mac80211", comment: "# Recarrega camada MAC" },
+        { command: "sudo modprobe iwlwifi", comment: "# Recarrega driver Intel WiFi" },
+        { command: "sudo modprobe iwlmvm", comment: "# Recarrega módulo de máquina virtual" },
+        { command: "sudo dmesg | grep -i iwlwifi | tail -5", comment: "# Verifica carregamento com sucesso" }
+      ]
+    }
+  },
+  {
+    error: "WiFi conectado mas sem internet",
+    errorMessage: "Conectado à rede mas ping falha / sites não abrem",
+    solution: {
+      description: "Diagnóstico e reparo de conectividade em rede WiFi",
+      commands: [
+        { command: "nmcli connection show --active", comment: "# Verifica conexões ativas" },
+        { command: "ip route show", comment: "# Verifica tabela de roteamento" },
+        { command: "ping -c 3 8.8.8.8", comment: "# Testa conectividade IP externa" },
+        { command: "ping -c 3 google.com", comment: "# Testa resolução DNS" },
+        { command: "nmcli dev wifi show | grep 'IN-USE'", comment: "# Verifica rede atual" },
+        { command: "sudo dhclient -r wlp7s0 && sudo dhclient wlp7s0", comment: "# Renova lease DHCP" },
+        { command: "echo 'nameserver 8.8.8.8' | sudo tee /etc/resolv.conf", comment: "# Define DNS Google temporário" },
+        { command: "nmcli connection down 'NOME_REDE' && nmcli connection up 'NOME_REDE'", comment: "# Reconecta à rede" }
+      ]
+    }
+  },
+  {
+    error: "WiFi desativa após suspender/hibernar",
+    errorMessage: "WiFi não funciona após retornar do modo suspensão",
+    solution: {
+      description: "Reinicializar WiFi após sair do modo de suspensão",
+      commands: [
+        { command: "nmcli radio wifi", comment: "# Verifica status rádio WiFi" },
+        { command: "rfkill list", comment: "# Verifica bloqueios de hardware/software" },
+        { command: "nmcli device", comment: "# Verifica status dos dispositivos" },
+        { command: "sudo systemctl restart NetworkManager", comment: "# Reinicia serviço principal" },
+        { command: "sudo systemctl restart wpa_supplicant", comment: "# Reinicia autenticador WiFi" },
+        { command: "sudo modprobe -r iwlmvm iwlwifi && sudo modprobe iwlwifi iwlmvm", comment: "# Recarrega módulos WiFi" },
+        { command: "nmcli radio wifi off && sleep 2 && nmcli radio wifi on", comment: "# Ciclo completo do rádio" },
+        { command: "nmcli device wifi list", comment: "# Verifica se está funcionando" }
+      ]
+    }
   }
 ];
